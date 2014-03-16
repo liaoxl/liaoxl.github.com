@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TP-link WR703N, OpenWrt, Mentohust | Moondark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="TP-link WR703N, OpenWrt, Mentohust">
+<meta name="og:url" content="http://liaoxl.github.com/2013/06/12/tp-wr703n/">
+<meta name="og:image" content="/images/WR703N/wr703n.jpg">
+<meta name="og:site_name" content="Moondark">
+<meta name="og:description" content="最近笔记本电脑的有线网卡坏了，具体怎么坏的，我也不清楚，很可能是老化了（但我的才两年，并且我很少听人说网卡这么快老化），也有可能下雨打雷天我没有拔网线。不过很久以前，我的笔记本网口灯无论有没有接网线，开机之后它都一直亮着，不知道什么原因，电脑型号是宏基4738ZG。
+坏了一个有线网卡不打紧，但我们学校的联网需要用有线+锐捷认证，我有三种解决方案，第一种是我买个USB有线网卡，第二种是修主板上的有线">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moondark</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do something</a>
+        </h2>
+      
+    </div>
+    
+    	<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+		for(i=0; i < all.length; i += 1) {
+		all[i].SourceElement().parentNode.className += ' has-jax';
+		}
+		});
+</script>
+
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  	
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://liaoxl.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-tp-wr703n" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/06/12/tp-wr703n/" class="article-date">
+  <time datetime="2013-06-12T00:50:00.000Z" itemprop="datePublished">6月 12 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TP-link WR703N, OpenWrt, Mentohust
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近笔记本电脑的有线网卡坏了，具体怎么坏的，我也不清楚，很可能是老化了（但我的才两年，并且我很少听人说网卡这么快老化），也有可能下雨打雷天我没有拔网线。不过很久以前，我的笔记本网口灯无论有没有接网线，开机之后它都一直亮着，不知道什么原因，电脑型号是宏基4738ZG。<a id="more"></a></p>
+<p>坏了一个有线网卡不打紧，但我们学校的联网需要用有线+锐捷认证，我有三种解决方案，第一种是我买个USB有线网卡，第二种是修主板上的有线网卡，第三种就是构建寝室的无线网。第一种加个有线网卡太麻烦了，而去USB网卡发热量都挺大，电脑总共三个USB口，或许可以加个USB拓展的，但那岂不是更麻烦；第二种太贵，据说都是200￥往上走的价格；第三种，其实我老早就想实现了，半年省下的网费基本就够我买一个无线路由器了。</p>
+<h2 id="路由器选择">路由器选择</h2>
+<p>我想找到OpenWrt官方支持的路由器，<a href="http://rockuw.com/" target="_blank">小吴</a>向我推荐了TP-link WR703N，我的确觉得它挺漂亮，不过看着它娇小的体型，还是有点担心它能力不足，而且有更便宜的路由器。犹豫了一会，最后还是买了，因为觉得它太漂亮了。</p>
+<p><img src="/images/WR703N/wr703n.jpg" alt="wr703n"></p>
+<h2 id="刷路由器_OpenWrt_&amp;&amp;_配置">刷路由器 OpenWrt &amp;&amp; 配置</h2>
+<p>刷机对于WR703N来说是件非常容易的事，为了能够图文说明，参考了<a href="http://www.geek-workshop.com/thread-2418-1-1.html" target="_blank">这篇文章</a>。</p>
+<ol>
+<li><p>下载固件，<a href="rockuw.com">小吴</a>以自身经历跟我说明刷错固件的后果，我觉得比较有必要注意需下载的固件，在<a href="http://downloads.openwrt.org/" target="_blank">OpenWrt Downloads</a>的attitud adjustment文件夹目录下，据说这里是稳定版，snapshots里面的是最新的。</p>
+</li>
+<li><p>刷机。无论是用有线还是无线，连上路由器，用浏览器打开<a href="http://192.168.1.1/" target="_blank">192.168.1.1</a>，点击系统工具-&gt;软件升级，然后你在这个页面上上传固件就可以了，是一个.bin文件，点击升级，一会就好了。<strong>注意这里不能断电</strong></p>
+</li>
+<li><p>初始配置。在刷好机器机器后，这一步必须用网线连接，因为刚刷好的OpenWrt上面是自动关闭了无线（后面会有设置开启）。<br>首先用一根网线将703N的Lan口和你电脑相连，电脑上设置为DHCP模式。然后运行cmd.exe，输入telent 192.168.1.1（windows必须已开启telnet），或在linux命令行操作。<br>成功后出现OpenWrt的欢迎界面：</p>
+</li>
+</ol>
+<p><img src="/images/WR703N/telnet.jpg" alt="telnet"></p>
+<p>这一步需要更改root密码，输入passwd，然后按提示输入。更改root密码后就能用SSH服务了，输入exit退出telnet。</p>
+<p><strong>网络配置</strong>。官方固件是不带LuCI的，即我们不能从浏览器操作，必须在命令行下完成。在windows下，下载ssh连接工具<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">putty</a>。linux下的话，我是已经安装好了，其软件包为：<br>    $ which ssh<br>    /usr/bin/ssh<br>    $ rpm -qf /usr/bin/ssh<br>    openssh-clients-5.9p1-22.fc17.i686</p>
+<p>比较建议这一部分呢操作在linux完成。打开终端，切换到root用户，然后</p>
+<pre><code><span class="title">ssh</span> <span class="number">192.168.1.1</span>
+</code></pre><p>显示如下：</p>
+<pre><code><span class="comment"># ssh 192.168.1.1</span>
+root@<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>'s password: 
+
+
+BusyBox v1<span class="number">.19</span><span class="number">.4</span> (<span class="number">2013</span>-<span class="number">03</span>-<span class="number">14</span> <span class="number">11</span>:<span class="number">28</span>:<span class="number">31</span> UTC) built-<span class="keyword">in</span> shell (ash)
+Enter 'help' <span class="keyword">for</span> a <span class="type">list</span> <span class="keyword">of</span> built-<span class="keyword">in</span> commands.
+
+  _______                     ________        __
+ |       |.<span class="comment">-----.-----.-----.|  |  |  |.----.|  |_</span>
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ <span class="comment">-----------------------------------------------------</span>
+ ATTITUDE ADJUSTMENT (<span class="number">12.09</span>, r36088)
+ <span class="comment">-----------------------------------------------------</span>
+  * <span class="number">1</span>/<span class="number">4</span> oz Vodka      Pour all ingredients <span class="keyword">into</span> mixing
+  * <span class="number">1</span>/<span class="number">4</span> oz Gin        tin <span class="keyword">with</span> ice, strain <span class="keyword">into</span> glass.
+  * <span class="number">1</span>/<span class="number">4</span> oz Amaretto
+  * <span class="number">1</span>/<span class="number">4</span> oz Triple sec
+  * <span class="number">1</span>/<span class="number">4</span> oz Peach schnapps
+  * <span class="number">1</span>/<span class="number">4</span> oz Sour mix
+  * <span class="number">1</span> splash Cranberry juice
+ <span class="comment">-----------------------------------------------------</span>
+ root@OpenWrt:~<span class="comment"># </span>
+</code></pre><p>上面输入的密码就是第三步里面设置的密码。</p>
+<p>首先开启无线，输入</p>
+<pre><code>～# vi /etc/config/wireless
+config wifi-device  radio0                                               
+    <span class="built_in">option</span> <span class="class"><span class="keyword">type</span>     <span class="title">mac80211</span>              </span>
+    <span class="built_in">option</span> channel  <span class="number">11</span>                                                  
+    <span class="built_in">option</span> macaddr  <span class="number">14</span>:cf:<span class="number">92</span>:<span class="number">9</span>d:a4:<span class="number">8</span>c                                   
+    <span class="built_in">option</span> hwmode   <span class="number">11</span>ng                                                
+    <span class="built_in">option</span> htmode   HT20                                                
+    <span class="built_in">list</span> ht_capab   SHORT-GI-<span class="number">20</span>                                   
+    <span class="built_in">list</span> ht_capab   SHORT-GI-<span class="number">40</span>                                         
+    <span class="built_in">list</span> ht_capab   RX-STBC1                                            
+    <span class="built_in">list</span> ht_capab   DSSS_CCK-<span class="number">40</span>                                         
+    # REMOVE THIS LINE TO ENABLE WIFI:    
+            这里加上注释，即开启无线网络
+    # <span class="built_in">option</span> disabled <span class="number">1</span>                                                 
+</code></pre><p>  配置无线设置                                                         </p>
+<pre><code>config wifi-iface                                                         
+    <span class="keyword">option</span> device   radio0                                             
+    <span class="keyword">option</span> network  lan                                                
+    <span class="keyword">option</span> mode     ap                                             
+            网络名称
+    <span class="keyword">option</span> ssid     moondark                                            
+    <span class="keyword">option</span> encryption psk2
+            连接时用的密码
+    <span class="keyword">option</span> <span class="keyword">key</span>      xxxxxx   
+</code></pre><p>然后修改network文件</p>
+<pre><code>～<span class="comment"># vi /etc/config/network</span>
+</code></pre><p><img src="/images/WR703N/network.png" alt="network"></p>
+<p>然后输入<code>/etc/init.d/network restart</code></p>
+<h2 id="运行mentohust及其配置">运行mentohust及其配置</h2>
+<p>感谢学长HustMoon的mentohust，作为一名huster，在用这个软件的时候略微有点特别的感觉。</p>
+<p>下载mentohust，这个与一般mentohust不同，它有已编译好的mips架构的<a href="https://code.google.com/p/mentohust-wrt/downloads/detail?name=mentohust.mips.7z" target="_blank">mentohust</a>，里面有两个包，任意一个拷贝过去即可，可直接用。<br>切到自己linux终端，拷贝命令：</p>
+<pre><code>scp /path/to/mentohust root<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">1</span><span class="symbol">:/root</span>
+为了能够运行，更改权限
+root<span class="variable">@OpenWrt</span><span class="symbol">:~</span><span class="comment"># chmod +x /root/mentohust</span>
+</code></pre><p>连接上网命令。</p>
+<pre><code>mentohust <span class="attribute">-u</span>用户名 <span class="attribute">-p</span>密码 <span class="attribute">-neth0</span> <span class="attribute">-a1</span> <span class="attribute">-d0</span> <span class="attribute">-b1</span> <span class="attribute">-l0</span>
+</code></pre><p>随路由器开机启动上网，<code>vi /etc/rc.local</code>在<code>exit 0</code>前面加入：</p>
+<pre><code>mentohust <span class="attribute">-u</span>用户名 <span class="attribute">-p</span>密码 <span class="attribute">-neth0</span> <span class="attribute">-a1</span> <span class="attribute">-d0</span> <span class="attribute">-b1</span> <span class="attribute">-l0</span>
+</code></pre><hr>
+<h1 id="完结">完结</h1>
+<p>电脑最终能够重新上网感觉很好，事实上，在本科的时候我就想用刷OpenWrt的路由器通过mentohust共享上网的，但本科由于种种原因，没有实践，现在成功了，而且为寝室作出贡献，有些成就感。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.com/2013/06/12/tp-wr703n/" data-id="ggfm1drek3katqvm" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.com/2013/06/12/tp-wr703n/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenWrt/">OpenWrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WR703N/">WR703N</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/06/30/acer-4738zg/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ACER-4738ZG 拆机改散热
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/05/17/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git及GitHub的基本应用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget">
+      <li><a href="http://cnblogs.com/moondark">博客园</a></li>
+      <li><a href="https://github.com/liaoxl">GitHub</a></li>
+      <li><a href="#">更多关于我</a></li>
+	  <li>现状：<a href="http://www.hust.edu.cn/">华科</a>自动化学院2012级硕士，将于2015年毕业，现正积极寻找工作，意向为<a href="#">研发工程师</a>，附上我的<a href="http://files.cnblogs.com/moondark/XiangliLiao.pdf">个人简历</a></li>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/03/15/hello-world/">Hello, Hexo! Goodbye, Octopress</a>
+          </li>
+        
+          <li>
+            <a href="/2014/02/20/binary-search/">二分查找</a>
+          </li>
+        
+          <li>
+            <a href="/2014/02/19/dian-ji/">点集的一些几何特征</a>
+          </li>
+        
+          <li>
+            <a href="/2014/02/01/ma-nian/">马年——祝自己顺利</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/05/virtual-destructor/">C++的虚析构函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiangli Liao<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'moondark';
+  
+  var disqus_url = 'http://liaoxl.github.com/2013/06/12/tp-wr703n/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>
