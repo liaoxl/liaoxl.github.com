@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>刷完leetcode的一点感想 | Moondark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="刷完leetcode的一点感想">
+<meta name="og:url" content="http://liaoxl.github.io/20131102/shua-wan-leetcode/">
+<meta name="og:image" content="http://images.cnitblog.com/blog/286484/201311/01214116-d82ca8508af049e290529faedbc8fc38.png">
+<meta name="og:site_name" content="Moondark">
+<meta name="og:description" content="两年前，在实习生笔试的时候，笔试百度，对试卷上很多问题感到不知所云，毫无悬念的挂了
+读研两年，今年代笔百度，发现算法题都见过，或者有思路，但一时之间居然都想不到很好的解法，而且很少手写思路，手写代码，有点仓皇失措；概念题却是很难答好，大多我都知道，但却难以描述清楚；最后一题大题，是设计分布式缓存系统，需要考虑负载均衡以及增删设备，我知识面比较窄，居然不知有一致性哈希，于是又跪了
+痛定思痛，虽然我明">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41389933-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moondark</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do something</a>
+        </h2>
+      
+    </div>
+    
+    	<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+		for(i=0; i < all.length; i += 1) {
+		all[i].SourceElement().parentNode.className += ' has-jax';
+		}
+		});
+</script>
+
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  	
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://liaoxl.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-shua-wan-leetcode" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/20131102/shua-wan-leetcode/" class="article-date">
+  <time datetime="2013-11-02T10:47:00.000Z" itemprop="datePublished">11月 2 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      刷完leetcode的一点感想
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>两年前，在实习生笔试的时候，笔试百度，对试卷上很多问题感到不知所云，毫无悬念的挂了</p>
+<p>读研两年，今年代笔百度，发现算法题都见过，或者有思路，但一时之间居然都想不到很好的解法，而且很少手写思路，手写代码，有点仓皇失措；概念题却是很难答好，大多我都知道，但却难以描述清楚；最后一题大题，是设计分布式缓存系统，需要考虑负载均衡以及增删设备，我知识面比较窄，居然不知有一致性哈希，于是又跪了</p>
+<p>痛定思痛，虽然我明年找工作，若以这样的状态和水平去笔试，面试，难以有什么好结果。</p>
+<a id="more"></a>
+
+<p>从笔试回来之后怒刷leetcode，约摸一个月有余，今天终于刷完142题（最后一题word ladder2是看答案copy的），纪念一下，并总结下这段时间狂刷题的感觉：</p>
+<p><img src="http://images.cnitblog.com/blog/286484/201311/01214116-d82ca8508af049e290529faedbc8fc38.png" alt="leetcode-welcome"></p>
+<ul>
+<li><p>从做上面的题，我发现我更擅长一些数学技巧不高的程序题，习惯靠直觉立马书写代码，而非严格推理之后，再书写代码</p>
+</li>
+<li><p>对于链表的题比较擅长，链表可以在纸上画画，关键要考虑的问题，就是链表指针在运算中会改变，如何保存需要保存的链表指针值是难点，除了那题拷贝具有random指针的链表题，其他链表题我都比较快速的AC掉</p>
+</li>
+<li><p>对于树的题，常见的方法有：BFS和递归（可以看作是DFS），整体来说，难度也不大，其中递归应该是最常用的，递归的方法需要注意的就是边界判定；当然另一个问题，就是很多情况下，会被要求写非递归的解法，比如说树的遍历，或者知先序中序构建树，这些问题我得好好研究</p>
+</li>
+<li><p>对于求解题的BFS和DFS得到了比较大的锻炼，之前一直感觉模糊的掌握了DFS和BFS这两种搜索方法，事实上，直到现在才算是掌握的比较不错，对于leetcode上面的很多题，如果不限时的话，我都能以DFS搞定（起码能有20题以上），BFS往往在求解最先到达或者最短时间的时候用到，用起来感觉还不错</p>
+</li>
+<li><p>对于DP还是不算很熟悉，除了LCS，LIS还有编辑距离这样的经典DP题，其他我都很少往DP想，为什么我总觉得DP有点难理解呢？</p>
+</li>
+<li><p>关于DP和BFS，DFS求解的选择问题：一般来说，需要记录解（由哪些组成）优先选择BFS和DFS，它们在运算的时候能够很好的保存中间结果；对于DP，适合求解最终结果是怎么的情况，比如求值（最长公共子序列），或者判断是否存在（bool），DP如果要输出最优路径的话，是个比较麻烦的问题，一般还需要设置一个观测DP在选择表中如何移动的数组，关于DP我要好好训练下。</p>
+</li>
+<li><p>对STL熟悉了很多，用过很多之前都没用过的容器，几乎都用遍了吧：set,map,hash_set(unordered_set),hash_map(unordered_map),multimap,multiset(?好像这个我没用过),vector,string,pair,stack,queue等等，以及algorithm的函数，比如sort, unique,这些STL提供的，真是极大的方便了生活，以前经常得自己写一些基本数据结构，然而，自己写的再好哪有STL的好用啊！</p>
+</li>
+<li><p>对于在电脑面前写一些简单的算法程序应该是没很大问题了，但接下来的问题是：1,手写我要跪，虽然现在用vim，但我思路经常很跳，经常想起来就在前面插入，纸上可没这条件；2,一些基本的算法还不够熟练，比如快排，堆排，归并，KMP，等等，要立马写出一个bug free并且efficient&amp;&amp;elegant的代码是件不容易的时，我以后得专门在github上面建一个repo好好练习，自己写给自己看</p>
+</li>
+<li><p>leetcode上的大部分题都有不止一种解法，得好好看看其他人的解法，并且总结总结自己的解法</p>
+</li>
+</ul>
+<p>对做leetcode的总结大致如此了。</p>
+<p> 看了一些大公司的笔试面试题，尤其是笔试题，都特别广泛特别杂，要想在笔试拿高分，我还需要看很多很多书籍，一般数据结构题占试卷的分数也就30%的样子，如果其它题了解不够深的话，基本也难拿多高的分，所以一大波书在等待着我；另一方面，由于我是C/C++系，其实很多C++的高级机制都不知道，有些知道了由于不常用，后来也忘了，这个必须得好好总结。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/20131102/shua-wan-leetcode/" data-id="ctlecr4froi8ocqq" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/20131102/shua-wan-leetcode/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/求职面试/">求职面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/20131109/frequency-tuned-saliency/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Frequency Tuned Saliency
+        
+      </div>
+    </a>
+  
+  
+    <a href="/20131021/duo-ceng-tu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">从图割到图像分割（三）——多层图图割</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget">
+      <li><a href="http://cnblogs.com/moondark">博客园</a></li>
+      <li><a href="https://github.com/liaoxl">GitHub</a></li>
+      <li><a href="#">更多关于我</a></li>
+	  <li>现状：<a href="http://www.hust.edu.cn/">华科</a>自动化学院2012级硕士，将于2015年毕业，现正积极寻找工作，意向为<a href="#">研发工程师</a>，附上我的<a href="http://files.cnblogs.com/moondark/XiangliLiao.pdf">个人简历</a></li>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/20140315/hello-world/">Hello, Hexo! Goodbye, Octopress!</a>
+          </li>
+        
+          <li>
+            <a href="/20140220/binary-search/">二分查找</a>
+          </li>
+        
+          <li>
+            <a href="/20140219/dian-ji/">点集的一些几何特征</a>
+          </li>
+        
+          <li>
+            <a href="/20140201/ma-nian/">马年——祝自己顺利</a>
+          </li>
+        
+          <li>
+            <a href="/20131205/virtual-destructor/">C++的虚析构函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiangli Liao<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'moondark';
+  
+  var disqus_url = 'http://liaoxl.github.io/20131102/shua-wan-leetcode/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>

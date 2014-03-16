@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从图割到图像分割（三）——多层图图割 | Moondark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="从图割到图像分割（三）——多层图图割">
+<meta name="og:url" content="http://liaoxl.github.io/20131021/duo-ceng-tu/">
+<meta name="og:image" content="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_MultiGraph.jpg">
+<meta name="og:site_name" content="Moondark">
+<meta name="og:description" content="完整的了解了图割方法处理图像分割之后，在已有的graphcuts开源代码的情况下，接下来就是自己创作的时间了。
+如前面所说，图的构建是很有讲究的，何时采用四邻域，何时采用八邻域，何时采用K近邻，再何时采用全邻域？
+这些都是很有讲究的，很多人就是在这上面稍加改动，就能发一些顶级文章。不过确实，通过$Maxflow/Mincut$处理图像时，对图的构造是非常敏感的，哪怕是你改动$Tlink$与$Nl">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41389933-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moondark</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do something</a>
+        </h2>
+      
+    </div>
+    
+    	<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+		for(i=0; i < all.length; i += 1) {
+		all[i].SourceElement().parentNode.className += ' has-jax';
+		}
+		});
+</script>
+
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  	
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://liaoxl.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-duo-ceng-tu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/20131021/duo-ceng-tu/" class="article-date">
+  <time datetime="2013-10-21T11:42:00.000Z" itemprop="datePublished">10月 21 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/研究/">研究</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从图割到图像分割（三）——多层图图割
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_MultiGraph.jpg" height="300px" width="30%" align="right" /></p>
+<p>完整的了解了图割方法处理图像分割之后，在已有的<a href="#">graphcuts</a>开源代码的情况下，接下来就是自己创作的时间了。</p>
+<p>如前面所说，图的构建是很有讲究的，何时采用四邻域，何时采用八邻域，何时采用K近邻，再何时采用全邻域？</p>
+<p>这些都是很有讲究的，很多人就是在这上面稍加改动，就能发一些顶级文章。不过确实，通过$Maxflow/Mincut$处理图像时，对图的构造是非常敏感的，哪怕是你改动$Tlink$与$Nlink$的比例，都能产生很大的影响。但敏感归敏感，$Maxflow/Mincut$求取的全局最优解，恰是许多研究或能量优化函数中所梦寐以求的。</p>
+<a id="more"></a>
+
+<hr>
+<p><img src="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_natural_image1.jpg" width="30%" align="right" /></p>
+<p>图论方法在交互式分割中，总是将图像分割成前景和背景两类，即用户选定前景，或用户选定前景/背景，或用户选定背景。然而，很明显，在自然图像中，很多情况下并非只有两类，需要选定多类才能达到较好的分割效果。</p>
+<p>由两类扩展成多类，是我<a href="http://grid.hust.edu.cn/wenbingtao/" target="_blank">导师</a>提出来的想法，并完善，通过多层图方法完成图像中多类的交互式分割。</p>
+<p>其中，多类分割的实现方法，也是在最初<code>Graphcuts</code>源码上进行改进，具体可见我的github，<a href="https://github.com/liaoxl/MultiLayerGraph" target="_blank">MulitLayerGraph</a>。这份代码的主要思想是源自我<a href="#">导师</a>，主要工作是我素未谋面的师兄<a href="#">常峰</a>写的，师兄写的代码比较乱，有些小bug，并且不是用模板来实现的，鉴于我在研究此类问题，并且算是对这类问题非常熟悉了，所以将代码全部重构一下，用模板写了并放在github上面。</p>
+<p>从别人的源代码我学到了很多东西，而自己却没有什么贡献，一直感到很惭愧，这份代码应该是我github上面算法含金量最高的了。</p>
+<hr>
+<h3 id="多层图的构建">多层图的构建</h3>
+<p>首先，要了解经典<code>Graphcuts</code>是多少层，它是多少层？是两层，即将目标分为两类；</p>
+<p>然后，要明白<code>Tlink</code>的含义，<code>Tlink</code>一般都是通过已观测的信息，所以将目标分为两类时，其<code>Tlink</code>都是通过已观测信息得到的；</p>
+<p>其次，将以上的两类变成多类，则通过多类观测的信息，构建多类图（这个多类最初在Boykov的文章中乘坐MultiGraph），长得类似这个形状，可以通俗的认为是有多个源点的图，其对<code>Multi-Label</code>问题的优化可具体看<a href="http://scholar.google.com.hk/scholar?q=Fast+Approximate+Energy+Minimization+via+Graph+Cuts&amp;hl=zh-CN&amp;as_sdt=0&amp;as_vis=1&amp;oi=scholart&amp;sa=X&amp;ei=THmkUv-YKqjpiAeNs4CADQ&amp;ved=0CCkQgQMwAA" target="_blank">Fast Approximate Energy Minimization via Graph Cuts</a>；</p>
+<p><img src="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_mg.jpg" align="center" /></p>
+<p>我们提出的是<code>MultiLayerGraph</code>，如文章最开始的图所示。每一层（红，蓝，绿）内部的构建都是相同的，如之前的博文所述<code>Nlink</code>，那么上图认为是几层图呢？直观上要么是三层（s，t不算）或五层（s，t各算一层）。<em>然而实际是四层！</em></p>
+<hr>
+<h3 id="Graphcuts类方法分割得到的类数，取决于<code>Tlink</code>的层数">Graphcuts类方法分割得到的类数，取决于<code>Tlink</code>的层数</h3>
+<hr>
+<p><img src="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_cuts.jpg" align="right" /></p>
+<p>我们假定，<code>Tlink</code>表示的都是相似性的倒数，即越相似，<code>Tlink</code>越小，考虑到最大流最小割算法切断的是最小权值，所以最相似的肯定越可能被切断！</p>
+<p>于是乎，我们就采取这样的策略：构建N层图，比如上述的四层图；然后根据观测信息设置每层的<code>Tlink</code>；最后，执行最大流算法，并观测当前节点的<code>Tlink</code>是在哪一层被切断！</p>
+<p>多层图一个标准的割应该如右图左边的，右边是不对的，并且通过算法是不能得到的。</p>
+<hr>
+<h3 id="如何判断<code>Tlink</code>是在哪里切断的呢？">如何判断<code>Tlink</code>是在哪里切断的呢？</h3>
+<p>这就源自最初的<a href="#">Graphcuts</a>算法了</p>
+<p>在开源的<a href="#">Graphcuts</a>算法中，在计算最大流时，一直维护着两颗“树”，一棵是由<code>S</code>延伸出来的；一棵是由<code>T</code>延伸出来的。在最后时刻，由这两棵树交界的部分形成最小割。</p>
+<p>那么就有这样一个特点，假设当前<code>Tlink</code>被割断，则上面一个点肯定来自<code>S</code>树，下面一个点肯定属于<code>T</code>树。所以通过这个特点，可以判断在哪切断的 :)</p>
+<hr>
+<p>这实际上是一种近似的方法，为什么这么说呢？</p>
+<p>上面的网络流图中，每一层的节点实际上都是相同的，不同的是<code>Tlink</code>有多层，所以完成一次分类，产生了一些额外的“边”需要计算进来并考虑切断。</p>
+<p>不过这个误差不太好估计。</p>
+<p>总的来说，图割的结果很取决于参数，一般来说，所有<code>Tlink</code>会统一权值的计算方法，所有<code>Nlink</code>也会统一权值的计算方法；然而<code>Tlink</code>与<code>Nlink</code>的比例该如何设定？</p>
+<p>一般只有实验中来知道吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/20131021/duo-ceng-tu/" data-id="jrcdyguj6poy3bb8" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/20131021/duo-ceng-tu/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图像分割/">图像分割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多层图/">多层图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大流/">最大流</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/20131102/shua-wan-leetcode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          刷完leetcode的一点感想
+        
+      </div>
+    </a>
+  
+  
+    <a href="/20131020/tu-de-gou-zao/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">从图割到图像分割（二）——图的构造</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget">
+      <li><a href="http://cnblogs.com/moondark">博客园</a></li>
+      <li><a href="https://github.com/liaoxl">GitHub</a></li>
+      <li><a href="#">更多关于我</a></li>
+	  <li>现状：<a href="http://www.hust.edu.cn/">华科</a>自动化学院2012级硕士，将于2015年毕业，现正积极寻找工作，意向为<a href="#">研发工程师</a>，附上我的<a href="http://files.cnblogs.com/moondark/XiangliLiao.pdf">个人简历</a></li>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/20140315/hello-world/">Hello, Hexo! Goodbye, Octopress!</a>
+          </li>
+        
+          <li>
+            <a href="/20140220/binary-search/">二分查找</a>
+          </li>
+        
+          <li>
+            <a href="/20140219/dian-ji/">点集的一些几何特征</a>
+          </li>
+        
+          <li>
+            <a href="/20140201/ma-nian/">马年——祝自己顺利</a>
+          </li>
+        
+          <li>
+            <a href="/20131205/virtual-destructor/">C++的虚析构函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiangli Liao<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'moondark';
+  
+  var disqus_url = 'http://liaoxl.github.io/20131021/duo-ceng-tu/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>
