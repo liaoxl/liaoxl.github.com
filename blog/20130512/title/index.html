@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Octopress 的搭建与配置 | Moondark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="Octopress 的搭建与配置">
+<meta name="og:url" content="http://liaoxl.github.io/blog/20130512/title/">
+<meta name="og:image">
+<meta name="og:site_name" content="Moondark">
+<meta name="og:description" content="关于Octopress的配置教程已经有很多了，我也参考了不少，实际上，最好的Documentation就是官方的Octopress Documentation是最靠谱的，但作者是假设你已经安装好Git及Ruby环境的前提下。我习惯性先搜了一下中文的配置教程，由于不同人的理解及系统环境不一样，还是有些弯路，现在总结一下从零开始配置Octopress的方法。
+什么是从零开始？我的系统是Fedora 1">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41389933-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moondark</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Do something</a>
+        </h2>
+      
+    </div>
+    
+    	<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+		for(i=0; i < all.length; i += 1) {
+		all[i].SourceElement().parentNode.className += ' has-jax';
+		}
+		});
+</script>
+
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  	
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://liaoxl.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-title" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/20130512/title/" class="article-date">
+  <time datetime="2013-05-12T07:43:00.000Z" itemprop="datePublished">5月 12 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Octopress 的搭建与配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于Octopress的配置教程已经有很多了，我也参考了不少，实际上，最好的Documentation就是官方的<a href="http://octopress.org/docs/" target="_blank">Octopress Documentation</a>是最靠谱的，但作者是假设你已经安装好Git及Ruby环境的前提下。我习惯性先搜了一下中文的配置教程，由于不同人的理解及系统环境不一样，还是有些弯路，现在总结一下从零开始配置Octopress的方法。</p>
+<p>什么是从零开始？我的系统是Fedora 17，从零开始即从装好系统的那一刻起。<a id="more"></a></p>
+<hr>
+<h2 id="安装Ruby环境">安装Ruby环境</h2>
+<p>Ruby环境的配置主要是参考ruby-china上的方法，ruby-china上面提供了较详细的unbuntu版本的配置方法，似乎有些过时，但仍比较有参考价值，<a href="http://ruby-china.org/wiki/install_ruby_guide" target="_blank">如何快速正确的安装 Ruby, Rails 运行环境</a>.</p>
+<p>对于Fedora17，由于其软件包跟unbuntu命名不一致，如果对linux不够熟悉的话，只能自己揣摩其对应的软件包，我这样配置的。</p>
+<h3 id="步骤0_-_安装系统需要的包">步骤0 - 安装系统需要的包</h3>
+<pre><code><span class="string">" 所有的操作都在root权限下
+"</span> 安装开发基本组件
+<span class="variable">$yum</span> group install Development Tools
+<span class="string">" 根据ruby-china wiki 上面unbuntu的配置，一次进行配置：
+"</span> 由于Fedora上面很多软件包的叫法都不太一样，所以根据每一个的作用推测Fedora上面的相应软件包
+<span class="variable">$yum</span> install openssl
+<span class="variable">$yum</span> install curl libcurl libcurl-devel
+<span class="variable">$yum</span> install <span class="keyword">readline</span> <span class="keyword">readline</span>-devel
+<span class="variable">$yum</span> install git <span class="string">" 提示已安装
+<span class="variable">$yum</span> install zlib zlib-devel "</span> 提示已安装
+<span class="variable">$yum</span> install libyaml-devel libxml2-devel libxslt-devel
+<span class="variable">$yum</span> install autoconf automake libtool <span class="string">" 提示已安装
+<span class="variable">$yum</span> install ImageMagick ImageMagick-devel
+<span class="variable">$yum</span> install pcre-devel sqlite-devel ruby-mysql
+<span class="variable">$yum</span> install mysql
+<span class="variable">$yum</span> install libffi-devel openssl-devel</span>
+</code></pre><p>以上是ruby环境可能会依赖的一些库，以及开发头文件</p>
+<p>其次，你系统用 yum group install Development Tools的话，会自动装上ruby 1.9.3（对于Fedora 17）而言，为了防止其他意外，最好先卸载这一步安装的ruby，因为后面是安装rvm对ruby进行管理，如果系统已经安装了的话，将会导致在终端中输入ruby时，不知道是rvm的ruby还是系统的ruby，当然可以用which ruby来查看，但毕竟不方便管理。</p>
+<pre><code><span class="variable">$yum</span> remove ruby <span class="string">" 卸载非RVM安装的ruby</span>
+</code></pre><h3 id="步骤1_-_安装RVM">步骤1 - 安装RVM</h3>
+<p>为什么安装RVM？ruby-china上面有一句话：</p>
+<blockquote>
+<p>RVM 是干什么的这里就不解释了，后面你将会慢慢搞明白</p>
+</blockquote>
+<p>其实RVM是ruby的版本管理器，从C/C++/Java等转过来的就有些不解（包括我自己），为什么语言需要版本管理器？实际上是因为这门语言不够成熟，或者是这门语言觉得有很多空间改进，以至于会有很多版本，而且最重要的，版本间未必兼容，所以需要相应的版本管理器来进行语言版本控制。</p>
+<p>关于RVM的命令，其实不需要了解很多，会基本就够用了。</p>
+<pre><code><span class="variable">$curl</span> <span class="attribute">-L</span> https:<span class="comment">//get.rvm.io | bash -s stable</span>
+</code></pre><p>等待一段时间后就可以成功安装好 RVM。</p>
+<pre><code><span class="variable">$source</span> ~<span class="regexp">/.rvm/scripts</span><span class="regexp">/rvm</span>
+</code></pre><p>检查一下是否安装正确<br>    $rvm -v<br>    rvm 1.19.6 (stable) by Wayne E. Seguin <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#119;&#97;&#x79;&#x6e;&#x65;&#101;&#115;&#101;&#103;&#117;&#x69;&#x6e;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#119;&#97;&#x79;&#x6e;&#x65;&#101;&#115;&#101;&#103;&#117;&#x69;&#x6e;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#111;&#109;</a>, Michal Papis <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x6d;&#x70;&#x61;&#x70;&#x69;&#115;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x6d;&#x70;&#x61;&#x70;&#x69;&#115;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a> [<a href="https://rvm.io/" target="_blank">https://rvm.io/</a>]</p>
+<h3 id="步骤2_-_用RVM安装Ruby环境">步骤2 - 用RVM安装Ruby环境</h3>
+<p>可以用以下命令查看当前RVM支持的ruby：<br>    $rvm list known</p>
+<p>用RVM安装1.9.3（以目前来看，似乎1.9.3最主流）</p>
+<pre><code><span class="variable">$rvm</span> install <span class="number">1.9</span>.<span class="number">3</span>
+</code></pre><p>等待漫长的下载，编译过程，完成以后，Ruby, Ruby Gems 就安装好了。</p>
+<h3 id="步骤3_-_设置Ruby版本">步骤3 - 设置Ruby版本</h3>
+<p>RVM 装好以后，需要执行下面的命令将指定版本的 Ruby 设置为系统默认版本<br>    $rvm 1.9.3 —default</p>
+<p>查看安装是否正确</p>
+<pre><code><span class="variable">$ruby</span> -v
+ruby <span class="number">1.9</span>.<span class="number">3</span>p392 (<span class="number">2013</span>-<span class="number">02</span>-<span class="number">22</span> revision <span class="number">39386</span>) [i686-linux]
+<span class="string">" 将gem源修改
+<span class="variable">$gem</span> source -r https://rubygems.org/
+<span class="variable">$gem</span> source -a http://ruby.taobao.org</span>
+</code></pre><hr>
+<h2 id="配置Git_及_GitHub">配置Git 及 GitHub</h2>
+<p>默认情况下，系统都是已经安装好Git了，可以通过以下命令查看</p>
+<pre><code>$ git <span class="comment">--version</span>
+git <span class="built_in">version</span> <span class="number">1.7</span><span class="number">.11</span><span class="number">.7</span>
+</code></pre><p>然后可以看以下<a href="https://help.github.com/articles/set-up-git" target="_blank">Set Up Git</a>来进行设置</p>
+<pre><code><span class="variable">$git</span> config --<span class="keyword">global</span> user.name <span class="string">"Your Name Here"</span>
+<span class="variable">$git</span> config --<span class="keyword">global</span> user.email <span class="string">"your_email@example.com"</span>
+</code></pre><p>通过下面命令查看是否设置成功：<br>    $ git config —list<br>    user.name=Xiangli Liao<br>    user.email=liaoxl2012@gmail.com</p>
+<p>其次比较重要的，就是生成连接GitHub的SSH Keys，具体设置请见<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">Generating SSH Keys</a></p>
+<pre><code><span class="string">" 3个Step
+1, 查看有无ssh目录
+$ cd ~/.ssh "</span>如果有可以直接跳到<span class="number">3</span>
+<span class="number">2</span>， 生成一个新的SSH key
+$ ssh<span class="attribute">-keygen</span> <span class="attribute">-t</span> rsa <span class="attribute">-C</span> <span class="string">"your_email@example.com"</span>
+
+<span class="number">3</span>, 添加SSH key 到GitHub
+$ yum install xclip <span class="string">" 一个拷贝工具
+$ xclip -sel clip &lt; ~/.ssh/id_rsa.pub</span>
+</code></pre><p>接下来在GitHub上面操作，具体请见GitHub页面<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">Generating SSH Keys</a>：</p>
+<blockquote>
+<ul>
+<li>Go to your Account Settings  </li>
+<li>Click “SSH Keys” in the left sidebar  </li>
+<li>Click “Add SSH key”  </li>
+<li>Paste your key into the “Key” field  </li>
+<li>Click “Add key”  </li>
+<li>Confirm the action by entering your GitHub password  </li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="配置Octopress_+_GitHub">配置Octopress + GitHub</h2>
+<ul>
+<li><p>在github上面新建一个Repo，假设你的github用户名为 username, 则你的Repo名应该为 username.github.com。举个例子，我的用户名是liaoxl，repo就是<a href="http://liaoxl.github.com" target="_blank">liaoxl.github.com</a></p>
+</li>
+<li><p>根据官方文档，进行以下命令行操作：</p>
+<pre><code>  $ git clone git:<span class="comment">//github.com/imathis/octopress.git octopress</span>
+  $ cd octopress    <span class="string">" If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).</span>
+  $ ruby --version  <span class="preprocessor"># Should report Ruby 1.9.3</span>
+  $ 
+  $ gem install bundler
+  $ bundle install 
+
+  $ rake install
+</code></pre></li>
+</ul>
+<p>在本地装好之后，需要在GitHub上面进行部署，具体参见官方文档<a href="http://octopress.org/docs/deploying/github/" target="_blank">Deploying to Github Pages</a>中的With Github User/Organization pages：</p>
+<pre><code><span class="variable">$ </span>rake setup_github_pages
+<span class="variable">$ </span>rake generate
+<span class="variable">$ </span>rake deploy
+<span class="variable">$ </span>git add .
+<span class="variable">$ </span>git commit -m <span class="string">'your message'</span>
+<span class="variable">$ </span>git push origin source
+</code></pre><p>至此，Octopress博客的环境已经搭建好了，有了这个平台就可以很好的写博客了，<a href="http://octopress.org/docs/blogging/" target="_blank">Blogging Basics</a>给你指出了如何用Octopress进行写博客。</p>
+<hr>
+<p><strong>此外</strong>Octopress支持很多第三方插件及自定义主题，其中自定义主题可以参照Octopress的GitHub wiki来做，<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes" target="_blank">3rd Party Octopress Themes</a></p>
+<p>另外很多与Octopress相关的资源都在<a href="https://github.com/imathis/octopress/wiki" target="_blank">Octopress wiki</a>上面罗列出来了，使用感觉还是挺好的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/blog/20130512/title/" data-id="vojqhuhlr0fi1to2" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/blog/20130512/title/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/20130517/git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git及GitHub的基本应用
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget">
+      <li><a href="http://cnblogs.com/moondark">博客园</a></li>
+      <li><a href="https://github.com/liaoxl">GitHub</a></li>
+      <li><a href="/about">更多关于我</a></li>
+      <li>现状：<a href="http://www.hust.edu.cn/">华科</a>自动化学院2012级硕士，将于2015年毕业，现正积极寻找工作，意向为<a href="#">研发工程师</a>，附上我的<a href="http://files.cnblogs.com/moondark/XiangliLiao.pdf">个人简历</a></li>
+      <a href="https://me.alipay.com/moondark" target=_blank><img src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a>
+	  
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/20140315/hello-world/">Hello, Hexo! Goodbye, Octopress!</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140220/binary-search/">二分查找</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140219/dian-ji/">点集的一些几何特征</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140201/ma-nian/">马年——祝自己顺利</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20131205/virtual-destructor/">C++的虚析构函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiangli Liao<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'moondark';
+  
+  var disqus_url = 'http://liaoxl.github.io/blog/20130512/title/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>

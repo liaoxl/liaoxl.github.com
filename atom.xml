@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do something]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liaoxl.github.io/"/>
-  <updated>2014-03-17T04:19:14.767Z</updated>
+  <updated>2014-03-17T11:06:34.732Z</updated>
   <id>http://liaoxl.github.io/</id>
   
   <author>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Hello, Hexo! Goodbye, Octopress!]]></title>
-    <link href="http://liaoxl.github.io/20140315/hello-world/"/>
-    <id>http://liaoxl.github.io/20140315/hello-world/</id>
+    <link href="http://liaoxl.github.io/blog/20140315/hello-world/"/>
+    <id>http://liaoxl.github.io/blog/20140315/hello-world/</id>
     <published>2014-03-15T07:45:08.000Z</published>
     <updated>2014-03-17T04:19:09.000Z</updated>
     <content type="html"><![CDATA[<p>最终，从<a href="http://octopress.org/" target="_blank">Octopress</a>迁移到<a href="http://zespia.tw/hexo/" target="_blank">Hexo</a></p>
@@ -73,8 +73,8 @@
   
   <entry>
     <title><![CDATA[二分查找]]></title>
-    <link href="http://liaoxl.github.io/20140220/binary-search/"/>
-    <id>http://liaoxl.github.io/20140220/binary-search/</id>
+    <link href="http://liaoxl.github.io/blog/20140220/binary-search/"/>
+    <id>http://liaoxl.github.io/blog/20140220/binary-search/</id>
     <published>2014-02-20T15:09:00.000Z</published>
     <updated>2014-03-16T06:05:10.000Z</updated>
     <content type="html"><![CDATA[<p>在微博上看到一篇文章，关于二分查找：<a href="http://my.oschina.net/fullofbull/blog/199693" target="_blank">当我写二分查找时，我想些什么</a></p>
@@ -140,8 +140,8 @@
   
   <entry>
     <title><![CDATA[点集的一些几何特征]]></title>
-    <link href="http://liaoxl.github.io/20140219/dian-ji/"/>
-    <id>http://liaoxl.github.io/20140219/dian-ji/</id>
+    <link href="http://liaoxl.github.io/blog/20140219/dian-ji/"/>
+    <id>http://liaoxl.github.io/blog/20140219/dian-ji/</id>
     <published>2014-02-18T16:10:00.000Z</published>
     <updated>2014-03-16T06:04:56.000Z</updated>
     <content type="html"><![CDATA[<p>点集有很多特征，这里提到的有：最小凸包，最小外接矩形，最大内接三角形，最大内接四边形。</p>
@@ -234,8 +234,8 @@
   
   <entry>
     <title><![CDATA[马年——祝自己顺利]]></title>
-    <link href="http://liaoxl.github.io/20140201/ma-nian/"/>
-    <id>http://liaoxl.github.io/20140201/ma-nian/</id>
+    <link href="http://liaoxl.github.io/blog/20140201/ma-nian/"/>
+    <id>http://liaoxl.github.io/blog/20140201/ma-nian/</id>
     <published>2014-01-31T21:58:00.000Z</published>
     <updated>2014-03-16T06:04:47.000Z</updated>
     <content type="html"><![CDATA[<p>我是个拖延症患者，原本想在除夕晚上写点什么，后来拖到初一，再后来到了今天</p>
@@ -263,8 +263,8 @@
   
   <entry>
     <title><![CDATA[C++的虚析构函数]]></title>
-    <link href="http://liaoxl.github.io/20131205/virtual-destructor/"/>
-    <id>http://liaoxl.github.io/20131205/virtual-destructor/</id>
+    <link href="http://liaoxl.github.io/blog/20131205/virtual-destructor/"/>
+    <id>http://liaoxl.github.io/blog/20131205/virtual-destructor/</id>
     <published>2013-12-05T11:16:00.000Z</published>
     <updated>2014-03-16T06:04:30.000Z</updated>
     <content type="html"><![CDATA[<p>C++是门神奇的语言，总是有一些不能以我们“程序员”编写它的角度去理解的问题，究其根本，大多都是C++编译器在“适当”的时候，会自动为我们的程序增加或删除一些东西，如果其编译器所做的改动，与我们预期的结果并不相关，自然我们也能得到较好理解的运行结果，然而，深入学习C++之后，就会发现，其中很多特性，必须要掌握，必须要知道编译器做了哪些东西，才能保证程序的正确执行。</p>
@@ -594,8 +594,8 @@ class Point3d : <span class="keyword">public</span> Point2d
   
   <entry>
     <title><![CDATA[Image Cosegmentation by Co-Diffusion]]></title>
-    <link href="http://liaoxl.github.io/20131204/coseg/"/>
-    <id>http://liaoxl.github.io/20131204/coseg/</id>
+    <link href="http://liaoxl.github.io/blog/20131204/coseg/"/>
+    <id>http://liaoxl.github.io/blog/20131204/coseg/</id>
     <published>2013-12-04T15:51:00.000Z</published>
     <updated>2014-03-16T06:04:18.000Z</updated>
     <content type="html"><![CDATA[<p>这算是大半年来的结果吧，从今年4月份一直做到10月份，有很多很多的尝试，虽然最终在理论上并未有很大的创新，实验结果却比较给力。</p>
@@ -631,8 +631,8 @@ class Point3d : <span class="keyword">public</span> Point2d
   
   <entry>
     <title><![CDATA[尝试hadoop的单机环境搭建]]></title>
-    <link href="http://liaoxl.github.io/20131201/hadoop/"/>
-    <id>http://liaoxl.github.io/20131201/hadoop/</id>
+    <link href="http://liaoxl.github.io/blog/20131201/hadoop/"/>
+    <id>http://liaoxl.github.io/blog/20131201/hadoop/</id>
     <published>2013-12-01T11:34:00.000Z</published>
     <updated>2014-03-16T06:03:50.000Z</updated>
     <content type="html"><![CDATA[<p>近来关注大数据，云计算等相关技术，把Google的三大论文看了一遍，作为非计算机科班的同学，看得有点云里雾里，看了不少书才略微理清楚现在这些流行的大数据框架之间的关系。</p>
@@ -886,8 +886,8 @@ hadoop-daemon.sh <span class="keyword">stop</span> datanode
   
   <entry>
     <title><![CDATA[Vim 与 系统剪贴板clipboard]]></title>
-    <link href="http://liaoxl.github.io/20131117/vim-clipboard/"/>
-    <id>http://liaoxl.github.io/20131117/vim-clipboard/</id>
+    <link href="http://liaoxl.github.io/blog/20131117/vim-clipboard/"/>
+    <id>http://liaoxl.github.io/blog/20131117/vim-clipboard/</id>
     <published>2013-11-17T06:41:00.000Z</published>
     <updated>2014-03-16T06:03:38.000Z</updated>
     <content type="html"><![CDATA[<p>在fedora 17下，刚开始不太习惯vim的时候，也没发现默认装的vim不能使用系统剪贴板这个问题，后来用多了，发现居然不能从vim复制到系统剪贴板，刚开始我还以为我快捷键使用的不对，但试过多次，均不成功。于是乎，在vim中想复制就必须用gedit打开，然后用鼠标类似windows的操作来完成复制操作，对于常用文件夹可能还不觉得有多么烦，但有些路径深的，那就实在是非常不爽！！</p>
@@ -927,8 +927,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[Graphcuts 与 Kmeans]]></title>
-    <link href="http://liaoxl.github.io/20131116/graphcuts-kmeans/"/>
-    <id>http://liaoxl.github.io/20131116/graphcuts-kmeans/</id>
+    <link href="http://liaoxl.github.io/blog/20131116/graphcuts-kmeans/"/>
+    <id>http://liaoxl.github.io/blog/20131116/graphcuts-kmeans/</id>
     <published>2013-11-16T10:30:00.000Z</published>
     <updated>2014-03-16T06:03:18.000Z</updated>
     <content type="html"><![CDATA[]]></content>
@@ -944,8 +944,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[Frequency Tuned Saliency]]></title>
-    <link href="http://liaoxl.github.io/20131109/frequency-tuned-saliency/"/>
-    <id>http://liaoxl.github.io/20131109/frequency-tuned-saliency/</id>
+    <link href="http://liaoxl.github.io/blog/20131109/frequency-tuned-saliency/"/>
+    <id>http://liaoxl.github.io/blog/20131109/frequency-tuned-saliency/</id>
     <published>2013-11-09T12:03:00.000Z</published>
     <updated>2014-03-16T06:02:57.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://ivrgwww.epfl.ch/supplementary_material/RK_CVPR09/Images/SaliencyIntro.jpg" alt="Introduction"></p>
@@ -967,8 +967,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[刷完leetcode的一点感想]]></title>
-    <link href="http://liaoxl.github.io/20131102/shua-wan-leetcode/"/>
-    <id>http://liaoxl.github.io/20131102/shua-wan-leetcode/</id>
+    <link href="http://liaoxl.github.io/blog/20131102/shua-wan-leetcode/"/>
+    <id>http://liaoxl.github.io/blog/20131102/shua-wan-leetcode/</id>
     <published>2013-11-02T10:47:00.000Z</published>
     <updated>2014-03-16T06:02:25.000Z</updated>
     <content type="html"><![CDATA[<p>两年前，在实习生笔试的时候，笔试百度，对试卷上很多问题感到不知所云，毫无悬念的挂了</p>
@@ -1016,8 +1016,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[从图割到图像分割（三）——多层图图割]]></title>
-    <link href="http://liaoxl.github.io/20131021/duo-ceng-tu/"/>
-    <id>http://liaoxl.github.io/20131021/duo-ceng-tu/</id>
+    <link href="http://liaoxl.github.io/blog/20131021/duo-ceng-tu/"/>
+    <id>http://liaoxl.github.io/blog/20131021/duo-ceng-tu/</id>
     <published>2013-10-21T11:42:00.000Z</published>
     <updated>2014-03-16T06:02:01.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_MultiGraph.jpg" height="300px" width="30%" align="right" /></p>
@@ -1076,8 +1076,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[从图割到图像分割（二）——图的构造]]></title>
-    <link href="http://liaoxl.github.io/20131020/tu-de-gou-zao/"/>
-    <id>http://liaoxl.github.io/20131020/tu-de-gou-zao/</id>
+    <link href="http://liaoxl.github.io/blog/20131020/tu-de-gou-zao/"/>
+    <id>http://liaoxl.github.io/blog/20131020/tu-de-gou-zao/</id>
     <published>2013-10-20T15:28:00.000Z</published>
     <updated>2014-03-16T05:57:37.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://images.cnblogs.com/cnblogs_com/moondark/420237/o_graph.png" width="30%" height="200px" align="right" /></p>
@@ -1147,8 +1147,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[从图割到图像分割（一）——最大流算法]]></title>
-    <link href="http://liaoxl.github.io/20131013/tu-ge/"/>
-    <id>http://liaoxl.github.io/20131013/tu-ge/</id>
+    <link href="http://liaoxl.github.io/blog/20131013/tu-ge/"/>
+    <id>http://liaoxl.github.io/blog/20131013/tu-ge/</id>
     <published>2013-10-13T13:42:00.000Z</published>
     <updated>2014-03-16T06:01:29.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://vision.csd.uwo.ca/wiki/vision/upload/8/85/Maxflow_mincut.png" height="300px" width="30%" align="right" /></p>
@@ -1237,8 +1237,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[使用moderncv打造个人简历]]></title>
-    <link href="http://liaoxl.github.io/20131011/modercv-resume/"/>
-    <id>http://liaoxl.github.io/20131011/modercv-resume/</id>
+    <link href="http://liaoxl.github.io/blog/20131011/modercv-resume/"/>
+    <id>http://liaoxl.github.io/blog/20131011/modercv-resume/</id>
     <published>2013-10-11T11:20:00.000Z</published>
     <updated>2014-03-16T06:00:36.000Z</updated>
     <content type="html"><![CDATA[<p>本科的时候，简历是word做的，当时觉得做得还不错，也不习惯转为pdf，后面在投递简历的时候居然有时就以word的形式发过去，那时自认好像还不错，居然无知到pdf才是国际的统一标准，word存在各种版本间的问题。</p>
@@ -1271,8 +1271,8 @@ vmap <span class="tag">&lt;<span class="title">leader</span>&gt;</span>c :!xclip
   
   <entry>
     <title><![CDATA[在Octopress中添加MathJax]]></title>
-    <link href="http://liaoxl.github.io/20130918/octopress-mathjax/"/>
-    <id>http://liaoxl.github.io/20130918/octopress-mathjax/</id>
+    <link href="http://liaoxl.github.io/blog/20130918/octopress-mathjax/"/>
+    <id>http://liaoxl.github.io/blog/20130918/octopress-mathjax/</id>
     <published>2013-09-17T16:30:00.000Z</published>
     <updated>2014-03-16T06:00:17.000Z</updated>
     <content type="html"><![CDATA[<p>有些时候写博客需要用到数学公式，需要对Octopress的设置进行更改，才能较好的完成公式的显示</p>
@@ -1374,8 +1374,8 @@ MathJax.Hub.Queue(<span class="function"><span class="keyword">function</span><s
   
   <entry>
     <title><![CDATA[说说我的研一]]></title>
-    <link href="http://liaoxl.github.io/20130816/yyzj/"/>
-    <id>http://liaoxl.github.io/20130816/yyzj/</id>
+    <link href="http://liaoxl.github.io/blog/20130816/yyzj/"/>
+    <id>http://liaoxl.github.io/blog/20130816/yyzj/</id>
     <published>2013-08-16T05:09:00.000Z</published>
     <updated>2014-03-16T06:00:05.000Z</updated>
     <content type="html"><![CDATA[<p>我一直觉得，一个人如果善于总结自己已经学过的知识，并为自己定制一些目标，可以在接下来的时间里，更有效率的工作。很可惜，我并不是一个善于总结的人，我总是埋头折腾，然而经常回头一看，发现自己走了很多弯路，幸好我有一些比较聪明的朋友，能够给我一些很有帮助的指导。</p>
@@ -1423,8 +1423,8 @@ MathJax.Hub.Queue(<span class="function"><span class="keyword">function</span><s
   
   <entry>
     <title><![CDATA[ACER-4738ZG 拆机改散热]]></title>
-    <link href="http://liaoxl.github.io/20130630/acer-4738zg/"/>
-    <id>http://liaoxl.github.io/20130630/acer-4738zg/</id>
+    <link href="http://liaoxl.github.io/blog/20130630/acer-4738zg/"/>
+    <id>http://liaoxl.github.io/blog/20130630/acer-4738zg/</id>
     <published>2013-06-30T02:13:00.000Z</published>
     <updated>2014-03-16T05:59:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -1459,8 +1459,8 @@ MathJax.Hub.Queue(<span class="function"><span class="keyword">function</span><s
   
   <entry>
     <title><![CDATA[TP-link WR703N, OpenWrt, Mentohust]]></title>
-    <link href="http://liaoxl.github.io/20130612/tp-wr703n/"/>
-    <id>http://liaoxl.github.io/20130612/tp-wr703n/</id>
+    <link href="http://liaoxl.github.io/blog/20130612/tp-wr703n/"/>
+    <id>http://liaoxl.github.io/blog/20130612/tp-wr703n/</id>
     <published>2013-06-12T00:50:00.000Z</published>
     <updated>2014-03-16T05:58:48.000Z</updated>
     <content type="html"><![CDATA[<p>最近笔记本电脑的有线网卡坏了，具体怎么坏的，我也不清楚，很可能是老化了（但我的才两年，并且我很少听人说网卡这么快老化），也有可能下雨打雷天我没有拔网线。不过很久以前，我的笔记本网口灯无论有没有接网线，开机之后它都一直亮着，不知道什么原因，电脑型号是宏基4738ZG。<a id="more"></a></p>
@@ -1564,8 +1564,8 @@ root<span class="variable">@OpenWrt</span><span class="symbol">:~</span><span cl
   
   <entry>
     <title><![CDATA[Git及GitHub的基本应用]]></title>
-    <link href="http://liaoxl.github.io/20130517/git/"/>
-    <id>http://liaoxl.github.io/20130517/git/</id>
+    <link href="http://liaoxl.github.io/blog/20130517/git/"/>
+    <id>http://liaoxl.github.io/blog/20130517/git/</id>
     <published>2013-05-17T13:55:00.000Z</published>
     <updated>2014-03-16T05:58:00.000Z</updated>
     <content type="html"><![CDATA[<p>使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去<a href="http://git-scm.com/book" target="_blank">Pro Git</a>的官方网站，或者这本书的<a href="https://github.com/progit/progit" target="_blank">GitHub</a>，也可以去新浪共享上面去<a href="http://ishare.iask.sina.com.cn/f/16096245.html" target="_blank">下载</a></p>
