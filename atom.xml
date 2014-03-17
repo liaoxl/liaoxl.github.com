@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Do something]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liaoxl.github.io/"/>
-  <updated>2014-03-16T12:03:58.351Z</updated>
+  <updated>2014-03-17T04:19:14.767Z</updated>
   <id>http://liaoxl.github.io/</id>
   
   <author>
@@ -19,9 +19,9 @@
     <link href="http://liaoxl.github.io/20140315/hello-world/"/>
     <id>http://liaoxl.github.io/20140315/hello-world/</id>
     <published>2014-03-15T07:45:08.000Z</published>
-    <updated>2014-03-16T12:02:17.000Z</updated>
+    <updated>2014-03-17T04:19:09.000Z</updated>
     <content type="html"><![CDATA[<p>最终，从<a href="http://octopress.org/" target="_blank">Octopress</a>迁移到<a href="http://zespia.tw/hexo/" target="_blank">Hexo</a></p>
-<p><a href="http://octopress.org/" target="_blank">Octopress</a>有些缺点，让我一直很难以忍受，虽然感觉很<code>Geek</code>，但内心里一直想找个可以代替它的，这些所谓的缺点，事实上大部分都是由于前端引起的，我不是个前端程序员，我不会设计漂亮的前端页面，但我能分辨出页面的好坏。</p>
+<p><a href="http://octopress.org/" target="_blank">Octopress</a>有些缺点，让我一直很难以忍受，虽然感觉很<code>Geek</code>，但内心里一直想找个可以代替它的，这些所谓的缺点，事实上大部分都是由于前端引起的，我不是个前端程序员，我不会设计漂亮的前端页面，但我也有自己的品味，不想将就。</p>
 <p>先说说我对<a href="http://octopress.org/" target="_blank">Octopress</a>的不满：</p>
 <ul>
 <li><p>字体太大，仿佛所有用<a href="http://octopress.org/" target="_blank">Octopress</a>框架的，字体都不小，虽然可以调，但调完后在这个框架里又没那么好看了</p>
@@ -49,7 +49,7 @@
 <p>从<a href="http://octopress.org/" target="_blank">Octopress</a>迁移到<a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>是很容易的事，<a href="http://hexo.io/docs/migration.html" target="_blank">官网</a>就有相应的介绍，事实上，<a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>本来就是很简单实用的博客框架，非常值得称赞。</p>
 ]]></content>
     <summary type="html"><![CDATA[<p>最终，从<a href="http://octopress.org/" target="_blank">Octopress</a>迁移到<a href="http://zespia.tw/hexo/" target="_blank">Hexo</a></p>
-<p><a href="http://octopress.org/" target="_blank">Octopress</a>有些缺点，让我一直很难以忍受，虽然感觉很<code>Geek</code>，但内心里一直想找个可以代替它的，这些所谓的缺点，事实上大部分都是由于前端引起的，我不是个前端程序员，我不会设计漂亮的前端页面，但我能分辨出页面的好坏。</p>
+<p><a href="http://octopress.org/" target="_blank">Octopress</a>有些缺点，让我一直很难以忍受，虽然感觉很<code>Geek</code>，但内心里一直想找个可以代替它的，这些所谓的缺点，事实上大部分都是由于前端引起的，我不是个前端程序员，我不会设计漂亮的前端页面，但我也有自己的品味，不想将就。</p>
 <p>先说说我对<a href="http://octopress.org/" target="_blank">Octopress</a>的不满：</p>
 <ul>
 <li><p>字体太大，仿佛所有用<a href="http://octopress.org/" target="_blank">Octopress</a>框架的，字体都不小，虽然可以调，但调完后在这个框架里又没那么好看了</p>
