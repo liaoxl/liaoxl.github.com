@@ -47,7 +47,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Do something</a>
+          <a href="/" id="subtitle">你必须非常努力，才能看起来毫不费力</a>
         </h2>
       
     </div>
@@ -111,6 +111,149 @@ MathJax.Hub.Queue(function() {
       <div class="outer">
         <section id="main">
   
+    <article id="post-vim-clipboard" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/20131117/vim-clipboard/" class="article-date">
+  <time datetime="2013-11-17T06:41:00.000Z" itemprop="datePublished">11月 17 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/20131117/vim-clipboard/">Vim 与 系统剪贴板clipboard</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在fedora 17下，刚开始不太习惯vim的时候，也没发现默认装的vim不能使用系统剪贴板这个问题，后来用多了，发现居然不能从vim复制到系统剪贴板，刚开始我还以为我快捷键使用的不对，但试过多次，均不成功。于是乎，在vim中想复制就必须用gedit打开，然后用鼠标类似windows的操作来完成复制操作，对于常用文件夹可能还不觉得有多么烦，但有些路径深的，那就实在是非常不爽！！</p>
+<p>命令那么简单，怎么会搞错呢？后来我才发现，原来系统自带的（我的要么是一安装就有，要么就是我用yum安装的）是不具备这个功能的，即<code>&quot;+y</code>不适应。怎样查看自己的vim版本是否支持系统剪贴板呢？通过以下命令，如果<code>clipboard</code>前面是个减号，则说明系统编译时候未加入clipboard这个选项</p>
+
+        
+          <p class="article-more-link">
+            <a href="/blog/20131117/vim-clipboard/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/blog/20131117/vim-clipboard/" data-id="63fvc2fxm9rwtvyc" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/blog/20131117/vim-clipboard/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xclip/">Xclip</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-graphcuts-kmeans" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/20131116/graphcuts-kmeans/" class="article-date">
+  <time datetime="2013-11-16T10:30:00.000Z" itemprop="datePublished">11月 16 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/研究/">研究</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/20131116/graphcuts-kmeans/">Graphcuts 与 Kmeans</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/blog/20131116/graphcuts-kmeans/" data-id="4v4iau3zf7uj36my" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/blog/20131116/graphcuts-kmeans/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kmeans/">Kmeans</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大流/">最大流</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-frequency-tuned-saliency" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/20131109/frequency-tuned-saliency/" class="article-date">
+  <time datetime="2013-11-09T12:03:00.000Z" itemprop="datePublished">11月 9 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/研究/">研究</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/20131109/frequency-tuned-saliency/">Frequency Tuned Saliency</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://ivrgwww.epfl.ch/supplementary_material/RK_CVPR09/Images/SaliencyIntro.jpg" alt="Introduction"></p>
+<p>在近年来，图像相关的会议或者杂志中，炒的比较热的一个词是：<strong>显著性</strong>！</p>
+<h3 id="何谓显著性？">何谓显著性？</h3>
+<p>顾名思义，显著性就是指不同于一般性质的一种表现，通常它都是不好量化衡量的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/blog/20131109/frequency-tuned-saliency/" data-id="jcxrjbx32xngulh6" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/blog/20131109/frequency-tuned-saliency/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Saliency/">Saliency</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图像分割/">图像分割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图像处理/">图像处理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-shua-wan-leetcode" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/20131102/shua-wan-leetcode/" class="article-date">
@@ -149,7 +292,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20131102/shua-wan-leetcode/" data-id="852vzwiwnm4apy6v" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20131102/shua-wan-leetcode/" data-id="63wjyt2rqb1wkea2" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20131102/shua-wan-leetcode/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -202,7 +345,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20131021/duo-ceng-tu/" data-id="6i6e915luhhrhikc" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20131021/duo-ceng-tu/" data-id="pkrm1ld60khhmoes" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20131021/duo-ceng-tu/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -255,7 +398,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20131020/tu-de-gou-zao/" data-id="ctjyd0q15qay8bmv" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20131020/tu-de-gou-zao/" data-id="seezehl8c7sbsvg4" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20131020/tu-de-gou-zao/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -308,7 +451,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20131013/tu-ge/" data-id="a8knkydxv969ihjv" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20131013/tu-ge/" data-id="asx0l6wigquf0gyc" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20131013/tu-ge/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -359,7 +502,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20131011/modercv-resume/" data-id="gx9tp5vuop5pxsc9" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20131011/modercv-resume/" data-id="5uly1v7aeojl0zqd" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20131011/modercv-resume/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -416,7 +559,7 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130918/octopress-mathjax/" data-id="qnhroaoc3ewbo0wm" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20130918/octopress-mathjax/" data-id="3dzhtoi140xth1lo" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20130918/octopress-mathjax/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -467,164 +610,12 @@ MathJax.Hub.Queue(function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130816/yyzj/" data-id="w0e00k7jzhe9estc" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20130816/yyzj/" data-id="lzbkjr5ah1vq6yt5" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20130816/yyzj/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/胡言乱语/">胡言乱语</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-acer-4738zg" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/20130630/acer-4738zg/" class="article-date">
-  <time datetime="2013-06-30T02:13:00.000Z" itemprop="datePublished">6月 30 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/20130630/acer-4738zg/">ACER-4738ZG 拆机改散热</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言">前言</h2>
-<p>武汉真是个很热的地方，我的笔记本于2011年3月份左右购买的，到现在已经两年多了，第一个暑假，我是在苏州的空调房使用，第二个暑假，我是在实验室的空调房使用，没有直接感受到夏天对笔记本的杀伤力，今年在寝室使用，在Linux发现无线网不稳定，然后我感觉到手底下的笔记本有些烫，我只是猜测跟发热有关。于是我切回到windows，开了鲁大师监控温度（话说我不知道在linux下如何进行温度监控），发现很快主板就到了报警温度（75度），我尝试打了一盘dota，发现显卡笔记本都超过了报警温度了，我觉得该给笔记本改善下散热了。  
-        
-          <p class="article-more-link">
-            <a href="/blog/20130630/acer-4738zg/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130630/acer-4738zg/" data-id="69jmwed1dfe1ccbw" class="article-share-link">Share</a>
-      
-        <a href="http://liaoxl.github.io/blog/20130630/acer-4738zg/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/4738ZG/">4738ZG</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/瞎折腾/">瞎折腾</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tp-wr703n" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/20130612/tp-wr703n/" class="article-date">
-  <time datetime="2013-06-12T00:50:00.000Z" itemprop="datePublished">6月 12 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/20130612/tp-wr703n/">TP-link WR703N, OpenWrt, Mentohust</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近笔记本电脑的有线网卡坏了，具体怎么坏的，我也不清楚，很可能是老化了（但我的才两年，并且我很少听人说网卡这么快老化），也有可能下雨打雷天我没有拔网线。不过很久以前，我的笔记本网口灯无论有没有接网线，开机之后它都一直亮着，不知道什么原因，电脑型号是宏基4738ZG。
-        
-          <p class="article-more-link">
-            <a href="/blog/20130612/tp-wr703n/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130612/tp-wr703n/" data-id="r1q6jm1sgq11vv40" class="article-share-link">Share</a>
-      
-        <a href="http://liaoxl.github.io/blog/20130612/tp-wr703n/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenWrt/">OpenWrt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WR703N/">WR703N</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/20130517/git/" class="article-date">
-  <time datetime="2013-05-17T13:55:00.000Z" itemprop="datePublished">5月 17 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/20130517/git/">Git及GitHub的基本应用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去<a href="http://git-scm.com/book" target="_blank">Pro Git</a>的官方网站，或者这本书的<a href="https://github.com/progit/progit" target="_blank">GitHub</a>，也可以去新浪共享上面去<a href="http://ishare.iask.sina.com.cn/f/16096245.html" target="_blank">下载</a></p>
-<hr>
-<p>推荐安装tig，有有助于对git的理解，对于fedora 17，直接</p>
-<pre><code><span class="variable">$ </span>yum intall tig
-</code></pre><h2 id="<!-_more_->">
-        
-          <p class="article-more-link">
-            <a href="/blog/20130517/git/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130517/git/" data-id="fh4fdhgfa3tz5op9" class="article-share-link">Share</a>
-      
-        <a href="http://liaoxl.github.io/blog/20130517/git/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </footer>
   </div>
@@ -658,7 +649,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -667,7 +658,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a>
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 12.50px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像分割,图像处理/" style="font-size: 10.00px;">图像分割,图像处理</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a><a href="/tags/胡言乱语,求职面试/" style="font-size: 10.00px;">胡言乱语,求职面试</a>
     </div>
   </div>
 
@@ -676,7 +667,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割,图像处理/">图像分割,图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语,求职面试/">胡言乱语,求职面试</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -685,7 +676,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -697,23 +688,23 @@ MathJax.Hub.Queue(function() {
       <ul>
         
           <li>
+            <a href="/blog/20140522/first-paper/">我的第一篇paper</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140520/vim-ctrl-v/">转载 技巧: Vim 的纵向编辑模式</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140515/intern/">实习求职小结</a>
+          </li>
+        
+          <li>
             <a href="/blog/20140315/hello-world/">Hello, Hexo! Goodbye, Octopress!</a>
           </li>
         
           <li>
             <a href="/blog/20140220/binary-search/">二分查找</a>
-          </li>
-        
-          <li>
-            <a href="/blog/20140219/dian-ji/">点集的一些几何特征</a>
-          </li>
-        
-          <li>
-            <a href="/blog/20140201/ma-nian/">马年——祝自己顺利</a>
-          </li>
-        
-          <li>
-            <a href="/blog/20131205/virtual-destructor/">C++的虚析构函数</a>
           </li>
         
       </ul>

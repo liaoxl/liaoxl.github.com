@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Moondark]]></title>
-  <subtitle><![CDATA[Do something]]></subtitle>
+  <subtitle><![CDATA[你必须非常努力，才能看起来毫不费力]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liaoxl.github.io/"/>
-  <updated>2014-05-28T15:16:31.205Z</updated>
+  <updated>2014-05-28T15:40:07.406Z</updated>
   <id>http://liaoxl.github.io/</id>
   
   <author>
@@ -13,6 +13,302 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[我的第一篇paper]]></title>
+    <link href="http://liaoxl.github.io/blog/20140522/first-paper/"/>
+    <id>http://liaoxl.github.io/blog/20140522/first-paper/</id>
+    <published>2014-05-22T02:34:52.000Z</published>
+    <updated>2014-05-28T15:39:54.000Z</updated>
+    <content type="html"><![CDATA[<p>找实习虽然只为自己争取到一个秋季的绿色通道，但可喜的是，我投的几篇paper，终于中了一篇。</p>
+<p>现在可以在英文数据库或google scholar上面搜索到自己名字，感觉很nice，研究生的心愿算是完成了一部分，至于剩下的中不中，都不那么重要了，已经留下了自己在科研道路上的足迹。</p>
+<p>投递的杂志是<strong>Signal Processing</strong>，是一个很不错的杂志，从<strong>ACCEPT</strong>到文章上线速度很快，在我校的评级是<strong>B类</strong>期刊，发表一篇达到学校博士毕业的基本要求（一篇B或者2篇C），审稿周期算是中等吧，这篇文章的周期大约是<strong>7个月</strong>。</p>
+<a id="more"></a>
+
+<p><a href="http://www.sciencedirect.com/science/article/pii/S0165168414002163" target="_blank">Science Direct</a></p>
+<p><a href="http://scholar.google.com.hk/scholar?q=Xiangli+Liao&amp;btnG=&amp;hl=zh-CN&amp;as_sdt=0%2C5&amp;as_ylo=2014" target="_blank">Google Scholar</a></p>
+<h2 id="Automatic_image_segmentation_using_salient_key_point_extraction_and_star_shape_prior">Automatic image segmentation using salient key point extraction and star shape prior</h2>
+<blockquote>
+<p><strong>Xiangli Liao</strong>, Hongbo Xu, Yicong Zhou, Kunqian Li, Wenbing Tao, Qiuju Guo, Liman Liu</p>
+</blockquote>
+<h3 id="<strong>ARTICLE_INFO</strong>"><strong>ARTICLE INFO</strong></h3>
+<div class="cnblogs_code"><br><pre><br>Article history:<br>Received 27 September 2013<br>Received in revised form<br>28 March 2014<br>Accepted 29 April 2014<br></pre><br></div>
+
+<blockquote>
+<p>Please cite this article as: X. Liao, et al., Automatic image segmentation using salient key point extraction and star<br>shape prior, Signal Processing (2014)</p>
+</blockquote>
+<h3 id="<strong>ABSTRACT</strong>"><strong>ABSTRACT</strong></h3>
+<blockquote>
+<p>In this paper, a new unsupervised segmentation method is proposed. The method integrates the star shape prior of the image object with salient point detection algorithm. In the proposed method, the Harris salient point detection is first applied to the color image to obtain the initial salient points. A regional contrast based saliency extraction method is then used to select rough object regions in the image. To restrict the distribution of salient points, an adaptive threshold segmentation is applied to the saliency map to get the saliency mask. And then the salient region points can be obtained by placing the saliency mask on the initial Harris salient points. In order to make sure the salient points which we get are inside the image object thus the star shape constraint can be applied to the graph cuts segmentation, the Affinity Propagation (AP) clustering is employed to find the salient key points among the salient region points. Finally, these salient key points are regarded as foreground seeds and the star shape prior is introduced to graph cuts segmentation framework to extract the foreground object. Extensive experiments and comparisons on public database are provided to demonstrate the good performance of the proposed method.</p>
+<p>&amp;2014 Published by Elsevier B.V.</p>
+</blockquote>
+]]></content>
+    <summary type="html"><![CDATA[<p>找实习虽然只为自己争取到一个秋季的绿色通道，但可喜的是，我投的几篇paper，终于中了一篇。</p>
+<p>现在可以在英文数据库或google scholar上面搜索到自己名字，感觉很nice，研究生的心愿算是完成了一部分，至于剩下的中不中，都不那么重要了，已经留下了自己在科研道路上的足迹。</p>
+<p>投递的杂志是<strong>Signal Processing</strong>，是一个很不错的杂志，从<strong>ACCEPT</strong>到文章上线速度很快，在我校的评级是<strong>B类</strong>期刊，发表一篇达到学校博士毕业的基本要求（一篇B或者2篇C），审稿周期算是中等吧，这篇文章的周期大约是<strong>7个月</strong>。</p>
+]]></summary>
+    
+      <category term="图像分割,图像处理" scheme="http://liaoxl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2,%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+      <category term="研究" scheme="http://liaoxl.github.io/categories/%E7%A0%94%E7%A9%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[转载 技巧: Vim 的纵向编辑模式]]></title>
+    <link href="http://liaoxl.github.io/blog/20140520/vim-ctrl-v/"/>
+    <id>http://liaoxl.github.io/blog/20140520/vim-ctrl-v/</id>
+    <published>2014-05-20T03:26:51.000Z</published>
+    <updated>2014-05-28T15:34:02.000Z</updated>
+    <content type="html"><![CDATA[<p>如果要我选一个Vim中让我觉得<strong>Life Changing</strong>功能的话，我一定会选<strong>Vim的块编辑功能</strong>，也就是<strong>Ctrl+V</strong>，虽然还有些别的编辑器也有这功能，但目前为止，我从中受益颇大</p>
+<p>原文地址：<a href="http://www.ibm.com/developerworks/cn/linux/l-cn-vimcolumn/" target="_blank">技巧：Vim 的纵向编辑模式</a></p>
+<p>Vim 的纵向编辑模式功能强大。本文介绍了 Vim 纵向编辑模式并结合 VisIncr 这个插件在开发测试场景中的应用，让读者更直观了解 Vim 的纵向编辑模式这一功能。</p>
+<a id="more"></a>
+
+<h2 id="开始之前">开始之前</h2>
+<p>人类大脑对文字的处理是平面式的，所以我们浏览文章、查找资料或者重构代码，要么是横向读，要么是纵向读，要么使用搜索功能，将文字作为一个平面整体。而在编辑文字、编写代码的时候则不是横向就是纵向。常规文本编辑器都是横向编辑，而纵向编辑也常被作为特色功能。比如 Vim、EditPlus、UltraEdit 这些编辑器都有纵向编辑模式，或者称为列模式。像日常文字处理工具 MicroSoft Word、OpenOffice Writer 也可以通过按下功能键 ALT，实现纵向选中文本，然后对文本进行操作。纵向编辑不仅是编辑器的一种功能，更是人们思考问题的一种方式，项目符号、段落编号，都是纵向编辑的体现。</p>
+<p>Vim 的纵向编辑模式启动方便，使用灵活，还可以配合上插件实现很实用的高级功能。</p>
+<h2 id="启动方法">启动方法</h2>
+<p>在 Vim 命令模式下，移动游标定位于某一个位置，键入 ctrl-v后状态栏上出现 VISUAL BLOCK 字样，即进入纵向编辑模式。移动游标以按需选择待编辑的区域。注意：在 Windows 版本的 Vim 中，键组合 ctrl-v通常被映射为文本粘贴，所以 Window 版的 Vim 的纵向编辑模式由 ctrl-q启动。当然灵活的 Vim 也可以由用户自行定义组合键。</p>
+<h3 id="<strong>示例_1：纵向编辑在批量修改代码的应用演示</strong>"><strong>示例 1：纵向编辑在批量修改代码的应用演示</strong></h3>
+<p>将数列：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>    <span class="number">10.1</span><span class="number">.5</span><span class="number">.214</span> 
+    <span class="number">10.1</span><span class="number">.5</span><span class="number">.212</span> 
+    <span class="number">10.1</span><span class="number">.5</span><span class="number">.210</span>
+</pre></td></tr></table></figure>
+
+<p>编辑成序列：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span> &gt;&gt; result0
+</pre></td></tr></table></figure>
+
+<p>这是一个将 IP 数列修改成可执行的 ping 命令序列的过程。</p>
+<h3 id="<strong>第一步：修改</strong>"><strong>第一步：修改</strong></h3>
+<p>将 IP 数列中第二段所有数字“1” 修改为“5”：</p>
+<p>将游标定位第一个行 IP 地址第二段的“1”</p>
+<p>ctrl-v 进入纵向编辑模式</p>
+<p>G 移动游标到最后一行，可视块覆盖所要修改的列</p>
+<p>r 进入修改模式</p>
+<p>5 输入数字“5”</p>
+<p>ESC 退出纵向编辑模式，同时所有被选中的数字都被改成了“5”，并回到命令模式</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> 
+   <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> 
+   <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第二步：前添加</strong>"><strong>第二步：前添加</strong></h3>
+<p>在所有行之前添加“ping – c 4 ”：</p>
+<p>将游标定位到第一行第一列</p>
+<p>ctrl-v 进入纵向编辑模式</p>
+<p>G 移动游标到最后一行第一列，可视块覆盖了第一列</p>
+<p>I 进入行首插入模式</p>
+<p>ping -c 4 输入所要求字符“ping – c 4 ”</p>
+<p>ESC 退出纵向编辑模式的同时所有选中的字符前都添加了“ping – c 4 ”，回到命令模式</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第三步：后添加</strong>"><strong>第三步：后添加</strong></h3>
+<p>在所有行之后添加“&gt;&gt; result0”：</p>
+<p>将游标定位到第一行最后一列</p>
+<p>ctrl-v 进入纵向编辑模式</p>
+<p>G 移动游标到最后一行最后一列，VISUAL 　 BLOCK 　覆盖了最后一列</p>
+<p>A 进入行尾插入模式</p>
+<p>>> result    输入所要求字符“>> result0”</p>
+<p>ESC 退出纵向编辑模式的同时所有选中的字符后都添加了“ &gt;&gt; result0”，回到命令模式</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span> &gt;&gt; result0
+</pre></td></tr></table></figure>
+
+<p>以上三个步骤有一个共同特点，就是都纵向为编辑方向。以上由三行代码为例的方法同样也可以适用于更多的行。</p>
+<h2 id="VisIncr_安装与操作">VisIncr 安装与操作</h2>
+<p>以上例子中所演示的对代码的纵向编辑，通过一般的代码重构功能或者结合正则表达式的查找替换也可以实现。然而 Vim 的纵向编辑模式还可以通过插件 VisIncr 的扩展，实现更丰富的功能，如纵向的生成数列。</p>
+<p>从 Vim 的官方网站上搜索找到 VisIncr 插件的安装文件，并下载到 Vim 工作目录。执行以下命令即可安装该插件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   vim visincr.vba.gz 
+   :so % 
+   :q
+</pre></td></tr></table></figure>
+
+<p>操作方法以示例 1 的代码为例：</p>
+<p>使用 ctrl-v和移动光标选择最后都为数字“0”的一列</p>
+<p>:键入冒号触发 Vim 进入命令行模式</p>
+<p>:I以第一个数字为出发点，纵向生成增量数列，幅度为 1</p>
+<p>ENTER    键入驾车键执行命令</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> &gt;&gt; result0 
+  ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> &gt;&gt; result1 
+  ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span> &gt;&gt; result2
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>示例_2：VisIncr_在生成测试数据的应用演示</strong>"><strong>示例 2：VisIncr 在生成测试数据的应用演示</strong></h3>
+<p>在应用程序开发过程中经常要生成一个简单有规律的测试数据。比如对一张表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>  testTable (”ipaddr” ,”filename”, ”owner”)
+</pre></td></tr></table></figure>
+
+<p>生成如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(<span class="string">"10.5.5.214”,”result0”,”testa”); 
+  insert into test values(”10.5.5.212”,”result1”,”testb”); 
+  insert into test values(”10.5.5.210”,”result2”,”testc”);</span></span>
+</pre></td></tr></table></figure>
+
+<p>这个纵向有规律的语句序列，可以借助 VinIncr 应用纵向编辑功能来构造。</p>
+<h3 id="<strong>第一步：准备</strong>"><strong>第一步：准备</strong></h3>
+<p>打开一个新的 Vim 编辑页面，在命令模式下先输入一个“3”，然后键入“i”进入编辑模式。数字“3”代表本次输入的内容会重复输 3 遍。</p>
+<p>在 VIM 中先输入第一行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<p>以回车结束行输入并新开一行，按 ESC 键退出编辑模式。</p>
+<p>如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第二步：构造递减数列</strong>"><strong>第二步：构造递减数列</strong></h3>
+<p>对于 ipaddr 列，使用 ctrl-v和移动光标选择 IP 地址最后一段以 2 为幅度递减的部分：</p>
+<p>: 键入冒号触发 Vim 进入命令行模式\</p>
+<p>:I -2 以第一个数字为出发点，纵向生成递减数列，幅度为 2</p>
+<p>ENTER 键入驾车键执行命令</p>
+<p>结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>”,”result0”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第三步：构造递增数列</strong>"><strong>第三步：构造递增数列</strong></h3>
+<p>对于 filename 列，使用上一节介绍的方式，结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span>”,”result1”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>”,”result2”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第四步：构造字母递增数列</strong>"><strong>第四步：构造字母递增数列</strong></h3>
+<p>对于 owner 列，使用 ctrl-v和移动光标选择英文字母将要递增的部分。</p>
+<p>: 键入冒号触发 Vim 进入命令行模式</p>
+<p>:IA 以第一个字母为出发点，纵向生成按字母表排序的序列</p>
+<p>ENTER 键入回车键执行命令</p>
+<p>结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span>”,”result1”,”testb”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>”,”result2”,”testc”);</span>
+</pre></td></tr></table></figure>
+
+<p>以上步骤即演示了借助 Vim 插件 VisIncr 对代码的纵向编辑，生成在纵向有逻辑规律的数列。</p>
+<h2 id="总结">总结</h2>
+<p>Vim 不仅是一个编辑工具还是一套思考方法，Vim 有很多引导思维方向的技巧，让 Vim 在这个各种编辑器层出不穷的时候历久弥新。本文从纵向编辑为切入点，结合 VisIncr 演示了开发、测试过程中可以使用的实例</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>如果要我选一个Vim中让我觉得<strong>Life Changing</strong>功能的话，我一定会选<strong>Vim的块编辑功能</strong>，也就是<strong>Ctrl+V</strong>，虽然还有些别的编辑器也有这功能，但目前为止，我从中受益颇大</p>
+<p>原文地址：<a href="http://www.ibm.com/developerworks/cn/linux/l-cn-vimcolumn/" target="_blank">技巧：Vim 的纵向编辑模式</a></p>
+<p>Vim 的纵向编辑模式功能强大。本文介绍了 Vim 纵向编辑模式并结合 VisIncr 这个插件在开发测试场景中的应用，让读者更直观了解 Vim 的纵向编辑模式这一功能。</p>
+]]></summary>
+    
+      <category term="Vim" scheme="http://liaoxl.github.io/tags/Vim/"/>
+    
+      <category term="技术" scheme="http://liaoxl.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[实习求职小结]]></title>
+    <link href="http://liaoxl.github.io/blog/20140515/intern/"/>
+    <id>http://liaoxl.github.io/blog/20140515/intern/</id>
+    <published>2014-05-15T08:20:02.000Z</published>
+    <updated>2014-05-28T15:25:32.000Z</updated>
+    <content type="html"><![CDATA[<p>今年找实习不够顺利，以过去为镜，总结一下自己的一些不足</p>
+<p>在简历投递中，我主要是考虑BAT这三家，AT都有熟人可以内推，但A家号称可以实习一个月，而T家一向都是3个月左右，Baidu需要的实习时间就更长了，我只能保证一个月的实习。去年听闻有些师兄乱拿实习offer，然后秋招进入一些公司的黑名单，故我慎之又慎，宁可错过实习，只投了A家。</p>
+<a id="more"></a>
+
+<h2 id="阿里巴巴">阿里巴巴</h2>
+<p>我对阿里巴巴的期待很大，<a href="#">吴总</a>也知道这点，2月份HR跟他说可以内推的时候，他就第一时间跟我说，然后我赶紧把简历做好，并发给了他。</p>
+<p>3.2号 我在阿里巴巴实习校招官网注册了简历，简历状态处于“新投递”一段时间</p>
+<p>3月中旬，我听闻很多内推的被电话面试了，但自己并没有，也有些忐忑，以为简历太搓，被看不上。</p>
+<p>3.26号，距离阿里巴巴正式笔试还有三天，那段时间可能已经快通知笔试了。那天下午正在调试一个项目的bug，苦苦思索中，一个电话过来，我看是杭州的，以为是通知我笔试的。<br>聊了几句后，发现这是个面试电话，我当时就感觉很紧张了，大脑还处于调bug状态正在切换。</p>
+<p>面试官还是很nice的，叫我简单介绍一下我研究生阶段的主要工作，我说，在研究生阶段，我一方面是从事图像分割领域的研究工作，目前已经有两篇成果投递在业内顶级期刊，另一方面是负责实验室一个手绘识别项目的开发。</p>
+<p>面试官应该是并不了解图像分割，而是对另外一个手绘识别项目比较感兴趣，然后就问我，“主要是识别什么图形”，我回答说“是对规则几何图形的识别，如矩形、三角形及圆，同时在识别这些基本图形的基础上，对由这些基本图形组成的复杂图形进行识别”。</p>
+<p>然后他就问我，“如何识别矩形、三角形及圆”，我说，“对于这些基本图形的识别，我们通过阅读文献知道一个点集的最小凸包、最大内接三角形、最大内接四边形、最小外接矩形可以用来识别规则的几何图形，比如对于直线，其最小外接矩形的长比宽会趋于无限大，三角形的最大内接三角形与最小凸包的面积比趋于1等等，在以前的文献中，是用一种叫做FuzzyLogic的理论进行识别，在编程实现中即类似与if…else…的语句。但我们为了灵活方便，将SVM分类器训练结合起来，对于每一个点集，我们将这些比例特征提取出来，并构成一个向量，并送入到分类器进行训练，从而得到一个识别分类器，对于要识别的每一个点集，提取相应的特征，并将其送入到分类器中即可得到识别结果”</p>
+<p>面试官说“OK，那你对技术有没什么倾向，比如对偏业务的技术与纯技术，对哪种更感兴趣？”我问，“怎么界定哪些叫做偏业务的技术与纯技术”，面试官“比如google的搜索就是纯技术，而像淘宝这样属于偏业务的技术”，我当时第一反应就是对后者有兴趣——前者像是研究，像我现在做的事，我研究生几年做研究，觉得研究过程中，将准确率提升几个百分点，实在不够cool，之前看到网上有人评价百度的搜索，“将搜索准确率提高几个百分点，用户基本感觉不到，但在技术上却需要很大的改善”，我很同意这种观点，我希望以后能做一些别人能够直接感受到的事——所以我跟面试官说，与业务相关的技术，是非常cool的。</p>
+<p>接下来面试官问我，“以后有没有读博打算，以及工作地点选择”，我回答说，我不打算读博，工作地点主要以杭州、深圳为主，杭州想去阿里，深圳想去腾讯，并表示阿里是我的第一选择，他很有兴趣问“为什么”，我说一个是阿里的文化很吸引我，生活上的武侠文化，以及技术上对开源的态度，顺便提到了自己也喜欢开源，有github项目并贡献了一些代码（面试官说已提前看过我的github），二是阿里通过技术改变了行业，做的事比较cool，面试官听着也很开心。然后就基本上结束了，结尾面试官跟我说，“后续还会有一到两次面试，具体看HR安排”，后来叫我问问题，我问了一个是实习生能否选择部门，面试官说可以，然后我对阿里云感兴趣，就问了一下阿里云的情况，面试官也给我介绍了一下。这里我居然忘记问面试官的花名以及联系方式，真是经验欠缺呀。</p>
+<p>电话完回去看简历状态是“应聘中”，到了晚上变为“应聘通过”，当时感觉还是挺不错的。</p>
+<p>后来3.29号的笔试就不用参加，然后等消息。</p>
+<p>没想到这一等就要等到4.24号</p>
+<p>4.24号，现场面试</p>
+<p>技术面试官+HR，通知我9:45面试，但我前面的一个人似乎面试了好久，我在外头等了有近1个小时吧，与现场工作人员（前程无忧）聊了一会。</p>
+<p>进去之后，感觉2对1压力还是很大，首先自我介绍，然后面试官依旧对手绘识别项目感兴趣，然后我就重新再画框图加讲解，面试官看起来很累，不怎么多说话，只是用“嗯哼”来回应我，但听得还比较认真，对一些关键问题问得很到位——这一点不得不说，我很喜欢与这样能把握重点的人交流，可以少废话，说出自己在核心问题上的处理方式——但后来出现一些分歧，他问我在这些问题上的核心创新，我一一讲出来。</p>
+<p>后来就聊到我的研究成果——两篇paper，他要我用一句简洁的话来介绍我的研究，说实在话，我的确没想过这个问题，我是做图像分割的，我不知道他对这个领域了解有多少，沉默了一会，我问他说，“不知道你用过美图秀秀或PhotoShop的抠图没有，就是需要自己稍微标注一下要分割的前景与背景”，他沉默，我不知他用过没，然后我继续说，“我的方法就是将这种交互式的分割转化为自动分割，通过预测目标所在的位置，自动完成图像的分割”，然后他就问，“怎么预测目标所在的位置呢？”我就说，“近年来图像方面有个比较热门的，叫做显著性，不知道在其它领域可有类似的术语，大概就是指人眼看一幅图像，眼睛容易注意的一些目标位置，人眼注意图像都是有规律的，比如图像中心比图像边缘更吸引注意，对比度高的地方比对比度低的地方更吸引注意，当把这些东西量化之后，就能得到每一点的显著性值，这样整幅图像显著性高的地方可以作为是目标所在的地方，而低的地方可以认为是背景，这样就完成了自动标记，然后再通过图割模型分割”，至于我文章中所用的“星形先验”的形状约束，我就没提了，我想他未必能懂——我经常有这样的想法，或许是我的一个大缺点</p>
+<p>然后他问我经常逛哪些论坛或社区，我说“我主要在github、stackoverflow、v2ex以及知乎还有些开源社区”，他似乎不太满意，“我想问，你如何获取一些研究信息，比如你做研究会不会关注哪些大牛或者实验室”，说实话，我并未关注，“我主要是通过最新的会议文章了解到最新的研究动向，很少关注具体某个人，真正要说常看的可能是伯克利大学的计算机视觉组，还有牛津大学的机器学习组，至于具体的人，我没有怎么关注，而且国外人的名字我也记不太住，这里也不好列举”，他似乎有点失望——事实上，我的确是这样做的，我主要看的是看每年计算机视觉最顶级的会议文章，从www.cvpapers.com上面看，每一届的CVPR、ICCV、ECCV以及其它的我都以地毯式搜索的方式进行阅读，第一遍从标题找到自己感兴趣的文章，然后进行深入阅读，会议文章往往代表这当前领域最新的方向、最好的成果以及最天马行空的idea——每个人的学习研究方式都不一样，所以孰优孰劣不能一概而论，我知道很多大牛都有相互follow的习惯，尤其是工作人士或者已成名的大牛，在某些领域某些社交网络高谈阔论，但我不是这种，我更像是以一个程序员的角度，对研究问题慢慢琢磨。</p>
+<p>后来他问我，“堆和栈的区别？”，我愣了一下，觉得这问的特别突兀，然后回答说“栈是系统分配、释放的内存，堆是程序员动态分配释放的内存”，然后他问我，“还有呢？”我几乎重复了一遍，然后实在想不出，然后说我不知道了——应该还有堆内存以栈内存分配方式的区别——然后叫我写一个二分查找，很简单，但很可惜我当时并未写好，我想以一种很新颖的方式写出来——不需要除法、比较次数最少、找寻不到时候返回插入位置——当时心理就这个想法，写出新颖的解法，然后最快速提交给他——我真的写的很快——但边界问题出现，我回过头后想了一下有点问题，不知他当场看出来了没</p>
+<p>接下来就是HR的问话时间——忘了先后顺序了，总之觉得我不擅长在这类问题上表现——“你能说说目前图像处理在哪些公司有较好的应用，或者说哪些公司在用？”，我回答说“图像搜索是一个大公司会用的领域，google的图片搜索做的已经很不错了，百度的做了好几年好像没什么起色，另外有一家最近比较有名的小公司叫face++，在做人脸识别API比较有名，其它的都是一些小公司在做”</p>
+<p>“看到你简历上有提高班，能简单的介绍一下吗？”这绝对是我第一次碰到对“提高班”三个字感兴趣的HR，“提高班是我们在刚入学的时候，通过考试在全校进行选拔，总共选拔出60位同学组成这样一个提高班”——我轻描淡写其实是不对滴，我该说前身是华科少年班，全英文教学，以前出过一个理工科榜样式的牛人——<a href="#">李一男</a>，然后再吹嘘一下——“你觉得哪个项目你最有成就感？”我是说的我发paper的那个，“因为在时间较短的情况下，我完成了很多工作量，是非常有挑战的”——“你觉得哪个项目最牛？”，我依然说是那篇paper的——从编程还是从它的地位，的确是它，我就是这么实在——HR觉得不太好问这些了，就问“看你简历，本科在提高班，研究生是保研，请问你觉得最大的挫折是什么？”——这里我很诚实的回答，近些年来，让我念念不忘的失败，大约就是本科面试BAT均以失败告终——我不知道我这么回答会不会有问题，但后来觉得还是有些不妥，有些失败该隐藏起来的，三年前的学习主要以课程为主，现在你可以通过博客看到我的技术发展历程，可以访问我的github看到我的开源项目，甚至不久的将来，可以通过google scholar搜索到我的出版物，这些，都是三年前未曾有的，我想这就是我的提高吧。</p>
+<p>“你觉得你读研这几年可有哪些进步？”，我说，“在我读研之后，甚至说从我大四的时候保研开始，我就一直很努力的在改变，一直坚持增加阅读量增加代码量，使得自己有更大的提高，我很相信‘坚持’这种态度，很多事只要坚持下去一定能有所收获”，HR“那你觉得现在有多大的提高？”我“我想已经有了很大的提高吧”，HR“你学的技术中，有没有哪种是你自己自发性的去学习的？”，我“有很多呀，我很喜欢折腾，而且喜欢一些cool的东西”，“举个例子”，“我与一些工作的同学交流，他们说工作环境中文本编辑是用vim，然后我就努力把vim学好，然后我知道很多公司用git作为版本管理工具，我自己也用github，我就对git进行了学习，然后自己写博客，觉得用markdown很效率，我又去熟悉markdown的写作方式，同时我尝试很多脚本语言如ruby/python/nodejs等的开发，但平时不常用，所以并不熟悉，但我对新技术经常都很感兴趣，平时关注热门的开源项目，比如hadoop，spark之类的”——这时候技术官问我，“你关注hadoop，那你能不能说一下它的优缺点？”——其实我并不太了解，只是关注哪些公司在用——我回答说，“它的优点是将大数据处理转化为一种可以用mapreduce模型进行处理，为大数据的处理提供了一种有效可行的方式，它的缺点是速度慢，因为我知道spark是号称100倍快于hadoop，所以速度应该是hadoop处理的一个大问题”，面试官继续说，“还有呢？”我就回答说不知道了。HR对我前面的一句话很感兴趣，说“你经常与工作的同学交流，你这些同学都在哪些公司工作？”，我说“在阿里和腾讯”，然后她又问我“在阿里是在哪个部门？”我回答说，“在阿里云部门”。</p>
+<p>接下来就是问他们问题，我大概就问了与电话面试类似的问题。</p>
+<p>总结起来，感觉现场面试中，尤其是HR面试部分，我回答的比较乱，没有章理，有很多问题事先我都没有好好准备，没有展现自己的能力，没有亮点，遂后面沦为备胎。</p>
+<p>然后就一直在等，阿里的招聘效率实在很渣，等过了五一，等到了5.9号，好像很有一部分人有了offer通知，但那天收到一条“继续等待”的短信。</p>
+<p>5.14号，收到电话拒信，告知“部门协调原因，不能安排实习，秋季保留绿色通道，直接终面”，这里得提一下，我在第一次电话面试表达想去阿里云，在主观题上明确写了最想去阿里云部门，却不知居然是给我分配的是菜鸟网络部门。</p>
+<p>很失望，真的很失望，很多时候努力的动力，无非是让自己变得更牛逼，去一个想去的公司，以及想要我的公司，二者缺一不可。</p>
+<p>后来<a href="#">吴总</a>说再给我推，推阿里云或者一淘，我想了想，觉得阿里流程太乱，很拖+实习最终留下的因素不可控，而且我只能实习一个月，不如好好准备笔试面试，秋季多投几家，不能把鸡蛋放在一个篮子里，跟吴总说，算了吧。</p>
+<h2 id="百度">百度</h2>
+<p>本科大三时候，百度几乎算是最巅峰的时候，迄今为止，去百度的同学也很牛。</p>
+<p>在等阿里的时候投了百度，岗位是“实习计算机视觉算法研发工程师”，申请后一段时间，简历变为“筛选未通过”，我当时觉得很奇怪，后来不久又变成“筛选中”</p>
+<p>不久后，百度HR给我打电话，确认我是否能有三个月及以上的实习时间保证，我说不能，然后就没然后了。。也是那个电话，发现我投的居然是百度深度学习研究院。</p>
+<p>能通过百度深度学习研究院的简历筛选，感觉还是不错的，谢谢百度。</p>
+<h2 id="腾讯">腾讯</h2>
+<p>简历未投</p>
+<p>本科时候最想去的公司，小斌今年入职，说老大找他要简历，我考虑到实习时间不够，而且当时阿里面试是“应聘通过”，所以没投，现在想来，甚是后悔。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>今年找实习不够顺利，以过去为镜，总结一下自己的一些不足</p>
+<p>在简历投递中，我主要是考虑BAT这三家，AT都有熟人可以内推，但A家号称可以实习一个月，而T家一向都是3个月左右，Baidu需要的实习时间就更长了，我只能保证一个月的实习。去年听闻有些师兄乱拿实习offer，然后秋招进入一些公司的黑名单，故我慎之又慎，宁可错过实习，只投了A家。</p>
+]]></summary>
+    
+      <category term="胡言乱语,求职面试" scheme="http://liaoxl.github.io/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD,%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="生活" scheme="http://liaoxl.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hello, Hexo! Goodbye, Octopress!]]></title>
@@ -1418,397 +1714,6 @@ MathJax.Hub.Queue(<span class="function"><span class="keyword">function</span><s
       <category term="胡言乱语" scheme="http://liaoxl.github.io/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
     
       <category term="生活" scheme="http://liaoxl.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ACER-4738ZG 拆机改散热]]></title>
-    <link href="http://liaoxl.github.io/blog/20130630/acer-4738zg/"/>
-    <id>http://liaoxl.github.io/blog/20130630/acer-4738zg/</id>
-    <published>2013-06-30T02:13:00.000Z</published>
-    <updated>2014-03-16T05:59:41.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2>
-<p>武汉真是个很热的地方，我的笔记本于2011年3月份左右购买的，到现在已经两年多了，第一个暑假，我是在苏州的空调房使用，第二个暑假，我是在实验室的空调房使用，没有直接感受到夏天对笔记本的杀伤力，今年在寝室使用，在Linux发现无线网不稳定，然后我感觉到手底下的笔记本有些烫，我只是猜测跟发热有关。于是我切回到windows，开了鲁大师监控温度（话说我不知道在linux下如何进行温度监控），发现很快主板就到了报警温度（75度），我尝试打了一盘dota，发现显卡笔记本都超过了报警温度了，我觉得该给笔记本改善下散热了。  <a id="more"></a></p>
-<p>首先我想到的，就是给笔记本清灰，当时当机立断，拆机拆风扇，很失望的是发现里面很少的灰。</p>
-<p>其次，我想到了买散热底座，我从亚马逊上面买了一个，放回寝室，在实际使用中，发现降温效果实在太有限，而且多了一个底座很不方便，加上那个底座本身走线不好导致有些响，我就退货了。</p>
-<p>拆机的时候，看到CPU那里的硅脂已经很干了，显卡上不知道用什么东西垫了一片（我那时还不知道这是叫做散热硅胶片），整体感觉都是很粗糙的样纸，决定给电脑换硅脂。起初从同学那里借了硅脂过来，然而当时有个地方我搞错了，我错以为显卡上的硅胶片只是涂厚一点的硅脂而已，于是我在那里涂厚一点硅脂。结果呢，能够用，但是显卡温度很不稳定，我在网上查阅，才发现那时硅胶片，并且发现了更好的散热解决方案——垫铜片。</p>
-<p>于是上网买上等硅脂+铜片<br>一般淘宝上卖这些的，都还会附送一些小玩意，比如多给一个散热硅胶片，然后你可以放在北桥上面改善一下北桥的散热。</p>
-<h2 id="接下来是拆机过程（图文）">接下来是拆机过程（图文）</h2>
-<p>1，准备工具：<br><img src="http://images.cnitblog.com/blog/286484/201306/30111807-7470419464bb48959b23f28df4ec1be6.jpg" alt="ready1"><br><img src="http://images.cnitblog.com/blog/286484/201306/30111817-9e7d0ed7d0c34e30916a81970074b0ad.jpg" alt="ready2"></p>
-<p>2，拆开后盖<br><img src="http://images.cnitblog.com/blog/286484/201306/30111831-1af6a8c754854086afcaa4ec9d7928e1.jpg" alt="back1"><br><img src="http://images.cnitblog.com/blog/286484/201306/30111838-9429c38a799149b18c38c0834b4bae53.jpg" alt="back2"></p>
-<p>3，拆开风扇（没什么灰）<br><img src="http://images.cnitblog.com/blog/286484/201306/30111900-ef4b242e592c4c1f88579f555163df20.jpg" alt="fan1"><br><img src="http://images.cnitblog.com/blog/286484/201306/30111909-2f841c9067f74da79985048bddb611f7.jpg" alt="fan2"></p>
-<p>4，第一次涂的乱七八糟的硅脂<br><img src="http://images.cnitblog.com/blog/286484/201306/30111921-50686ad030dd4a518cb1174102f43186.jpg" alt="s1"><br><img src="http://images.cnitblog.com/blog/286484/201306/30111930-8ecb9a65ed2d45dbae1bfaf87f11ee1b.jpg" alt="s2"></p>
-<p>5，清理硅脂<br><img src="http://images.cnitblog.com/blog/286484/201306/30111940-11c5a435c58742218517d207ee505a1a.jpg" alt="clean1"><br><img src="http://images.cnitblog.com/blog/286484/201306/30111955-3f74f6b6bacb4eb189a25078f6bb5286.jpg" alt="clean2"><br><img src="http://images.cnitblog.com/blog/286484/201306/30112002-e0556227b1744ab49117779aa3887f5b.jpg" alt="clean3"></p>
-<p>6，先加铜片，再抹上硅脂<br><img src="http://images.cnitblog.com/blog/286484/201306/30112011-b231e4f6dc014bf3a99340edecc53b29.jpg" alt="cu"><br><img src="http://images.cnitblog.com/blog/286484/201306/30112222-144c4f36d5f842a9a693a9009811b967.jpg" alt="cu1"></p>
-<p>7，给CPU抹上硅脂<br><img src="http://images.cnitblog.com/blog/286484/201306/30112043-7f2c8ffb34b8494fbb522a094017f8c6.jpg" alt="cpu"></p>
-<p>8，北桥垫上导热硅胶片，将风扇等装好<br><img src="http://images.cnitblog.com/blog/286484/201306/30112110-57f5ed81f5b74e3db7a8bc88e2af6193.jpg" alt="bq"></p>
-<h2 id="完工">完工</h2>
-<p>最终CPU和显卡的温度都得到了比较大的下降，CPU原本一直是60多度，现在已经稳定在50度左右，而显卡动不动可能80度的，现在已经基本在60度左右，但主板变化不是特别明显，原来在75度左右，现在也只是在65度～70度之间，可能是宏基电脑本身主板就很单薄吧，以至于真的比较难得到改善。</p>
-<p>下一个电脑，还是准备MAC吧</p>
-]]></content>
-    <summary type="html"><![CDATA[<h2 id="前言">前言</h2>
-<p>武汉真是个很热的地方，我的笔记本于2011年3月份左右购买的，到现在已经两年多了，第一个暑假，我是在苏州的空调房使用，第二个暑假，我是在实验室的空调房使用，没有直接感受到夏天对笔记本的杀伤力，今年在寝室使用，在Linux发现无线网不稳定，然后我感觉到手底下的笔记本有些烫，我只是猜测跟发热有关。于是我切回到windows，开了鲁大师监控温度（话说我不知道在linux下如何进行温度监控），发现很快主板就到了报警温度（75度），我尝试打了一盘dota，发现显卡笔记本都超过了报警温度了，我觉得该给笔记本改善下散热了。  ]]></summary>
-    
-      <category term="4738ZG" scheme="http://liaoxl.github.io/tags/4738ZG/"/>
-    
-      <category term="瞎折腾" scheme="http://liaoxl.github.io/tags/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
-    
-      <category term="技术" scheme="http://liaoxl.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[TP-link WR703N, OpenWrt, Mentohust]]></title>
-    <link href="http://liaoxl.github.io/blog/20130612/tp-wr703n/"/>
-    <id>http://liaoxl.github.io/blog/20130612/tp-wr703n/</id>
-    <published>2013-06-12T00:50:00.000Z</published>
-    <updated>2014-03-16T05:58:48.000Z</updated>
-    <content type="html"><![CDATA[<p>最近笔记本电脑的有线网卡坏了，具体怎么坏的，我也不清楚，很可能是老化了（但我的才两年，并且我很少听人说网卡这么快老化），也有可能下雨打雷天我没有拔网线。不过很久以前，我的笔记本网口灯无论有没有接网线，开机之后它都一直亮着，不知道什么原因，电脑型号是宏基4738ZG。<a id="more"></a></p>
-<p>坏了一个有线网卡不打紧，但我们学校的联网需要用有线+锐捷认证，我有三种解决方案，第一种是我买个USB有线网卡，第二种是修主板上的有线网卡，第三种就是构建寝室的无线网。第一种加个有线网卡太麻烦了，而去USB网卡发热量都挺大，电脑总共三个USB口，或许可以加个USB拓展的，但那岂不是更麻烦；第二种太贵，据说都是200￥往上走的价格；第三种，其实我老早就想实现了，半年省下的网费基本就够我买一个无线路由器了。</p>
-<h2 id="路由器选择">路由器选择</h2>
-<p>我想找到OpenWrt官方支持的路由器，<a href="http://rockuw.com/" target="_blank">小吴</a>向我推荐了TP-link WR703N，我的确觉得它挺漂亮，不过看着它娇小的体型，还是有点担心它能力不足，而且有更便宜的路由器。犹豫了一会，最后还是买了，因为觉得它太漂亮了。</p>
-<p><img src="/images/WR703N/wr703n.jpg" alt="wr703n"></p>
-<h2 id="刷路由器_OpenWrt_&amp;&amp;_配置">刷路由器 OpenWrt &amp;&amp; 配置</h2>
-<p>刷机对于WR703N来说是件非常容易的事，为了能够图文说明，参考了<a href="http://www.geek-workshop.com/thread-2418-1-1.html" target="_blank">这篇文章</a>。</p>
-<ol>
-<li><p>下载固件，<a href="rockuw.com">小吴</a>以自身经历跟我说明刷错固件的后果，我觉得比较有必要注意需下载的固件，在<a href="http://downloads.openwrt.org/" target="_blank">OpenWrt Downloads</a>的attitud adjustment文件夹目录下，据说这里是稳定版，snapshots里面的是最新的。</p>
-</li>
-<li><p>刷机。无论是用有线还是无线，连上路由器，用浏览器打开<a href="http://192.168.1.1/" target="_blank">192.168.1.1</a>，点击系统工具-&gt;软件升级，然后你在这个页面上上传固件就可以了，是一个.bin文件，点击升级，一会就好了。<strong>注意这里不能断电</strong></p>
-</li>
-<li><p>初始配置。在刷好机器机器后，这一步必须用网线连接，因为刚刷好的OpenWrt上面是自动关闭了无线（后面会有设置开启）。<br>首先用一根网线将703N的Lan口和你电脑相连，电脑上设置为DHCP模式。然后运行cmd.exe，输入telent 192.168.1.1（windows必须已开启telnet），或在linux命令行操作。<br>成功后出现OpenWrt的欢迎界面：</p>
-</li>
-</ol>
-<p><img src="/images/WR703N/telnet.jpg" alt="telnet"></p>
-<p>这一步需要更改root密码，输入passwd，然后按提示输入。更改root密码后就能用SSH服务了，输入exit退出telnet。</p>
-<p><strong>网络配置</strong>。官方固件是不带LuCI的，即我们不能从浏览器操作，必须在命令行下完成。在windows下，下载ssh连接工具<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">putty</a>。linux下的话，我是已经安装好了，其软件包为：<br>    $ which ssh<br>    /usr/bin/ssh<br>    $ rpm -qf /usr/bin/ssh<br>    openssh-clients-5.9p1-22.fc17.i686</p>
-<p>比较建议这一部分呢操作在linux完成。打开终端，切换到root用户，然后</p>
-<pre><code><span class="title">ssh</span> <span class="number">192.168.1.1</span>
-</code></pre><p>显示如下：</p>
-<pre><code><span class="comment"># ssh 192.168.1.1</span>
-root@<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>'s password: 
-
-
-BusyBox v1<span class="number">.19</span><span class="number">.4</span> (<span class="number">2013</span>-<span class="number">03</span>-<span class="number">14</span> <span class="number">11</span>:<span class="number">28</span>:<span class="number">31</span> UTC) built-<span class="keyword">in</span> shell (ash)
-Enter 'help' <span class="keyword">for</span> a <span class="type">list</span> <span class="keyword">of</span> built-<span class="keyword">in</span> commands.
-
-  _______                     ________        __
- |       |.<span class="comment">-----.-----.-----.|  |  |  |.----.|  |_</span>
- |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
- |_______||   __|_____|__|__||________||__|  |____|
-          |__| W I R E L E S S   F R E E D O M
- <span class="comment">-----------------------------------------------------</span>
- ATTITUDE ADJUSTMENT (<span class="number">12.09</span>, r36088)
- <span class="comment">-----------------------------------------------------</span>
-  * <span class="number">1</span>/<span class="number">4</span> oz Vodka      Pour all ingredients <span class="keyword">into</span> mixing
-  * <span class="number">1</span>/<span class="number">4</span> oz Gin        tin <span class="keyword">with</span> ice, strain <span class="keyword">into</span> glass.
-  * <span class="number">1</span>/<span class="number">4</span> oz Amaretto
-  * <span class="number">1</span>/<span class="number">4</span> oz Triple sec
-  * <span class="number">1</span>/<span class="number">4</span> oz Peach schnapps
-  * <span class="number">1</span>/<span class="number">4</span> oz Sour mix
-  * <span class="number">1</span> splash Cranberry juice
- <span class="comment">-----------------------------------------------------</span>
- root@OpenWrt:~<span class="comment"># </span>
-</code></pre><p>上面输入的密码就是第三步里面设置的密码。</p>
-<p>首先开启无线，输入</p>
-<pre><code>～# vi /etc/config/wireless
-config wifi-device  radio0                                               
-    <span class="built_in">option</span> <span class="class"><span class="keyword">type</span>     <span class="title">mac80211</span>              </span>
-    <span class="built_in">option</span> channel  <span class="number">11</span>                                                  
-    <span class="built_in">option</span> macaddr  <span class="number">14</span>:cf:<span class="number">92</span>:<span class="number">9</span>d:a4:<span class="number">8</span>c                                   
-    <span class="built_in">option</span> hwmode   <span class="number">11</span>ng                                                
-    <span class="built_in">option</span> htmode   HT20                                                
-    <span class="built_in">list</span> ht_capab   SHORT-GI-<span class="number">20</span>                                   
-    <span class="built_in">list</span> ht_capab   SHORT-GI-<span class="number">40</span>                                         
-    <span class="built_in">list</span> ht_capab   RX-STBC1                                            
-    <span class="built_in">list</span> ht_capab   DSSS_CCK-<span class="number">40</span>                                         
-    # REMOVE THIS LINE TO ENABLE WIFI:    
-            这里加上注释，即开启无线网络
-    # <span class="built_in">option</span> disabled <span class="number">1</span>                                                 
-</code></pre><p>  配置无线设置                                                         </p>
-<pre><code>config wifi-iface                                                         
-    <span class="keyword">option</span> device   radio0                                             
-    <span class="keyword">option</span> network  lan                                                
-    <span class="keyword">option</span> mode     ap                                             
-            网络名称
-    <span class="keyword">option</span> ssid     moondark                                            
-    <span class="keyword">option</span> encryption psk2
-            连接时用的密码
-    <span class="keyword">option</span> <span class="keyword">key</span>      xxxxxx   
-</code></pre><p>然后修改network文件</p>
-<pre><code>～<span class="comment"># vi /etc/config/network</span>
-</code></pre><p><img src="/images/WR703N/network.png" alt="network"></p>
-<p>然后输入<code>/etc/init.d/network restart</code></p>
-<h2 id="运行mentohust及其配置">运行mentohust及其配置</h2>
-<p>感谢学长HustMoon的mentohust，作为一名huster，在用这个软件的时候略微有点特别的感觉。</p>
-<p>下载mentohust，这个与一般mentohust不同，它有已编译好的mips架构的<a href="https://code.google.com/p/mentohust-wrt/downloads/detail?name=mentohust.mips.7z" target="_blank">mentohust</a>，里面有两个包，任意一个拷贝过去即可，可直接用。<br>切到自己linux终端，拷贝命令：</p>
-<pre><code>scp /path/to/mentohust root<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">1</span><span class="symbol">:/root</span>
-为了能够运行，更改权限
-root<span class="variable">@OpenWrt</span><span class="symbol">:~</span><span class="comment"># chmod +x /root/mentohust</span>
-</code></pre><p>连接上网命令。</p>
-<pre><code>mentohust <span class="attribute">-u</span>用户名 <span class="attribute">-p</span>密码 <span class="attribute">-neth0</span> <span class="attribute">-a1</span> <span class="attribute">-d0</span> <span class="attribute">-b1</span> <span class="attribute">-l0</span>
-</code></pre><p>随路由器开机启动上网，<code>vi /etc/rc.local</code>在<code>exit 0</code>前面加入：</p>
-<pre><code>mentohust <span class="attribute">-u</span>用户名 <span class="attribute">-p</span>密码 <span class="attribute">-neth0</span> <span class="attribute">-a1</span> <span class="attribute">-d0</span> <span class="attribute">-b1</span> <span class="attribute">-l0</span>
-</code></pre><hr>
-<h1 id="完结">完结</h1>
-<p>电脑最终能够重新上网感觉很好，事实上，在本科的时候我就想用刷OpenWrt的路由器通过mentohust共享上网的，但本科由于种种原因，没有实践，现在成功了，而且为寝室作出贡献，有些成就感。</p>
-]]></content>
-    <summary type="html"><![CDATA[<p>最近笔记本电脑的有线网卡坏了，具体怎么坏的，我也不清楚，很可能是老化了（但我的才两年，并且我很少听人说网卡这么快老化），也有可能下雨打雷天我没有拔网线。不过很久以前，我的笔记本网口灯无论有没有接网线，开机之后它都一直亮着，不知道什么原因，电脑型号是宏基4738ZG。]]></summary>
-    
-      <category term="WR703N" scheme="http://liaoxl.github.io/tags/WR703N/"/>
-    
-      <category term="OpenWrt" scheme="http://liaoxl.github.io/tags/OpenWrt/"/>
-    
-      <category term="技术" scheme="http://liaoxl.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Git及GitHub的基本应用]]></title>
-    <link href="http://liaoxl.github.io/blog/20130517/git/"/>
-    <id>http://liaoxl.github.io/blog/20130517/git/</id>
-    <published>2013-05-17T13:55:00.000Z</published>
-    <updated>2014-03-16T05:58:00.000Z</updated>
-    <content type="html"><![CDATA[<p>使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去<a href="http://git-scm.com/book" target="_blank">Pro Git</a>的官方网站，或者这本书的<a href="https://github.com/progit/progit" target="_blank">GitHub</a>，也可以去新浪共享上面去<a href="http://ishare.iask.sina.com.cn/f/16096245.html" target="_blank">下载</a></p>
-<hr>
-<p>推荐安装tig，有有助于对git的理解，对于fedora 17，直接</p>
-<pre><code><span class="variable">$ </span>yum intall tig
-</code></pre><h2 id="<!-_more_->"><a id="more"></a></h2>
-<h2 id="Git基础">Git基础</h2>
-<p>Git的基本用法比较简单，我就从我的理解来记录一些，首先进行一些基本配置：</p>
-<pre><code><span class="variable">$ </span>mkdir git-hub
-<span class="variable">$ </span>cd git-hub/
-
-<span class="variable">$ </span>tig
-<span class="symbol">tig:</span> <span class="constant">Not</span> a git repository
-
-<span class="variable">$ </span>git config --list 
-user.name=<span class="constant">Xiangli</span> <span class="constant">Liao</span>
-user.email=liaoxl2012<span class="variable">@gmail</span>.com
-core.editor=vim
-</code></pre><p>这里创建一个目录，作为即将使用git的目录，首先对其初始化：</p>
-<pre><code><span class="variable">$ </span>git init 
-<span class="constant">Initialized</span> empty <span class="constant">Git</span> repository <span class="keyword">in</span> /home/moondark/rubydev/git-hub/.git/
-</code></pre><p>它就在当前目录下初始化了git，即最初通过<code>git init</code>初始化的是为空的。</p>
-<pre><code>$ vim record.txt
-$ git status
-<span class="preprocessor"># On branch master</span>
-<span class="preprocessor">#</span>
-<span class="preprocessor"># Initial commit</span>
-<span class="preprocessor">#</span>
-<span class="preprocessor"># Untracked files:</span>
-<span class="preprocessor">#   (use "git add &lt;file&gt;..." to include in what will be committed)</span>
-<span class="preprocessor">#</span>
-<span class="preprocessor">#    record.txt</span>
-nothing added to commit but untracked files present (use <span class="string">"git add"</span> to track)
-</code></pre><p>通常用<code>git status</code>来查看当前目录文件的git状态，建议常用，一般情况下，都会有提示操作，如这里的最后一行，按照提示：</p>
-<pre><code>$ git add .
-$ git status
-<span class="preprocessor"># On branch master</span>
-<span class="preprocessor">#</span>
-<span class="preprocessor"># Initial commit</span>
-<span class="preprocessor">#</span>
-<span class="preprocessor"># Changes to be committed:</span>
-<span class="preprocessor">#   (use "git rm --cached &lt;file&gt;..." to unstage)</span>
-<span class="preprocessor">#</span>
-<span class="preprocessor">#    new file:   record.txt</span>
-<span class="preprocessor">#</span>
-</code></pre><p>这里的意思是，你添加的record.txt文件，处于暂存状态<code>stage</code>，如果不不想加入这个文件，你可以按照提示用<code>git rm --cached record.txt</code>来移除，如果你确定了，那你需要用<code>git commit -m&#39;Your Message&#39;</code>来提交你的更改，在这之前，你可以用tig命令查看当前状态：</p>
-<pre><code>$ tig
-tig: No revisions match <span class="keyword">the</span> <span class="keyword">given</span> arguments.
-</code></pre><p>它显示当前为一个空的，此时你用<code>git commit -m&#39;Your Message&#39;</code>来提交，<code>Your Message</code>这里是一个快速提交更新的注释方法，表示你这次提交的描述，最好简明扼要，方便理解，如下：</p>
-<pre><code>$ git <span class="operator"><span class="keyword">commit</span> -m <span class="string">'First Comment'</span>
-[master (root-<span class="keyword">commit</span>) <span class="number">11</span>a8c45] <span class="keyword">First</span> Comment
-<span class="number">1</span> file changed, <span class="number">28</span> insertions(+)
-<span class="keyword">create</span> mode <span class="number">100644</span> record.txt
-
-
-$ tig
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">32</span> Xiangli Liao       I [master] <span class="keyword">First</span> Comment</span>
-</code></pre><p>tig显示的，是当前分支的提交状态。继续修改record.txt，应用git命令：</p>
-<pre><code>$ git status
-# <span class="keyword">On</span> branch master
-# Changes <span class="keyword">not</span> staged <span class="keyword">for</span> commit:
-#   (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> update what will be committed)
-#   (<span class="keyword">use</span> <span class="string">"git checkout -- &lt;file&gt;..."</span> <span class="keyword">to</span> discard changes <span class="keyword">in</span> working directory)
-#
-#    modified:   <span class="keyword">record</span>.txt
-#
-no changes added <span class="keyword">to</span> commit (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)
-
-$ git commit -m <span class="attribute">'Try</span> second commit'
-# <span class="keyword">On</span> branch master
-# Changes <span class="keyword">not</span> staged <span class="keyword">for</span> commit:
-#   (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> update what will be committed)
-#   (<span class="keyword">use</span> <span class="string">"git checkout -- &lt;file&gt;..."</span> <span class="keyword">to</span> discard changes <span class="keyword">in</span> working directory)
-#
-#    modified:   <span class="keyword">record</span>.txt
-#
-no changes added <span class="keyword">to</span> commit (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)
-</code></pre><p>此时要提交，根据提示，要么用<code>git add</code>或<code>git commit -a</code>均可，如果是对于已跟踪的但修改了的文件，用<code>git commit -a</code>是个比较快速的方法进行提交更新：</p>
-<pre><code>$ git <span class="operator"><span class="keyword">commit</span> -a -m <span class="string">'Try second commit'</span>
-[master bf899f5] Try <span class="keyword">second</span> <span class="keyword">commit</span>
- <span class="number">1</span> file changed, <span class="number">34</span> insertions(+)
-
-$ tig
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">37</span> Xiangli Liao       o [master] Try <span class="keyword">second</span> <span class="keyword">commit</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">32</span> Xiangli Liao       I <span class="keyword">First</span> Comment</span>
-</code></pre><p>git本地的命令基本常用的就以上，还有一个常用的就是<code>git branch</code>，用于添加分支的，当然这个对于初学者来说一般不常用到。</p>
-<hr>
-<h2 id="Git_&amp;&amp;_GitHub">Git &amp;&amp; GitHub</h2>
-<p>其实经常使用的，就是利用git与github一起管理自己的代码，其中有一些操作并不是很好理解，所以记录下来，做个笔记。</p>
-<p>GitHub这种一般叫做远程仓库，即有一个“虚拟”的仓库，你跟若干个人都能同时用这个仓库进行存取东西。既然是若干个人用，当然就很容易出现一些问题，比如说不同步，或者有不同的分支，又或者有些分支需要合并。</p>
-<p>首先，添加远程仓库，在github上创建一个Repo，比如创建一个Repo<a href="https://github.com/liaoxl/Git-Learning" target="_blank">Git-Learning</a>，你在本地添加远程仓库，采用<code>git remote</code>命令添加远程仓库。添加github上面的远程仓库有两种，一种是https，一种是SSH，前一种每一次push需要输入用户名/密码，后一种用SSH连接需要配置一下本地SSH，具体可以见<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">GitHub SSH Keys</a>，这样每一次不需要每次输入用户名/密码，感觉更方便一些。</p>
-<pre><code><span class="string">" https</span>
-git remote add origin https:<span class="comment">//github.com/liaoxl/Git-Learning.git</span>
-<span class="string">"SSH</span>
-git remote add origin git@github.com:liaoxl/Git-Learning.git
-</code></pre><p>然后可以用<code>git remote -v</code>来查看远程仓库。</p>
-<pre><code>$ git remote -v
-origin    git@github<span class="preprocessor">.com</span>:liaoxl/Git-Learning<span class="preprocessor">.git</span> (fetch)
-origin    git@github<span class="preprocessor">.com</span>:liaoxl/Git-Learning<span class="preprocessor">.git</span> (<span class="keyword">push</span>)
-</code></pre><p>推送的话，即将本地已经<code>commit</code>的文件推送到远程仓库，即：</p>
-<pre><code><span class="variable">$ </span>git push origin 
-</code></pre><p>在远程仓库上修改代码如何更新到本地呢？最简单的就是，我直接在github上面对自己文件内容进行修改，于是我本地文件中没有这些改变，这个时候就需要更新本地仓库：</p>
-<pre><code>$ git pull origin master
-<span class="subst">*</span> branch            master     <span class="subst">-&gt; </span>FETCH_HEAD
-Already up<span class="attribute">-to</span><span class="attribute">-date</span><span class="built_in">.</span>
-</code></pre><p>我操作发现，push可以默认推送到远程仓库的origin/master分支上，而更新本地文件必须指明分支，否则：</p>
-<pre><code>$ git pull origin 
-You asked <span class="built_in">to</span> pull <span class="built_in">from</span> <span class="operator">the</span> remote <span class="string">'origin'</span>, but did <span class="operator">not</span> specify
-<span class="operator">a</span> branch. Because this is <span class="operator">not</span> <span class="operator">the</span> default configured remote
-<span class="keyword">for</span> your current branch, you must specify <span class="operator">a</span> branch <span class="command"><span class="keyword">on</span> <span class="title">the</span> <span class="title">command</span> <span class="title">line</span>.</span>
-</code></pre><p>如果想推送到远程分支上，应该怎么办呢？可以首先查看有那些分支：</p>
-<pre><code>$ git branch -a
-* master
-testing
-<span class="comment">remotes/origin/master</span>
-<span class="comment">remotes/origin/test</span>
-</code></pre><p>推送的时候需要指明本地分支与远程分支：</p>
-<pre><code>$ git push origin master:master
-Everything up-<span class="built_in">to</span>-<span class="built_in">date</span>
-</code></pre><p>如果不指定本地分支，<strong>并不是推送默认分支，而是删除远程分支</strong></p>
-<pre><code><span class="variable">$ </span>git push origin <span class="symbol">:test</span>
-<span class="constant">To</span> git<span class="variable">@github</span>.<span class="symbol">com:</span>liaoxl/<span class="constant">Git</span>-<span class="constant">Learning</span>.git
- - [deleted]         test
-</code></pre><p>有了分支，就有合并的问题。如果我在远程仓库上进行了更新，本地文件我也进行了更新，在<code>git push</code>之前必须先用<code>git pull</code>来先更新本地仓库，否则：</p>
-<pre><code>$ git push origin master 
-Username <span class="keyword">for</span> <span class="string">'https://github.com'</span>: liaoxl
-Password <span class="keyword">for</span> <span class="string">'https://liaoxl@github.com'</span>: 
-To <span class="keyword">https</span>://github.com/liaoxl/Git-Learning.git
- ! [rejected]        master -&gt; master (non-fast-forward)
- error: failed <span class="built_in">to</span> push some refs <span class="built_in">to</span> <span class="string">'https://github.com/liaoxl/Git-Learning.git'</span>
- hint: Updates were rejected because <span class="operator">the</span> tip <span class="operator">of</span> your current branch is behind
- hint: its remote counterpart. Merge <span class="operator">the</span> remote changes (e.g. <span class="string">'git pull'</span>)
- hint: <span class="keyword">before</span> pushing again.
- hint: See <span class="operator">the</span> <span class="string">'Note about fast-forwards'</span> <span class="operator">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.
-</code></pre><p>而用<code>git pull</code>更新本地仓库，又将涉及到合并(merge)的问题，git会自动尝试帮你合并(做一些最简单的合并），如果它自动合并失败，会提示有冲突，需要手动合并，如下是自动合并的：</p>
-<pre><code>$ git pull https:<span class="comment">//github.com/liaoxl/Git-Learning.git " 这里也可用 git pull origin master</span>
-remote: Counting objects: <span class="number">4</span>, <span class="keyword">done</span>.
-remote: Compressing objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), <span class="keyword">done</span>.
-remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)
-Unpacking objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), <span class="keyword">done</span>.
-From https:<span class="comment">//github.com/liaoxl/Git-Learning</span>
- * branch            HEAD       -&gt; FETCH_HEAD
- Updating fd38d27.<span class="number">.6</span>a01674
- Fast-forward
- README.md | <span class="number">4</span> ++++
- <span class="number">1</span> file changed, <span class="number">4</span> insertions(+)
-  create mode <span class="number">100644</span> README.md
-</code></pre><p>以下是不能自动合并的：</p>
-<pre><code>$ git <span class="operator"><span class="keyword">commit</span> -a -m <span class="string">'Changes on local'</span>
-[master <span class="number">78</span>c9b6f] Changes <span class="keyword">on</span> <span class="keyword">local</span>
- <span class="number">1</span> file changed, <span class="number">3</span> insertions(+), <span class="number">1</span> deletion(-)
-
- $ git pull https://github.com/liaoxl/Git-Learning.git
- <span class="keyword">From</span> https://github.com/liaoxl/Git-Learning
-  * branch            HEAD       -&gt; FETCH_HEAD
-    Auto-merging morefile
-    CONFLICT (content): <span class="keyword">Merge</span> conflict <span class="keyword">in</span> morefile
-    Automatic <span class="keyword">merge</span> failed;</span> fix conflicts and then <span class="operator"><span class="keyword">commit</span> the result.</span>
-</code></pre><p>这个时候就需要自己手动合并，合并之后必须重新<code>commit</code>，才能用<code>git push</code>完成推送命令，即合并之后文件改变了，需要提交更新。</p>
-<p>在经过若干次操作之后，用tig命令查看当前分支的状态，就显得比较直观了，非常推荐：</p>
-<pre><code>$ tig
-2013-05-18 10:46 Xiangli Liao       o [master] [origin/master] <span class="operator"><span class="keyword">update</span> record.tx~
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">49</span> Xiangli Liao       M─┐ <span class="keyword">merge</span> master <span class="keyword">and</span> testing
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">44</span> Xiangli Liao       │ o [testing] new file test.rb
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">47</span> Xiangli Liao       o │ new file test.rb master
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">10</span> Xiangli Liao       M─┐ <span class="keyword">after</span> <span class="keyword">Merge</span> conflict
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">07</span> Xiangli Liao       │ o changes github
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">08</span> Xiangli Liao       o │ changes <span class="keyword">local</span> morefile
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">52</span> Xiangli Liao       M─┐ try manually merg <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">48</span> Xiangli Liao       │ o change readme <span class="keyword">on</span> github
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">49</span> Xiangli Liao       o │ changes <span class="keyword">on</span> <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">41</span> Xiangli Liao       o─┘ <span class="keyword">Update</span> README.md
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">31</span> Xiangli Liao       o source2 <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">16</span> Xiangli Liao       o source1 <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">13</span> Xiangli Liao       o New dir <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">22</span>:<span class="number">57</span> Xiangli Liao       o <span class="keyword">do</span> changes <span class="keyword">on</span> morefile
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">22</span>:<span class="number">50</span> Xiangli Liao       M─┐ <span class="keyword">some</span> changes <span class="keyword">on</span> morefile
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">22</span>:<span class="number">34</span> Xiangli Liao       │ o More changes
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">22</span>:<span class="number">36</span> Xiangli Liao       o │ Changes <span class="keyword">on</span> <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">22</span>:<span class="number">32</span> Xiangli Liao       o─┘ <span class="keyword">Update</span> morefile
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">21</span>:<span class="number">38</span> Xiangli Liao       o <span class="keyword">Create</span> README.md
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">20</span>:<span class="number">32</span> Xiangli Liao       o <span class="keyword">some</span> changes
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">53</span> Xiangli Liao       o Test <span class="keyword">commit</span> -a <span class="keyword">for</span> new file
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">37</span> Xiangli Liao       o Try <span class="keyword">second</span> <span class="keyword">commit</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">32</span> Xiangli Liao       I <span class="keyword">First</span> Comment
-[main] <span class="number">1</span>b98974d93252a884ef07e071072f5a6df063ad1 - <span class="keyword">commit</span> <span class="number">1</span> <span class="keyword">of</span> <span class="number">24</span> (<span class="number">100</span>%)</span>
-</code></pre><hr>
-<h2 id="Git_与_Octopress">Git 与 Octopress</h2>
-<p>来看看Octopress用的git命令，我起初一直不理解为何要：</p>
-<pre><code>$ git push origin <span class="built_in">source</span>
-</code></pre><p>这说明在本地已经有了一个source分支</p>
-<pre><code>$ git branch
-master
-* <span class="built_in">source</span>
-</code></pre><p>这一步是在<code>rake setup_github_pages</code>产生的，看看其Rakefile<br>    desc “Set up _deploy folder and deploy branch for Github Pages deployment”<br>    task :setup_github_pages, :repo do |t, args|</p>
-<p>其中这一步是控制git branch的</p>
-<pre><code><span class="keyword">unless</span> (`git remote -v` =~ <span class="regexp">/origin.+?octopress(?:\.git)?/</span>).<span class="keyword">nil</span>?
-    <span class="comment"># If octopress is still the origin remote (from cloning) rename it to octopress</span>
-    system <span class="string">"git remote rename origin octopress"</span>
-    <span class="keyword">if</span> branch == <span class="string">'master'</span>
-        <span class="comment"># If this is a user/organization pages repository, add the correct origin remote</span>
-        <span class="comment"># and checkout the source branch for committing changes to the blog source.</span>
-        system <span class="string">"git remote add origin <span class="subst">#{repo_url}</span>"</span>
-        puts <span class="string">"Added remote <span class="subst">#{repo_url}</span> as origin"</span>
-        system <span class="string">"git config branch.master.remote origin"</span>
-        puts <span class="string">"Set origin as default remote"</span>
-        system <span class="string">"git branch -m master source"</span>
-        puts <span class="string">"Master branch renamed to 'source' for committing your blog source files"</span>
-    <span class="keyword">else</span>
-        <span class="keyword">unless</span> !public_dir.match(<span class="string">"<span class="subst">#{project}</span>"</span>).<span class="keyword">nil</span>?
-            system <span class="string">"rake set_root_dir[<span class="subst">#{project}</span>]"</span>
-        <span class="keyword">end</span>
-    <span class="keyword">end</span>
-<span class="keyword">end</span>
-</code></pre><p>可以查看自己Octopress目录中的所有分支：</p>
-<pre><code>$ git branch -a
-master
-* source
-<span class="comment">remotes/octopress/2.1</span>
-<span class="comment">remotes/octopress/HEAD -&gt; octopress/master</span>
-<span class="comment">remotes/octopress/colorize</span>
-<span class="comment">remotes/octopress/gh-pages</span>
-<span class="comment">remotes/octopress/guard</span>
-<span class="comment">remotes/octopress/linklog</span>
-<span class="comment">remotes/octopress/master</span>
-<span class="comment">remotes/octopress/migrator</span>
-<span class="comment">remotes/octopress/plugins</span>
-<span class="comment">remotes/octopress/refactor_with_tests</span>
-<span class="comment">remotes/octopress/rubygemcli</span>
-<span class="comment">remotes/octopress/site</span>
-<span class="comment">remotes/octopress/site-2.1</span>
-<span class="comment">remotes/origin/source</span>
-</code></pre>]]></content>
-    <summary type="html"><![CDATA[<p>使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去<a href="http://git-scm.com/book" target="_blank">Pro Git</a>的官方网站，或者这本书的<a href="https://github.com/progit/progit" target="_blank">GitHub</a>，也可以去新浪共享上面去<a href="http://ishare.iask.sina.com.cn/f/16096245.html" target="_blank">下载</a></p>
-<hr>
-<p>推荐安装tig，有有助于对git的理解，对于fedora 17，直接</p>
-<pre><code><span class="variable">$ </span>yum intall tig
-</code></pre><h2 id="<!-_more_->">]]></summary>
-    
-      <category term="Linux" scheme="http://liaoxl.github.io/tags/Linux/"/>
-    
-      <category term="技术" scheme="http://liaoxl.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   

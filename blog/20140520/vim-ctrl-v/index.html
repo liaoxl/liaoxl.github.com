@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>转载 技巧: Vim 的纵向编辑模式 | Moondark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="转载 技巧: Vim 的纵向编辑模式">
+<meta name="og:url" content="http://liaoxl.github.io/blog/20140520/vim-ctrl-v/">
+<meta name="og:image">
+<meta name="og:site_name" content="Moondark">
+<meta name="og:description" content="如果要我选一个Vim中让我觉得Life Changing功能的话，我一定会选Vim的块编辑功能，也就是Ctrl+V，虽然还有些别的编辑器也有这功能，但目前为止，我从中受益颇大
+原文地址：技巧：Vim 的纵向编辑模式
+Vim 的纵向编辑模式功能强大。本文介绍了 Vim 纵向编辑模式并结合 VisIncr 这个插件在开发测试场景中的应用，让读者更直观了解 Vim 的纵向编辑模式这一功能。
+
+
+开始之前">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41389933-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moondark</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">你必须非常努力，才能看起来毫不费力</a>
+        </h2>
+      
+    </div>
+    
+    	<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+		for(i=0; i < all.length; i += 1) {
+		all[i].SourceElement().parentNode.className += ' has-jax';
+		}
+		});
+</script>
+
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  	
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://liaoxl.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vim-ctrl-v" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/20140520/vim-ctrl-v/" class="article-date">
+  <time datetime="2014-05-20T03:26:51.000Z" itemprop="datePublished">5月 20 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      转载 技巧: Vim 的纵向编辑模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果要我选一个Vim中让我觉得<strong>Life Changing</strong>功能的话，我一定会选<strong>Vim的块编辑功能</strong>，也就是<strong>Ctrl+V</strong>，虽然还有些别的编辑器也有这功能，但目前为止，我从中受益颇大</p>
+<p>原文地址：<a href="http://www.ibm.com/developerworks/cn/linux/l-cn-vimcolumn/" target="_blank">技巧：Vim 的纵向编辑模式</a></p>
+<p>Vim 的纵向编辑模式功能强大。本文介绍了 Vim 纵向编辑模式并结合 VisIncr 这个插件在开发测试场景中的应用，让读者更直观了解 Vim 的纵向编辑模式这一功能。</p>
+<a id="more"></a>
+
+<h2 id="开始之前">开始之前</h2>
+<p>人类大脑对文字的处理是平面式的，所以我们浏览文章、查找资料或者重构代码，要么是横向读，要么是纵向读，要么使用搜索功能，将文字作为一个平面整体。而在编辑文字、编写代码的时候则不是横向就是纵向。常规文本编辑器都是横向编辑，而纵向编辑也常被作为特色功能。比如 Vim、EditPlus、UltraEdit 这些编辑器都有纵向编辑模式，或者称为列模式。像日常文字处理工具 MicroSoft Word、OpenOffice Writer 也可以通过按下功能键 ALT，实现纵向选中文本，然后对文本进行操作。纵向编辑不仅是编辑器的一种功能，更是人们思考问题的一种方式，项目符号、段落编号，都是纵向编辑的体现。</p>
+<p>Vim 的纵向编辑模式启动方便，使用灵活，还可以配合上插件实现很实用的高级功能。</p>
+<h2 id="启动方法">启动方法</h2>
+<p>在 Vim 命令模式下，移动游标定位于某一个位置，键入 ctrl-v后状态栏上出现 VISUAL BLOCK 字样，即进入纵向编辑模式。移动游标以按需选择待编辑的区域。注意：在 Windows 版本的 Vim 中，键组合 ctrl-v通常被映射为文本粘贴，所以 Window 版的 Vim 的纵向编辑模式由 ctrl-q启动。当然灵活的 Vim 也可以由用户自行定义组合键。</p>
+<h3 id="<strong>示例_1：纵向编辑在批量修改代码的应用演示</strong>"><strong>示例 1：纵向编辑在批量修改代码的应用演示</strong></h3>
+<p>将数列：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>    <span class="number">10.1</span><span class="number">.5</span><span class="number">.214</span> 
+    <span class="number">10.1</span><span class="number">.5</span><span class="number">.212</span> 
+    <span class="number">10.1</span><span class="number">.5</span><span class="number">.210</span>
+</pre></td></tr></table></figure>
+
+<p>编辑成序列：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span> &gt;&gt; result0
+</pre></td></tr></table></figure>
+
+<p>这是一个将 IP 数列修改成可执行的 ping 命令序列的过程。</p>
+<h3 id="<strong>第一步：修改</strong>"><strong>第一步：修改</strong></h3>
+<p>将 IP 数列中第二段所有数字“1” 修改为“5”：</p>
+<p>将游标定位第一个行 IP 地址第二段的“1”</p>
+<p>ctrl-v 进入纵向编辑模式</p>
+<p>G 移动游标到最后一行，可视块覆盖所要修改的列</p>
+<p>r 进入修改模式</p>
+<p>5 输入数字“5”</p>
+<p>ESC 退出纵向编辑模式，同时所有被选中的数字都被改成了“5”，并回到命令模式</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> 
+   <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> 
+   <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第二步：前添加</strong>"><strong>第二步：前添加</strong></h3>
+<p>在所有行之前添加“ping – c 4 ”：</p>
+<p>将游标定位到第一行第一列</p>
+<p>ctrl-v 进入纵向编辑模式</p>
+<p>G 移动游标到最后一行第一列，可视块覆盖了第一列</p>
+<p>I 进入行首插入模式</p>
+<p>ping -c 4 输入所要求字符“ping – c 4 ”</p>
+<p>ESC 退出纵向编辑模式的同时所有选中的字符前都添加了“ping – c 4 ”，回到命令模式</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第三步：后添加</strong>"><strong>第三步：后添加</strong></h3>
+<p>在所有行之后添加“&gt;&gt; result0”：</p>
+<p>将游标定位到第一行最后一列</p>
+<p>ctrl-v 进入纵向编辑模式</p>
+<p>G 移动游标到最后一行最后一列，VISUAL 　 BLOCK 　覆盖了最后一列</p>
+<p>A 进入行尾插入模式</p>
+<p>>> result    输入所要求字符“>> result0”</p>
+<p>ESC 退出纵向编辑模式的同时所有选中的字符后都添加了“ &gt;&gt; result0”，回到命令模式</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> &gt;&gt; result0 
+   ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span> &gt;&gt; result0
+</pre></td></tr></table></figure>
+
+<p>以上三个步骤有一个共同特点，就是都纵向为编辑方向。以上由三行代码为例的方法同样也可以适用于更多的行。</p>
+<h2 id="VisIncr_安装与操作">VisIncr 安装与操作</h2>
+<p>以上例子中所演示的对代码的纵向编辑，通过一般的代码重构功能或者结合正则表达式的查找替换也可以实现。然而 Vim 的纵向编辑模式还可以通过插件 VisIncr 的扩展，实现更丰富的功能，如纵向的生成数列。</p>
+<p>从 Vim 的官方网站上搜索找到 VisIncr 插件的安装文件，并下载到 Vim 工作目录。执行以下命令即可安装该插件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>   vim visincr.vba.gz 
+   :so % 
+   :q
+</pre></td></tr></table></figure>
+
+<p>操作方法以示例 1 的代码为例：</p>
+<p>使用 ctrl-v和移动光标选择最后都为数字“0”的一列</p>
+<p>:键入冒号触发 Vim 进入命令行模式</p>
+<p>:I以第一个数字为出发点，纵向生成增量数列，幅度为 1</p>
+<p>ENTER    键入驾车键执行命令</p>
+<p>结果如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span> &gt;&gt; result0 
+  ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span> &gt;&gt; result1 
+  ping -c <span class="number">4</span> <span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span> &gt;&gt; result2
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>示例_2：VisIncr_在生成测试数据的应用演示</strong>"><strong>示例 2：VisIncr 在生成测试数据的应用演示</strong></h3>
+<p>在应用程序开发过程中经常要生成一个简单有规律的测试数据。比如对一张表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>  testTable (”ipaddr” ,”filename”, ”owner”)
+</pre></td></tr></table></figure>
+
+<p>生成如下 SQL 语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(<span class="string">"10.5.5.214”,”result0”,”testa”); 
+  insert into test values(”10.5.5.212”,”result1”,”testb”); 
+  insert into test values(”10.5.5.210”,”result2”,”testc”);</span></span>
+</pre></td></tr></table></figure>
+
+<p>这个纵向有规律的语句序列，可以借助 VinIncr 应用纵向编辑功能来构造。</p>
+<h3 id="<strong>第一步：准备</strong>"><strong>第一步：准备</strong></h3>
+<p>打开一个新的 Vim 编辑页面，在命令模式下先输入一个“3”，然后键入“i”进入编辑模式。数字“3”代表本次输入的内容会重复输 3 遍。</p>
+<p>在 VIM 中先输入第一行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<p>以回车结束行输入并新开一行，按 ESC 键退出编辑模式。</p>
+<p>如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第二步：构造递减数列</strong>"><strong>第二步：构造递减数列</strong></h3>
+<p>对于 ipaddr 列，使用 ctrl-v和移动光标选择 IP 地址最后一段以 2 为幅度递减的部分：</p>
+<p>: 键入冒号触发 Vim 进入命令行模式\</p>
+<p>:I -2 以第一个数字为出发点，纵向生成递减数列，幅度为 2</p>
+<p>ENTER 键入驾车键执行命令</p>
+<p>结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>”,”result0”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第三步：构造递增数列</strong>"><strong>第三步：构造递增数列</strong></h3>
+<p>对于 filename 列，使用上一节介绍的方式，结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span>”,”result1”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>”,”result2”,”testa”);</span>
+</pre></td></tr></table></figure>
+
+<h3 id="<strong>第四步：构造字母递增数列</strong>"><strong>第四步：构造字母递增数列</strong></h3>
+<p>对于 owner 列，使用 ctrl-v和移动光标选择英文字母将要递增的部分。</p>
+<p>: 键入冒号触发 Vim 进入命令行模式</p>
+<p>:IA 以第一个字母为出发点，纵向生成按字母表排序的序列</p>
+<p>ENTER 键入回车键执行命令</p>
+<p>结果如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.214</span>”,”result0”,”testa”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.212</span>”,”result1”,”testb”);</span> 
+  <span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> test <span class="keyword">values</span>(”<span class="number">10.5</span><span class="number">.5</span><span class="number">.210</span>”,”result2”,”testc”);</span>
+</pre></td></tr></table></figure>
+
+<p>以上步骤即演示了借助 Vim 插件 VisIncr 对代码的纵向编辑，生成在纵向有逻辑规律的数列。</p>
+<h2 id="总结">总结</h2>
+<p>Vim 不仅是一个编辑工具还是一套思考方法，Vim 有很多引导思维方向的技巧，让 Vim 在这个各种编辑器层出不穷的时候历久弥新。本文从纵向编辑为切入点，结合 VisIncr 演示了开发、测试过程中可以使用的实例</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/blog/20140520/vim-ctrl-v/" data-id="jurja4s5irc6zy9k" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/blog/20140520/vim-ctrl-v/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/20140522/first-paper/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          我的第一篇paper
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/20140515/intern/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">实习求职小结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget">
+      <li><a href="http://cnblogs.com/moondark">博客园</a></li>
+      <li><a href="https://github.com/liaoxl">GitHub</a></li>
+      <li><a href="/about">更多关于我</a></li>
+      <li>现状：<a href="http://www.hust.edu.cn/">华科</a>自动化学院2012级硕士，将于2015年毕业，现正积极寻找工作，意向为<a href="#">研发/算法工程师</a>，附上我的<a href="http://files.cnblogs.com/moondark/XiangliLiao-zh.pdf">个人简历</a></li>
+	  
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.50px;">Linux</a><a href="/tags/Octopress/" style="font-size: 15.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 12.50px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像分割,图像处理/" style="font-size: 10.00px;">图像分割,图像处理</a><a href="/tags/图像处理/" style="font-size: 12.50px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 17.50px;">最大流</a><a href="/tags/求职面试/" style="font-size: 10.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 12.50px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 12.50px;">胡言乱语</a><a href="/tags/胡言乱语,求职面试/" style="font-size: 10.00px;">胡言乱语,求职面试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割,图像处理/">图像分割,图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语,求职面试/">胡言乱语,求职面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/20140522/first-paper/">我的第一篇paper</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140520/vim-ctrl-v/">转载 技巧: Vim 的纵向编辑模式</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140515/intern/">实习求职小结</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140315/hello-world/">Hello, Hexo! Goodbye, Octopress!</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140220/binary-search/">二分查找</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiangli Liao<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'moondark';
+  
+  var disqus_url = 'http://liaoxl.github.io/blog/20140520/vim-ctrl-v/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>
