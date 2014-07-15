@@ -4,7 +4,7 @@
   <subtitle><![CDATA[你必须非常努力，才能看起来毫不费力]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liaoxl.github.io/"/>
-  <updated>2014-05-28T15:40:07.406Z</updated>
+  <updated>2014-07-15T15:00:46.866Z</updated>
   <id>http://liaoxl.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://liaoxl.github.io/blog/20140522/first-paper/"/>
     <id>http://liaoxl.github.io/blog/20140522/first-paper/</id>
     <published>2014-05-22T02:34:52.000Z</published>
-    <updated>2014-05-28T15:39:54.000Z</updated>
+    <updated>2014-07-15T15:00:02.000Z</updated>
     <content type="html"><![CDATA[<p>找实习虽然只为自己争取到一个秋季的绿色通道，但可喜的是，我投的几篇paper，终于中了一篇。</p>
 <p>现在可以在英文数据库或google scholar上面搜索到自己名字，感觉很nice，研究生的心愿算是完成了一部分，至于剩下的中不中，都不那么重要了，已经留下了自己在科研道路上的足迹。</p>
 <p>投递的杂志是<strong>Signal Processing</strong>，是一个很不错的杂志，从<strong>ACCEPT</strong>到文章上线速度很快，在我校的评级是<strong>B类</strong>期刊，发表一篇达到学校博士毕业的基本要求（一篇B或者2篇C），审稿周期算是中等吧，这篇文章的周期大约是<strong>7个月</strong>。</p>
@@ -48,7 +48,9 @@
 <p>投递的杂志是<strong>Signal Processing</strong>，是一个很不错的杂志，从<strong>ACCEPT</strong>到文章上线速度很快，在我校的评级是<strong>B类</strong>期刊，发表一篇达到学校博士毕业的基本要求（一篇B或者2篇C），审稿周期算是中等吧，这篇文章的周期大约是<strong>7个月</strong>。</p>
 ]]></summary>
     
-      <category term="图像分割,图像处理" scheme="http://liaoxl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2,%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+      <category term="图像分割" scheme="http://liaoxl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/"/>
+    
+      <category term="图像处理" scheme="http://liaoxl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
       <category term="研究" scheme="http://liaoxl.github.io/categories/%E7%A0%94%E7%A9%B6/"/>
     
@@ -258,7 +260,7 @@
     <link href="http://liaoxl.github.io/blog/20140515/intern/"/>
     <id>http://liaoxl.github.io/blog/20140515/intern/</id>
     <published>2014-05-15T08:20:02.000Z</published>
-    <updated>2014-05-28T15:25:32.000Z</updated>
+    <updated>2014-07-15T14:59:44.000Z</updated>
     <content type="html"><![CDATA[<p>今年找实习不够顺利，以过去为镜，总结一下自己的一些不足</p>
 <p>在简历投递中，我主要是考虑BAT这三家，AT都有熟人可以内推，但A家号称可以实习一个月，而T家一向都是3个月左右，Baidu需要的实习时间就更长了，我只能保证一个月的实习。去年听闻有些师兄乱拿实习offer，然后秋招进入一些公司的黑名单，故我慎之又慎，宁可错过实习，只投了A家。</p>
 <a id="more"></a>
@@ -304,7 +306,9 @@
 <p>在简历投递中，我主要是考虑BAT这三家，AT都有熟人可以内推，但A家号称可以实习一个月，而T家一向都是3个月左右，Baidu需要的实习时间就更长了，我只能保证一个月的实习。去年听闻有些师兄乱拿实习offer，然后秋招进入一些公司的黑名单，故我慎之又慎，宁可错过实习，只投了A家。</p>
 ]]></summary>
     
-      <category term="胡言乱语,求职面试" scheme="http://liaoxl.github.io/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD,%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95/"/>
+      <category term="胡言乱语" scheme="http://liaoxl.github.io/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
+    
+      <category term="求职面试" scheme="http://liaoxl.github.io/tags/%E6%B1%82%E8%81%8C%E9%9D%A2%E8%AF%95/"/>
     
       <category term="生活" scheme="http://liaoxl.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
@@ -315,7 +319,7 @@
     <link href="http://liaoxl.github.io/blog/20140315/hello-world/"/>
     <id>http://liaoxl.github.io/blog/20140315/hello-world/</id>
     <published>2014-03-15T07:45:08.000Z</published>
-    <updated>2014-03-17T04:19:09.000Z</updated>
+    <updated>2014-07-15T14:59:12.000Z</updated>
     <content type="html"><![CDATA[<p>最终，从<a href="http://octopress.org/" target="_blank">Octopress</a>迁移到<a href="http://zespia.tw/hexo/" target="_blank">Hexo</a></p>
 <p><a href="http://octopress.org/" target="_blank">Octopress</a>有些缺点，让我一直很难以忍受，虽然感觉很<code>Geek</code>，但内心里一直想找个可以代替它的，这些所谓的缺点，事实上大部分都是由于前端引起的，我不是个前端程序员，我不会设计漂亮的前端页面，但我也有自己的品味，不想将就。</p>
 <p>先说说我对<a href="http://octopress.org/" target="_blank">Octopress</a>的不满：</p>
