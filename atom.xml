@@ -4,7 +4,7 @@
   <subtitle><![CDATA[你必须非常努力，才能看起来毫不费力]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liaoxl.github.io/"/>
-  <updated>2014-09-14T07:33:30.575Z</updated>
+  <updated>2014-09-14T07:42:05.326Z</updated>
   <id>http://liaoxl.github.io/</id>
   
   <author>
@@ -19,10 +19,12 @@
     <link href="http://liaoxl.github.io/blog/20140911/maxflow/"/>
     <id>http://liaoxl.github.io/blog/20140911/maxflow/</id>
     <published>2014-09-11T07:29:56.000Z</published>
-    <updated>2014-09-14T07:31:42.000Z</updated>
+    <updated>2014-09-14T07:41:57.000Z</updated>
     <content type="html"><![CDATA[<p>在科研中，其实主要用的是最大流开源库，没有自己写过。</p>
 <p>为了在效率上优化，实际上<a href="#">maxflow/min-cut</a>这个库写的还挺复杂，我曾看过一些，但只能做到在有代码的情况下弄懂。</p>
 <h2 id="最小生成树——Prim">最小生成树——Prim</h2>
+<a id="more"></a>
+
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -438,7 +440,10 @@
 </pre></td></tr></table></figure>
 
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p>在科研中，其实主要用的是最大流开源库，没有自己写过。</p>
+<p>为了在效率上优化，实际上<a href="#">maxflow/min-cut</a>这个库写的还挺复杂，我曾看过一些，但只能做到在有代码的情况下弄懂。</p>
+<h2 id="最小生成树——Prim">最小生成树——Prim</h2>
+]]></summary>
     
       <category term="算法/数据结构" scheme="http://liaoxl.github.io/tags/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
@@ -451,7 +456,7 @@
     <link href="http://liaoxl.github.io/blog/20140907/sort/"/>
     <id>http://liaoxl.github.io/blog/20140907/sort/</id>
     <published>2014-09-07T08:27:37.000Z</published>
-    <updated>2014-09-14T07:29:11.000Z</updated>
+    <updated>2014-09-14T07:41:28.000Z</updated>
     <content type="html"><![CDATA[<p>排序是最基本的算法，面试中可能都不直接考，但经常涉及到排序算法的变种</p>
 <p>我尝试了下自己手写，发现全部写对，困难不小。</p>
 <p>头文件，习惯性将常用的头文件都加入进去</p>
@@ -486,6 +491,8 @@
 
 <span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100000</span>;
 </pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <p>先产生一个100,000的数组，并写入文件</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
@@ -888,7 +895,42 @@ void mergeSort(<span class="built_in">int</span> a[], <span class="built_in">int
 </pre></td></tr></table></figure>
 
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p>排序是最基本的算法，面试中可能都不直接考，但经常涉及到排序算法的变种</p>
+<p>我尝试了下自己手写，发现全部写对，困难不小。</p>
+<p>头文件，习惯性将常用的头文件都加入进去</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;iostream&gt;</span>
+<span class="preprocessor">#include &lt;string&gt;</span>
+<span class="preprocessor">#include &lt;vector&gt;</span>
+<span class="preprocessor">#include &lt;math.h&gt;</span>
+<span class="preprocessor">#include &lt;algorithm&gt;</span>
+<span class="preprocessor">#include &lt;string.h&gt;</span>
+<span class="preprocessor">#include &lt;deque&gt;</span>
+<span class="preprocessor">#include &lt;map&gt;</span>
+<span class="preprocessor">#include &lt;stack&gt;</span>
+<span class="preprocessor">#include &lt;time.h&gt;</span>
+<span class="preprocessor">#include &lt;fstream&gt;</span>
+
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100000</span>;
+</pre></td></tr></table></figure>
+
+]]></summary>
     
       <category term="算法/数据结构" scheme="http://liaoxl.github.io/tags/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
@@ -901,7 +943,7 @@ void mergeSort(<span class="built_in">int</span> a[], <span class="built_in">int
     <link href="http://liaoxl.github.io/blog/20140901/effcpp/"/>
     <id>http://liaoxl.github.io/blog/20140901/effcpp/</id>
     <published>2014-09-01T07:25:54.000Z</published>
-    <updated>2014-09-14T07:32:20.000Z</updated>
+    <updated>2014-09-14T07:41:01.000Z</updated>
     <content type="html"><![CDATA[<h2 id="《Effective_C++》条款07：为多态基类声明virtual析构函数">《Effective C++》条款07：为多态基类声明virtual析构函数</h2>
 <p>这样做主要是为了防止内存泄漏，见我hexo博客。</p>
 <blockquote>
@@ -918,6 +960,8 @@ Widget w;
 <span class="keyword">...</span>
 w=w;
 </pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="operator">a</span>[i]=<span class="operator">a</span>[j];<span class="comment"> //潜在的自我赋值，如果i和j有相同的值</span>
@@ -1460,7 +1504,24 @@ Widget& Widget::operator=(const Widget& rhs)
 </pre></td></tr></table></figure>
 
 ]]></content>
-    
+    <summary type="html"><![CDATA[<h2 id="《Effective_C++》条款07：为多态基类声明virtual析构函数">《Effective C++》条款07：为多态基类声明virtual析构函数</h2>
+<p>这样做主要是为了防止内存泄漏，见我hexo博客。</p>
+<blockquote>
+<p><a href="http://liaoxl.github.io/blog/20131205/virtual-destructor/">C++的虚析构函数</a></p>
+</blockquote>
+<h2 id="《Effective_C++》条款11：在operator=中处理“自我赋值”">《Effective C++》条款11：在operator=中处理“自我赋值”</h2>
+<p>“自我赋值”发生在对象赋值给自己时：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>class Widget { <span class="keyword">...</span> }
+Widget w;
+<span class="keyword">...</span>
+w=w;
+</pre></td></tr></table></figure>
+
+]]></summary>
     
       <category term="C++" scheme="http://liaoxl.github.io/tags/C++/"/>
     
@@ -1473,10 +1534,13 @@ Widget& Widget::operator=(const Widget& rhs)
     <link href="http://liaoxl.github.io/blog/20140822/cppbt/"/>
     <id>http://liaoxl.github.io/blog/20140822/cppbt/</id>
     <published>2014-08-22T02:23:56.000Z</published>
-    <updated>2014-09-14T07:25:19.000Z</updated>
+    <updated>2014-09-14T07:40:10.000Z</updated>
     <content type="html"><![CDATA[<p>周二面了腾讯，之前只投了TST内推，貌似就是TST面试了</p>
 <p>其中有一个问题，<strong>“如何产生一个不能被继承的类”</strong>，这道题我反反复复只想到，将父类的构造函数私有，让子类不能调用，最后归结出一个单例模式，但面试官说，单例模式作为此题的解答不够灵活，后来面试官提示说，可以用友元+虚继承，可以完美实现这样一个类</p>
 <p>当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下<strong>“不能被继承的类”</strong>的做法，具体如下：</p>
+<a id="more"></a>
+
+
 <blockquote>
 <p>1，声明一个类，CNoHeritance，构造函数为private，并声明友元类CParent；<br>2，让CParent虚继承CNoHeritance<br>这样CParent就成为一个可以被正常实例化，但又不能被继承的类</p>
 </blockquote>
@@ -1770,7 +1834,10 @@ X xx;
 </blockquote>
 <p><em>待续</em></p>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p>周二面了腾讯，之前只投了TST内推，貌似就是TST面试了</p>
+<p>其中有一个问题，<strong>“如何产生一个不能被继承的类”</strong>，这道题我反反复复只想到，将父类的构造函数私有，让子类不能调用，最后归结出一个单例模式，但面试官说，单例模式作为此题的解答不够灵活，后来面试官提示说，可以用友元+虚继承，可以完美实现这样一个类</p>
+<p>当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下<strong>“不能被继承的类”</strong>的做法，具体如下：</p>
+]]></summary>
     
       <category term="C++" scheme="http://liaoxl.github.io/tags/C++/"/>
     
@@ -1841,12 +1908,14 @@ X xx;
     <link href="http://liaoxl.github.io/blog/20140626/yaner/"/>
     <id>http://liaoxl.github.io/blog/20140626/yaner/</id>
     <published>2014-06-26T07:16:09.000Z</published>
-    <updated>2014-09-14T07:18:03.000Z</updated>
+    <updated>2014-09-14T07:39:20.000Z</updated>
     <content type="html"><![CDATA[<p>再过几天，就是学校校历上的学期末了，研究生阶段，一晃过了两年</p>
 <p>去年暑假放假后，在天梯奋战了半个多月，一直在1200~1300左右的水平不再上去，回校后开始了我的研二</p>
 <p>按从远至近的回忆，研二就是这样度过的：</p>
 <h2 id="2013年9月">2013年9月</h2>
 <p>我暑假在ICCV2011的文章“Distributed Cosegmentation via Submodular Optimization on Anisotropic Diffusion”基础上，做了一些改进，并进行了实验，得到较为良好的结果，于是那个9月，我在寻找合适的数据集，补充实验，并撰写论文。</p>
+<a id="more"></a>
+
 <h2 id="2013年10月">2013年10月</h2>
 <p>我笔试了一次百度，未通过让我很不开心，怒刷leetcode，同时兼并着做实验，到了月底几近把leetcode刷完，很多时候想想，笔试面试与刷题很有关系，那一段时间状态好几乎可以秒杀很多题，但这样的笔试面试真的合理吗？</p>
 <h2 id="2013年11月">2013年11月</h2>
@@ -1869,7 +1938,12 @@ X xx;
 <p>时间真的很快，这一年比研一的经历丰富不少，也有不少收获，行百里者半九十，剩下的研三也必须努力。</p>
 <p>我期待的秋招很快就开始了，我为自己加油。</p>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p>再过几天，就是学校校历上的学期末了，研究生阶段，一晃过了两年</p>
+<p>去年暑假放假后，在天梯奋战了半个多月，一直在1200~1300左右的水平不再上去，回校后开始了我的研二</p>
+<p>按从远至近的回忆，研二就是这样度过的：</p>
+<h2 id="2013年9月">2013年9月</h2>
+<p>我暑假在ICCV2011的文章“Distributed Cosegmentation via Submodular Optimization on Anisotropic Diffusion”基础上，做了一些改进，并进行了实验，得到较为良好的结果，于是那个9月，我在寻找合适的数据集，补充实验，并撰写论文。</p>
+]]></summary>
     
       <category term="胡言乱语" scheme="http://liaoxl.github.io/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
     
@@ -1882,10 +1956,12 @@ X xx;
     <link href="http://liaoxl.github.io/blog/20140616/uc-sm/"/>
     <id>http://liaoxl.github.io/blog/20140616/uc-sm/</id>
     <published>2014-06-16T07:11:58.000Z</published>
-    <updated>2014-09-14T07:15:32.000Z</updated>
+    <updated>2014-09-14T07:38:15.000Z</updated>
     <content type="html"><![CDATA[<p>在阿里把我当备胎后，考虑到我寒碜的一个月实习时间，我就不打算再投其它公司，也并未打算暑假出去实习了</p>
 <p>然而阿里把我简历推向了它的一个“子公司”（我不知道这么称呼是否合适）——神马搜索</p>
-<p>我之前在微博上听说过这玩意，后来也还是搜索了一下这公司的信息——阿里/UC合资，阿里3成，UC 7成</p>
+<p>我之前在微博上听说过这公司，后来也还是搜索了一下这公司的信息——阿里/UC合资，阿里3成，UC 7成</p>
+<a id="more"></a>
+
 <h3 id="6月11日">6月11日</h3>
 <p>说到正题，神马搜索的HR打电话问我情况——HR声音很好听，点个赞——HR跟我说，我通过了阿里巴巴的面试，这边想要我去实习，问我什么打算，我抱着暑假不出去实习的心态，跟她说，我暑假只有一个月时间，恐怕不能出去实习。她说，好的，她跟公司核实一下，如果足够优秀，也可以不局限于暑期实习——我开始以为那是一句客套话。</p>
 <h3 id="6月12日">6月12日</h3>
@@ -1908,7 +1984,10 @@ X xx;
 <p>又攒了一个面试经验。总觉得自己在面试的时候有力发不出来，面试官通常都对我专业不感兴趣，真是没办法，面试题回答能力也不算突出吧——每次面完我的感觉是，我这几年的专业知识白学了。</p>
 <p>暑假得好好思索下，如何在面试中能有机会展现自己的专业能力，或者让面试官对其感兴趣，不要白白浪费我的paper</p>
 ]]></content>
-    
+    <summary type="html"><![CDATA[<p>在阿里把我当备胎后，考虑到我寒碜的一个月实习时间，我就不打算再投其它公司，也并未打算暑假出去实习了</p>
+<p>然而阿里把我简历推向了它的一个“子公司”（我不知道这么称呼是否合适）——神马搜索</p>
+<p>我之前在微博上听说过这公司，后来也还是搜索了一下这公司的信息——阿里/UC合资，阿里3成，UC 7成</p>
+]]></summary>
     
       <category term="胡言乱语" scheme="http://liaoxl.github.io/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
     
@@ -2164,7 +2243,7 @@ X xx;
     <link href="http://liaoxl.github.io/blog/20140515/intern/"/>
     <id>http://liaoxl.github.io/blog/20140515/intern/</id>
     <published>2014-05-15T08:20:02.000Z</published>
-    <updated>2014-07-15T14:59:44.000Z</updated>
+    <updated>2014-09-14T07:35:27.000Z</updated>
     <content type="html"><![CDATA[<p>今年找实习不够顺利，以过去为镜，总结一下自己的一些不足</p>
 <p>在简历投递中，我主要是考虑BAT这三家，AT都有熟人可以内推，但A家号称可以实习一个月，而T家一向都是3个月左右，Baidu需要的实习时间就更长了，我只能保证一个月的实习。去年听闻有些师兄乱拿实习offer，然后秋招进入一些公司的黑名单，故我慎之又慎，宁可错过实习，只投了A家。</p>
 <a id="more"></a>

@@ -140,6 +140,9 @@ MathJax.Hub.Queue(function() {
         <p>周二面了腾讯，之前只投了TST内推，貌似就是TST面试了</p>
 <p>其中有一个问题，<strong>“如何产生一个不能被继承的类”</strong>，这道题我反反复复只想到，将父类的构造函数私有，让子类不能调用，最后归结出一个单例模式，但面试官说，单例模式作为此题的解答不够灵活，后来面试官提示说，可以用友元+虚继承，可以完美实现这样一个类</p>
 <p>当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下<strong>“不能被继承的类”</strong>的做法，具体如下：</p>
+<a id="more"></a>
+
+
 <blockquote>
 <p>1，声明一个类，CNoHeritance，构造函数为private，并声明友元类CParent；<br>2，让CParent虚继承CNoHeritance<br>这样CParent就成为一个可以被正常实例化，但又不能被继承的类</p>
 </blockquote>
@@ -436,7 +439,7 @@ X xx;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20140822/cppbt/" data-id="tt5ezr46mad7i6e6" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20140822/cppbt/" data-id="0yejvcpt0qdioij9" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20140822/cppbt/#disqus_thread" class="article-comment-link">Comments</a>
       
