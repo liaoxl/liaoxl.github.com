@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C++的黑科技 | Moondark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="og:type" content="blog">
+<meta name="og:title" content="C++的黑科技">
+<meta name="og:url" content="http://liaoxl.github.io/blog/20140822/cppbt/">
+<meta name="og:image">
+<meta name="og:site_name" content="Moondark">
+<meta name="og:description" content="周二面了腾讯，之前只投了TST内推，貌似就是TST面试了
+其中有一个问题，“如何产生一个不能被继承的类”，这道题我反反复复只想到，将父类的构造函数私有，让子类不能调用，最后归结出一个单例模式，但面试官说，单例模式作为此题的解答不够灵活，后来面试官提示说，可以用友元+虚继承，可以完美实现这样一个类
+当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下“不能被继承的类”的">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41389933-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Moondark</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">你必须非常努力，才能看起来毫不费力</a>
+        </h2>
+      
+    </div>
+    
+    	<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		processEscapes: true
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		 skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	}
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+		var all = MathJax.Hub.getAllJax(), i;
+		for(i=0; i < all.length; i += 1) {
+		all[i].SourceElement().parentNode.className += ' has-jax';
+		}
+		});
+</script>
+
+<script type="text/javascript"
+	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  	
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://liaoxl.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-cppbt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/20140822/cppbt/" class="article-date">
+  <time datetime="2014-08-22T02:23:56.000Z" itemprop="datePublished">8月 22 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++的黑科技
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>周二面了腾讯，之前只投了TST内推，貌似就是TST面试了</p>
+<p>其中有一个问题，<strong>“如何产生一个不能被继承的类”</strong>，这道题我反反复复只想到，将父类的构造函数私有，让子类不能调用，最后归结出一个单例模式，但面试官说，单例模式作为此题的解答不够灵活，后来面试官提示说，可以用友元+虚继承，可以完美实现这样一个类</p>
+<p>当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下<strong>“不能被继承的类”</strong>的做法，具体如下：</p>
+<blockquote>
+<p>1，声明一个类，CNoHeritance，构造函数为private，并声明友元类CParent；<br>2，让CParent虚继承CNoHeritance<br>这样CParent就成为一个可以被正常实例化，但又不能被继承的类</p>
+</blockquote>
+<p>吴总当时评价说，<strong>“呵呵，虚继承，感觉完全是黑科技啊”</strong></p>
+<p>这个<strong>黑科技</strong>真是戳中我笑点，但想到C++经常有些奇妙的东西，现在想总结一下</p>
+<h2 id="1，C++构造函数的黑科技">1，C++构造函数的黑科技</h2>
+<p>对于阅读过进阶C++书籍的都该知道，编译器会在<strong>“需要”</strong>的时候，那么什么是需要的时候呢？四种情况：</p>
+<ul>
+<li>1，“带有Default Constructor”的Member Class Object</li>
+<li>2，“带有Default Constructor”的Base Class</li>
+<li>3，“带有至少一个Virtual Function”的Class</li>
+<li>4，“带有一个Virtual Base Class”的Class</li>
+</ul>
+<p>自动合成的构造函数往往都是public，在派生类中，它的构造函数是可以被使用的，即派生类不会因此受到限制。</p>
+<p>那么，<strong>如何能使派生类不能使用基类的函数或成员呢？</strong></p>
+<ul>
+<li>private：只能由：1，该类中的函数；2，其友元函数访问</li>
+<li>protected：可以被：1，该类中的函数；2，其友元函数；3，派生类（子类）的函数访问</li>
+<li>public：可以被：1，该类中的函数；2，其友元函数；3，子类的函数；4，该类的对象访问</li>
+</ul>
+<p>如果一个类的构造函数声明为private，则其派生类甚至该类的对象都不能访问，意味着两点：</p>
+<ul>
+<li>1，该类不能被继承</li>
+<li>2，该类不能由系统实例化，即它实例化的对象不会在栈内存上</li>
+</ul>
+<p>那么怎么使用该类呢？一般而言，会通过该类的函数来创建</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre>class A
+{
+<span class="keyword">private</span>:
+    <span class="title">A</span>(){}
+<span class="keyword">public</span>:
+    A& <span class="title">createA</span>()
+    {
+        A* p=<span class="keyword">new</span> A();
+        <span class="keyword">return</span> *p;
+    }
+};
+</pre></td></tr></table></figure>
+
+<p>然而，这样又引申一个问题：类没有实例化，如何能使用其成员函数呢？</p>
+<p>答案是将该成员函数声明为static，这样不需要实例化即可访问，即将上述改为：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>class A
+{
+<span class="keyword">private</span>:
+    <span class="title">A</span>(){}
+<span class="keyword">public</span>:
+    <span class="keyword">static</span> A& <span class="title">createA</span>()
+    {
+        A* p=<span class="keyword">new</span> A();
+        <span class="keyword">return</span> *p;
+    }
+};
+
+A Object=A::createA();
+</pre></td></tr></table></figure>
+
+<p>很明显，上面的实例化过程很不方便，简直是艰辛呀，单例模式的其中一种实现就是如此，在此先不讲。这样实现的类，不能被继承，但自己也不好过</p>
+<p>so，如果用友元来实现，是怎么实现的呢？</p>
+<p>声明一个类，及其友元</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>
+{
+<span class="keyword">private</span>:
+    A(){}
+
+    friend <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>
+};
+</pre></td></tr></table></figure>
+
+<p>那么B是可以调用A的private的构造函数的，那么让B虚继承A会发生什么事呢？</p>
+<p>由《深度探索C++对象模型》看到，B内存中将有一份A类的实体，调用A的构造函数构造的，这对于友元类B是可行的</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>
+{
+<span class="symbol">private:</span>
+    <span class="constant">A</span>(){}
+
+    friend <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>
+};
+
+<span class="class"><span class="keyword">class</span> <span class="title">B</span> : <span class="title">virtual</span> <span class="title">A</span></span>
+{
+};
+</pre></td></tr></table></figure>
+
+<p>那么这样的B能不能被继承呢？假设有个类继承了B，如下</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>
+{
+<span class="symbol">private:</span>
+    <span class="constant">A</span>(){}
+
+    friend <span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span>
+};
+
+<span class="class"><span class="keyword">class</span> <span class="title">B</span> : <span class="title">virtual</span> <span class="title">A</span></span>
+{
+};
+
+<span class="class"><span class="keyword">class</span> <span class="title">C</span> : <span class="title">B</span></span>
+{
+};
+</pre></td></tr></table></figure>
+
+<p>考虑到虚继承的特性，C也将调用A的构造函数构造出一个A，但！！C并不是A的友元类，所以根本不能执行A私有的构造函数，这段程序，如果不实例化C，编译器不会报错，但一旦实例化C，则将报错。</p>
+<p>而B是可以正常实例化的一个类，这样就完美实现了一个<strong>不能被继承的类</strong>：B</p>
+<h2 id="2，C++构造函数初始化列表的黑科技">2，C++构造函数初始化列表的黑科技</h2>
+<p>相比于构造函数的各种trick，C++的初始化列表就显得很容易了，只有那么一点要注意：</p>
+<blockquote>
+<p>C++的初始化列表的赋值顺序，是与C++类里面成员变量的声明顺序相关，与初始化列表里的顺序无关</p>
+</blockquote>
+<p>举个例子，以下就会出现莫名错误：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>class A
+{
+<span class="keyword">public</span>:
+    <span class="title">A</span>(<span class="keyword">int</span> _x, <span class="keyword">int</span> _y):<span class="title">y</span>(_y), <span class="title">x</span>(y){}
+<span class="keyword">public</span>:
+    <span class="keyword">int</span> x;
+    <span class="keyword">int</span> y;
+};
+</pre></td></tr></table></figure>
+
+<p>根据声明顺序，在初始化列表中，是先完成<code>x(y)</code>这个步骤，但此时<code>y</code>并没有被赋值，所以得到的x是个随机的值。</p>
+<h2 id="3，C++虚函数的黑科技">3，C++虚函数的黑科技</h2>
+<p>C++虚函数的问题，几乎是面试必问，实际上需要了解的东西也挺多，我自己在前几次面试，都有些理解有误的地方，或者理解不够完善</p>
+<p>这里总结几点吧（以下类都是针对有虚函数的类）：</p>
+<ul>
+<li>1，每个类都有虚函数表，这个虚函数表是在编译阶段构建，在代码段产生一个vtbl</li>
+<li>2，每次实例化的时候，构造函数在前几个字节，产生一个指向虚函数表的指针，指向代码段的那个虚函数表</li>
+<li>3，虚函数的实现与调整，是通过移动或变换虚函数表的指针来实现的。</li>
+<li>4，纯虚函数是指只声明，但未被实现的虚函数，具有纯虚函数的类不能被实例化，为抽象类</li>
+</ul>
+<h2 id="4，C++拷贝构造函数的黑科技">4，C++拷贝构造函数的黑科技</h2>
+<p>C++的拷贝构造函数是C++默认的四个函数之一：<strong>构造函数、析构函数、赋值函数、拷贝构造函数</strong></p>
+<p>拷贝构造函数是一种特别的构造函数，在《深度探索C++对象模型》书中说，有三种情况，会导致拷贝构造函数被触发：</p>
+<ul>
+<li><p>1，以一个object的内容作为另一个class object的初始值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>class X {<span class="keyword">...</span>}
+X x;
+X xx=x;
+</pre></td></tr></table></figure>
+</li>
+<li><p>2，当object被当作参数传递给某个函数时</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>void <span class="function">foo(X x)</span>;
+X xx;
+<span class="function">foo(xx)</span>;
+</pre></td></tr></table></figure>
+</li>
+<li><p>3，函数传回一个class object的时候</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>X foo_bar()
+{
+  X xx;
+  // <span class="keyword">...</span>
+  <span class="keyword">return</span> xx;
+}
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>一般情况下，如果没有提供<strong>explicit copy constructor</strong>时，会发生什么呢？</p>
+<blockquote>
+<p>一个良好的编译器可以为大部分class objects产生bitwise copies，因为它们有bitwise semantics…</p>
+</blockquote>
+<p>这里说的很神奇，好像我们不需要自己写copy constructor也没问题一样，实际上，<strong>bitwise copies</strong>在有些情况下是非常不推崇的</p>
+<p>首先解释下什么是<strong>bitwise copies</strong>：这是指，在拷贝过来的时候，把class的内存直接位拷贝过来，即可以看成是内存拷贝（对应的有值拷贝）</p>
+<p>位拷贝有很多问题，典型的一个，如果class里面含有分配内存的指针，那么它会将指针指向的地址直接拷贝过来：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="keyword">class</span> A
+{
+<span class="keyword">public</span>:
+    <span class="keyword">int</span> *p;
+};
+
+<span class="keyword">int</span> main()
+{
+    A a1;
+    a1.p=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];
+    A a2=a1;
+    <span class="built_in">cout</span> &lt;&lt; a1.p &lt;&lt; endl;
+    <span class="built_in">cout</span> &lt;&lt; a2.p &lt;&lt; endl;
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</pre></td></tr></table></figure>
+
+<p>这里可以发现，<code>a1.p</code>的地址与<code>a2.p</code>的地址是一样的，那么，我分配的内存，该由哪个释放呢？我释放了，另一个怎么办呢？</p>
+<p>实际上，这种拷贝方式在STL的<code>string</code>里面肯定是要重写的，不能用位拷贝。</p>
+<p>《深度探索C++对象模型》中，说class不展现出“bitwise copy semantics”有四种情况：</p>
+<ul>
+<li>1，当class含有member object并且后者有一个copy constructor（声明或合成）</li>
+<li>2，当class继承一个base class 而后者存在一个copy constructor的时候</li>
+<li>3，当class声明了一个或多个virtual functions时</li>
+<li>4，当class派生自一个继承串链，其中有一个或多个virtual base classes时</li>
+</ul>
+<p><strong>其实主要都是担心，指针在bitwise semantics下，随便复制可能会导致不可预料的错误</strong></p>
+<p>在这里说一下<strong>赋值函数</strong>与<strong>拷贝构造函数</strong>在触发上的区别：</p>
+<blockquote>
+<p>当一个object从无到有时，触发的一定是拷贝构造函数，赋值函数只会在已有的object赋值时，才会触发</p>
+</blockquote>
+<h2 id="5，C++虚继承的黑科技">5，C++虚继承的黑科技</h2>
+<p>针对虚继承，可以坦承的一点就是</p>
+<blockquote>
+<p>所有简单的东西，遇到虚继承，似乎都要单独拿出来讨论</p>
+</blockquote>
+<p><em>待续</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liaoxl.github.io/blog/20140822/cppbt/" data-id="tt5ezr46mad7i6e6" class="article-share-link">Share</a>
+      
+        <a href="http://liaoxl.github.io/blog/20140822/cppbt/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C++/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/20140901/effcpp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          阅读《Effective C++》系列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/20140728/utf8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">转载 linux下打开windows txt文件中文乱码问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+      <div class="widget-wrap">
+    <h3 class="widget-title">关于我</h3>
+    <div class="widget">
+      <li><a href="http://cnblogs.com/moondark">博客园</a></li>
+      <li><a href="https://github.com/liaoxl">GitHub</a></li>
+      <li><a href="/about">更多关于我</a></li>
+      <li>现状：<a href="http://www.hust.edu.cn/">华科</a>自动化学院2012级硕士，将于2015年毕业，现正积极寻找工作，意向为<a href="#">研发/算法工程师</a>，附上我的<a href="http://files.cnblogs.com/moondark/XiangliLiao-zh.pdf">个人简历</a></li>
+	  
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C++/" style="font-size: 12.00px;">C++</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 12.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C++/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">九月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">八月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">六月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/20140911/maxflow/">图论的常用算法</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140907/sort/">常用的排序算法</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140901/effcpp/">阅读《Effective C++》系列</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140822/cppbt/">C++的黑科技</a>
+          </li>
+        
+          <li>
+            <a href="/blog/20140728/utf8/">转载 linux下打开windows txt文件中文乱码问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Xiangli Liao<br>
+      Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'moondark';
+  
+  var disqus_url = 'http://liaoxl.github.io/blog/20140822/cppbt/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script type="text/javascript" src="/js/script.js"></script>
+  </div>
+</body>
+</html>
