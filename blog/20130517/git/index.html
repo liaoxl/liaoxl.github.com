@@ -5,13 +5,16 @@
   
   <title>Git及GitHub的基本应用 | Moondark</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="og:type" content="blog">
-<meta name="og:title" content="Git及GitHub的基本应用">
-<meta name="og:url" content="http://liaoxl.github.io/blog/20130517/git/">
-<meta name="og:image">
-<meta name="og:site_name" content="Moondark">
-<meta name="og:description" content="使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去Pro Git的官方网站，或者这本">
+  <meta name="description" content="使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去Pro Git的官方网站，或者这本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git及GitHub的基本应用">
+<meta property="og:url" content="http://liaoxl.github.io/blog/20130517/git/">
+<meta property="og:site_name" content="Moondark">
+<meta property="og:description" content="使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去Pro Git的官方网站，或者这本">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git及GitHub的基本应用">
+<meta name="twitter:description" content="使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去Pro Git的官方网站，或者这本">
+
   
     <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
   
@@ -20,6 +23,7 @@
   
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 <script type="text/javascript">
@@ -135,26 +139,26 @@ MathJax.Hub.Queue(function() {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去<a href="http://git-scm.com/book" target="_blank">Pro Git</a>的官方网站，或者这本书的<a href="https://github.com/progit/progit" target="_blank">GitHub</a>，也可以去新浪共享上面去<a href="http://ishare.iask.sina.com.cn/f/16096245.html" target="_blank">下载</a></p>
+        <p>使用Octopress + GitHub来搭建自己的博客，首先得对Octopress的博客环境进行配置，还要对Git版本管理及markdown语法有一定了解。对这两个都进行学习了一下，觉得markdown语法比较简单，多练习一段时间，就可以很自然的掌握了。而Git的版本管理及GitHub的远程仓库管理，让我觉得比较难以理解，所以进行了一些测试学习。学习Git可以去<a href="http://git-scm.com/book" target="_blank" rel="external">Pro Git</a>的官方网站，或者这本书的<a href="https://github.com/progit/progit" target="_blank" rel="external">GitHub</a>，也可以去新浪共享上面去<a href="http://ishare.iask.sina.com.cn/f/16096245.html" target="_blank" rel="external">下载</a></p>
 <hr>
 <p>推荐安装tig，有有助于对git的理解，对于fedora 17，直接</p>
 <pre><code><span class="variable">$ </span>yum intall tig
-</code></pre><h2 id="<!-_more_->"><a id="more"></a></h2>
+</code></pre><h2><a id="more"></a></h2>
 <h2 id="Git基础">Git基础</h2>
 <p>Git的基本用法比较简单，我就从我的理解来记录一些，首先进行一些基本配置：</p>
-<pre><code><span class="variable">$ </span>mkdir git-hub
-<span class="variable">$ </span>cd git-hub/
+<pre><code>$ <span class="built_in">mkdir</span> git-hub
+$ <span class="keyword">cd</span> git-hub/
 
-<span class="variable">$ </span>tig
-<span class="symbol">tig:</span> <span class="constant">Not</span> a git repository
+$ tig
+ti<span class="variable">g:</span> Not <span class="keyword">a</span> git repository
 
-<span class="variable">$ </span>git config --list 
-user.name=<span class="constant">Xiangli</span> <span class="constant">Liao</span>
-user.email=liaoxl2012<span class="variable">@gmail</span>.com
-core.editor=vim
+$ git config --<span class="keyword">list</span> 
+user.name=Xiangli Liao
+user.email=liaoxl2012@gmail.<span class="keyword">com</span>
+core.editor=<span class="keyword">vim</span>
 </code></pre><p>这里创建一个目录，作为即将使用git的目录，首先对其初始化：</p>
-<pre><code><span class="variable">$ </span>git init 
-<span class="constant">Initialized</span> empty <span class="constant">Git</span> repository <span class="keyword">in</span> /home/moondark/rubydev/git-hub/.git/
+<pre><code>$ git init 
+Initialized empty Git repository in <span class="regexp">/home/m</span>oondark<span class="regexp">/rubydev/gi</span>t-hub<span class="regexp">/.git/</span>
 </code></pre><p>它就在当前目录下初始化了git，即最初通过<code>git init</code>初始化的是为空的。</p>
 <pre><code>$ vim record.txt
 $ git status
@@ -181,64 +185,64 @@ $ git status
 <span class="preprocessor">#</span>
 </code></pre><p>这里的意思是，你添加的record.txt文件，处于暂存状态<code>stage</code>，如果不不想加入这个文件，你可以按照提示用<code>git rm --cached record.txt</code>来移除，如果你确定了，那你需要用<code>git commit -m&#39;Your Message&#39;</code>来提交你的更改，在这之前，你可以用tig命令查看当前状态：</p>
 <pre><code>$ tig
-tig: No revisions match <span class="keyword">the</span> <span class="keyword">given</span> arguments.
+ti<span class="variable">g:</span> No revisions <span class="built_in">match</span> the given arguments.
 </code></pre><p>它显示当前为一个空的，此时你用<code>git commit -m&#39;Your Message&#39;</code>来提交，<code>Your Message</code>这里是一个快速提交更新的注释方法，表示你这次提交的描述，最好简明扼要，方便理解，如下：</p>
 <pre><code>$ git <span class="operator"><span class="keyword">commit</span> -m <span class="string">'First Comment'</span>
-[master (root-<span class="keyword">commit</span>) <span class="number">11</span>a8c45] <span class="keyword">First</span> Comment
-<span class="number">1</span> file changed, <span class="number">28</span> insertions(+)
-<span class="keyword">create</span> mode <span class="number">100644</span> record.txt
+[<span class="keyword">master</span> (root-<span class="keyword">commit</span>) <span class="number">11</span>a8c45] <span class="keyword">First</span> Comment
+<span class="number">1</span> file <span class="keyword">changed</span>, <span class="number">28</span> insertions(+)
+<span class="keyword">create</span> <span class="keyword">mode</span> <span class="number">100644</span> record.txt
 
 
 $ tig
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">32</span> Xiangli Liao       I [master] <span class="keyword">First</span> Comment</span>
+<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">32</span> Xiangli Liao       I [<span class="keyword">master</span>] <span class="keyword">First</span> Comment</span>
 </code></pre><p>tig显示的，是当前分支的提交状态。继续修改record.txt，应用git命令：</p>
 <pre><code>$ git status
-# <span class="keyword">On</span> branch master
-# Changes <span class="keyword">not</span> staged <span class="keyword">for</span> commit:
-#   (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> update what will be committed)
+# On branch master
+# Changes not staged for <span class="operator"><span class="keyword">commit</span>:
+#   (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> <span class="keyword">update</span> what will be committed)
 #   (<span class="keyword">use</span> <span class="string">"git checkout -- &lt;file&gt;..."</span> <span class="keyword">to</span> discard changes <span class="keyword">in</span> working directory)
 #
-#    modified:   <span class="keyword">record</span>.txt
+#    modified:   record.txt
 #
-no changes added <span class="keyword">to</span> commit (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)
+<span class="keyword">no</span> changes added <span class="keyword">to</span> <span class="keyword">commit</span> (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)
 
-$ git commit -m <span class="attribute">'Try</span> second commit'
-# <span class="keyword">On</span> branch master
-# Changes <span class="keyword">not</span> staged <span class="keyword">for</span> commit:
-#   (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> update what will be committed)
+$ git <span class="keyword">commit</span> -m <span class="string">'Try second commit'</span>
+# <span class="keyword">On</span> branch <span class="keyword">master</span>
+# Changes <span class="keyword">not</span> staged <span class="keyword">for</span> <span class="keyword">commit</span>:
+#   (<span class="keyword">use</span> <span class="string">"git add &lt;file&gt;..."</span> <span class="keyword">to</span> <span class="keyword">update</span> what will be committed)
 #   (<span class="keyword">use</span> <span class="string">"git checkout -- &lt;file&gt;..."</span> <span class="keyword">to</span> discard changes <span class="keyword">in</span> working directory)
 #
-#    modified:   <span class="keyword">record</span>.txt
+#    modified:   record.txt
 #
-no changes added <span class="keyword">to</span> commit (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)
+<span class="keyword">no</span> changes added <span class="keyword">to</span> <span class="keyword">commit</span> (<span class="keyword">use</span> <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)</span>
 </code></pre><p>此时要提交，根据提示，要么用<code>git add</code>或<code>git commit -a</code>均可，如果是对于已跟踪的但修改了的文件，用<code>git commit -a</code>是个比较快速的方法进行提交更新：</p>
 <pre><code>$ git <span class="operator"><span class="keyword">commit</span> -a -m <span class="string">'Try second commit'</span>
-[master bf899f5] Try <span class="keyword">second</span> <span class="keyword">commit</span>
- <span class="number">1</span> file changed, <span class="number">34</span> insertions(+)
+[<span class="keyword">master</span> bf899f5] Try <span class="keyword">second</span> <span class="keyword">commit</span>
+ <span class="number">1</span> file <span class="keyword">changed</span>, <span class="number">34</span> insertions(+)
 
 $ tig
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">37</span> Xiangli Liao       o [master] Try <span class="keyword">second</span> <span class="keyword">commit</span>
+<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">37</span> Xiangli Liao       o [<span class="keyword">master</span>] Try <span class="keyword">second</span> <span class="keyword">commit</span>
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">19</span>:<span class="number">32</span> Xiangli Liao       I <span class="keyword">First</span> Comment</span>
 </code></pre><p>git本地的命令基本常用的就以上，还有一个常用的就是<code>git branch</code>，用于添加分支的，当然这个对于初学者来说一般不常用到。</p>
 <hr>
 <h2 id="Git_&amp;&amp;_GitHub">Git &amp;&amp; GitHub</h2>
 <p>其实经常使用的，就是利用git与github一起管理自己的代码，其中有一些操作并不是很好理解，所以记录下来，做个笔记。</p>
 <p>GitHub这种一般叫做远程仓库，即有一个“虚拟”的仓库，你跟若干个人都能同时用这个仓库进行存取东西。既然是若干个人用，当然就很容易出现一些问题，比如说不同步，或者有不同的分支，又或者有些分支需要合并。</p>
-<p>首先，添加远程仓库，在github上创建一个Repo，比如创建一个Repo<a href="https://github.com/liaoxl/Git-Learning" target="_blank">Git-Learning</a>，你在本地添加远程仓库，采用<code>git remote</code>命令添加远程仓库。添加github上面的远程仓库有两种，一种是https，一种是SSH，前一种每一次push需要输入用户名/密码，后一种用SSH连接需要配置一下本地SSH，具体可以见<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">GitHub SSH Keys</a>，这样每一次不需要每次输入用户名/密码，感觉更方便一些。</p>
+<p>首先，添加远程仓库，在github上创建一个Repo，比如创建一个Repo<a href="https://github.com/liaoxl/Git-Learning" target="_blank" rel="external">Git-Learning</a>，你在本地添加远程仓库，采用<code>git remote</code>命令添加远程仓库。添加github上面的远程仓库有两种，一种是https，一种是SSH，前一种每一次push需要输入用户名/密码，后一种用SSH连接需要配置一下本地SSH，具体可以见<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank" rel="external">GitHub SSH Keys</a>，这样每一次不需要每次输入用户名/密码，感觉更方便一些。</p>
 <pre><code><span class="string">" https</span>
 git remote add origin https:<span class="comment">//github.com/liaoxl/Git-Learning.git</span>
 <span class="string">"SSH</span>
 git remote add origin git@github.com:liaoxl/Git-Learning.git
 </code></pre><p>然后可以用<code>git remote -v</code>来查看远程仓库。</p>
-<pre><code>$ git remote -v
-origin    git@github<span class="preprocessor">.com</span>:liaoxl/Git-Learning<span class="preprocessor">.git</span> (fetch)
-origin    git@github<span class="preprocessor">.com</span>:liaoxl/Git-Learning<span class="preprocessor">.git</span> (<span class="keyword">push</span>)
+<pre><code><span class="variable">$ </span>git remote -v
+origin    git<span class="variable">@github</span>.<span class="symbol">com:</span>liaoxl/<span class="constant">Git</span>-<span class="constant">Learning</span>.git (fetch)
+origin    git<span class="variable">@github</span>.<span class="symbol">com:</span>liaoxl/<span class="constant">Git</span>-<span class="constant">Learning</span>.git (push)
 </code></pre><p>推送的话，即将本地已经<code>commit</code>的文件推送到远程仓库，即：</p>
 <pre><code><span class="variable">$ </span>git push origin 
 </code></pre><p>在远程仓库上修改代码如何更新到本地呢？最简单的就是，我直接在github上面对自己文件内容进行修改，于是我本地文件中没有这些改变，这个时候就需要更新本地仓库：</p>
-<pre><code>$ git pull origin master
-<span class="subst">*</span> branch            master     <span class="subst">-&gt; </span>FETCH_HEAD
-Already up<span class="attribute">-to</span><span class="attribute">-date</span><span class="built_in">.</span>
+<pre><code><span class="input"><span class="prompt">$ git pull origin master
+* branch            master     -&gt;</span> <span class="constant">FETCH_HEAD</span></span>
+<span class="constant">Already</span> up-to-date.
 </code></pre><p>我操作发现，push可以默认推送到远程仓库的origin/master分支上，而更新本地文件必须指明分支，否则：</p>
 <pre><code>$ git pull origin 
 You asked <span class="built_in">to</span> pull <span class="built_in">from</span> <span class="operator">the</span> remote <span class="string">'origin'</span>, but did <span class="operator">not</span> specify
@@ -248,11 +252,11 @@ You asked <span class="built_in">to</span> pull <span class="built_in">from</spa
 <pre><code>$ git branch -a
 * master
 testing
-<span class="comment">remotes/origin/master</span>
-<span class="comment">remotes/origin/test</span>
+remotes<span class="regexp">/origin/m</span>aster
+remotes<span class="regexp">/origin/</span>test
 </code></pre><p>推送的时候需要指明本地分支与远程分支：</p>
-<pre><code>$ git push origin master:master
-Everything up-<span class="built_in">to</span>-<span class="built_in">date</span>
+<pre><code>$ git <span class="keyword">push</span> origin master:master
+Everything <span class="preprocessor">up</span>-to-date
 </code></pre><p>如果不指定本地分支，<strong>并不是推送默认分支，而是删除远程分支</strong></p>
 <pre><code><span class="variable">$ </span>git push origin <span class="symbol">:test</span>
 <span class="constant">To</span> git<span class="variable">@github</span>.<span class="symbol">com:</span>liaoxl/<span class="constant">Git</span>-<span class="constant">Learning</span>.git
@@ -282,28 +286,28 @@ From https:<span class="comment">//github.com/liaoxl/Git-Learning</span>
  <span class="number">1</span> file changed, <span class="number">4</span> insertions(+)
   create mode <span class="number">100644</span> README.md
 </code></pre><p>以下是不能自动合并的：</p>
-<pre><code>$ git <span class="operator"><span class="keyword">commit</span> -a -m <span class="string">'Changes on local'</span>
-[master <span class="number">78</span>c9b6f] Changes <span class="keyword">on</span> <span class="keyword">local</span>
+<pre><code>$ git commit -a -m '<span class="type">Changes</span> on local'
+[master <span class="number">78</span>c9b6f] <span class="type">Changes</span> on local
  <span class="number">1</span> file changed, <span class="number">3</span> insertions(+), <span class="number">1</span> deletion(-)
 
- $ git pull https://github.com/liaoxl/Git-Learning.git
- <span class="keyword">From</span> https://github.com/liaoxl/Git-Learning
-  * branch            HEAD       -&gt; FETCH_HEAD
-    Auto-merging morefile
-    CONFLICT (content): <span class="keyword">Merge</span> conflict <span class="keyword">in</span> morefile
-    Automatic <span class="keyword">merge</span> failed;</span> fix conflicts and then <span class="operator"><span class="keyword">commit</span> the result.</span>
+ $ git pull https://github.com/liaoxl/<span class="type">Git</span>-<span class="type">Learning</span>.git
+ <span class="type">From</span> https://github.com/liaoxl/<span class="type">Git</span>-<span class="type">Learning</span>
+  * branch            <span class="type">HEAD</span>       -&gt; <span class="type">FETCH_HEAD</span>
+    <span class="type">Auto</span>-merging morefile
+    <span class="type">CONFLICT</span> (content): <span class="type">Merge</span> conflict <span class="keyword">in</span> morefile
+    <span class="type">Automatic</span> merge failed; fix conflicts <span class="keyword">and</span> then commit the <span class="literal">result</span>.
 </code></pre><p>这个时候就需要自己手动合并，合并之后必须重新<code>commit</code>，才能用<code>git push</code>完成推送命令，即合并之后文件改变了，需要提交更新。</p>
 <p>在经过若干次操作之后，用tig命令查看当前分支的状态，就显得比较直观了，非常推荐：</p>
 <pre><code>$ tig
 2013-05-18 10:46 Xiangli Liao       o [master] [origin/master] <span class="operator"><span class="keyword">update</span> record.tx~
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">49</span> Xiangli Liao       M─┐ <span class="keyword">merge</span> master <span class="keyword">and</span> testing
+<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">49</span> Xiangli Liao       M─┐ <span class="keyword">merge</span> <span class="keyword">master</span> <span class="keyword">and</span> testing
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">44</span> Xiangli Liao       │ o [testing] new file test.rb
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">47</span> Xiangli Liao       o │ new file test.rb master
+<span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">47</span> Xiangli Liao       o │ new file test.rb <span class="keyword">master</span>
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">10</span> Xiangli Liao       M─┐ <span class="keyword">after</span> <span class="keyword">Merge</span> conflict
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">07</span> Xiangli Liao       │ o changes github
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">17</span> <span class="number">00</span>:<span class="number">08</span> Xiangli Liao       o │ changes <span class="keyword">local</span> morefile
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">52</span> Xiangli Liao       M─┐ try manually merg <span class="keyword">local</span>
-<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">48</span> Xiangli Liao       │ o change readme <span class="keyword">on</span> github
+<span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">48</span> Xiangli Liao       │ o <span class="keyword">change</span> readme <span class="keyword">on</span> github
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">49</span> Xiangli Liao       o │ changes <span class="keyword">on</span> <span class="keyword">local</span>
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">41</span> Xiangli Liao       o─┘ <span class="keyword">Update</span> README.md
 <span class="number">2013</span>-<span class="number">05</span>-<span class="number">16</span> <span class="number">23</span>:<span class="number">31</span> Xiangli Liao       o source2 <span class="keyword">local</span>
@@ -323,31 +327,33 @@ From https:<span class="comment">//github.com/liaoxl/Git-Learning</span>
 </code></pre><hr>
 <h2 id="Git_与_Octopress">Git 与 Octopress</h2>
 <p>来看看Octopress用的git命令，我起初一直不理解为何要：</p>
-<pre><code>$ git push origin <span class="built_in">source</span>
+<pre><code>$ git <span class="keyword">push</span> origin <span class="keyword">source</span>
 </code></pre><p>这说明在本地已经有了一个source分支</p>
 <pre><code>$ git branch
 master
 * <span class="built_in">source</span>
-</code></pre><p>这一步是在<code>rake setup_github_pages</code>产生的，看看其Rakefile<br>    desc “Set up _deploy folder and deploy branch for Github Pages deployment”<br>    task :setup_github_pages, :repo do |t, args|</p>
-<p>其中这一步是控制git branch的</p>
-<pre><code><span class="keyword">unless</span> (`git remote -v` =~ <span class="regexp">/origin.+?octopress(?:\.git)?/</span>).<span class="keyword">nil</span>?
+</code></pre><p>这一步是在<code>rake setup_github_pages</code>产生的，看看其Rakefile</p>
+<pre><code>desc <span class="string">"Set up _deploy folder and deploy branch for Github Pages deployment"</span>
+task <span class="symbol">:setup_github_pages</span>, <span class="symbol">:repo</span> <span class="keyword">do</span> |t, args|
+</code></pre><p>其中这一步是控制git branch的</p>
+<pre><code>unless (`git remote -v` =~ /origin.+?octopress(?:\.git)?/).nil?
     <span class="comment"># If octopress is still the origin remote (from cloning) rename it to octopress</span>
-    system <span class="string">"git remote rename origin octopress"</span>
+    <span class="keyword">system</span> <span class="string">"git remote rename origin octopress"</span>
     <span class="keyword">if</span> branch == <span class="string">'master'</span>
         <span class="comment"># If this is a user/organization pages repository, add the correct origin remote</span>
         <span class="comment"># and checkout the source branch for committing changes to the blog source.</span>
-        system <span class="string">"git remote add origin <span class="subst">#{repo_url}</span>"</span>
-        puts <span class="string">"Added remote <span class="subst">#{repo_url}</span> as origin"</span>
-        system <span class="string">"git config branch.master.remote origin"</span>
+        <span class="keyword">system</span> <span class="string">"git remote add origin #{repo_url}"</span>
+        puts <span class="string">"Added remote #{repo_url} as origin"</span>
+        <span class="keyword">system</span> <span class="string">"git config branch.master.remote origin"</span>
         puts <span class="string">"Set origin as default remote"</span>
-        system <span class="string">"git branch -m master source"</span>
+        <span class="keyword">system</span> <span class="string">"git branch -m master source"</span>
         puts <span class="string">"Master branch renamed to 'source' for committing your blog source files"</span>
     <span class="keyword">else</span>
-        <span class="keyword">unless</span> !public_dir.match(<span class="string">"<span class="subst">#{project}</span>"</span>).<span class="keyword">nil</span>?
-            system <span class="string">"rake set_root_dir[<span class="subst">#{project}</span>]"</span>
-        <span class="keyword">end</span>
-    <span class="keyword">end</span>
-<span class="keyword">end</span>
+        unless !public_dir.match(<span class="string">"#{project}"</span>).nil?
+            <span class="keyword">system</span> <span class="string">"rake set_root_dir[#{project}]"</span>
+        <span class="function"><span class="keyword">end</span></span>
+    <span class="function"><span class="keyword">end</span></span>
+<span class="function"><span class="keyword">end</span></span>
 </code></pre><p>可以查看自己Octopress目录中的所有分支：</p>
 <pre><code>$ git branch -a
 master
@@ -370,7 +376,7 @@ master
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130517/git/" data-id="07w5vjy8j5mw54i1" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20130517/git/" data-id="h7fru1ywrupqrvkh" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20130517/git/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -429,7 +435,7 @@ master
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -438,7 +444,7 @@ master
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C++/" style="font-size: 12.00px;">C++</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 12.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/" style="font-size: 12.00px;">C++</a><a href="/tags/C-C/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法-数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
     </div>
   </div>
 
@@ -447,7 +453,7 @@ master
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C++/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法-数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -456,7 +462,7 @@ master
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">九月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">八月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">六月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -537,7 +543,8 @@ master
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script type="text/javascript" src="/js/script.js"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
   </div>
 </body>
 </html>

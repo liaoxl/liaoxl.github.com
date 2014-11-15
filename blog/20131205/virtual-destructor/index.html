@@ -5,14 +5,19 @@
   
   <title>C++的虚析构函数 | Moondark</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="og:type" content="blog">
-<meta name="og:title" content="C++的虚析构函数">
-<meta name="og:url" content="http://liaoxl.github.io/blog/20131205/virtual-destructor/">
-<meta name="og:image">
-<meta name="og:site_name" content="Moondark">
-<meta name="og:description" content="C++是门神奇的语言，总是有一些不能以我们“程序员”编写它的角度去理解的问题，究其根本，大多都是C++编译器在“适当”的时候，会自动为我们的程序增加或删除一些东西，如果其编译器所做的改动，与我们预期的结果并不相关，自然我们也能得到较好理解的运行结果，然而，深入学习C++之后，就会发现，其中很多特性，必须要掌握，必须要知道编译器做了哪些东西，才能保证程序的正确执行。
+  <meta name="description" content="C++是门神奇的语言，总是有一些不能以我们“程序员”编写它的角度去理解的问题，究其根本，大多都是C++编译器在“适当”的时候，会自动为我们的程序增加或删除一些东西，如果其编译器所做的改动，与我们预期的结果并不相关，自然我们也能得到较好理解的运行结果，然而，深入学习C++之后，就会发现，其中很多特性，必须要掌握，必须要知道编译器做了哪些东西，才能保证程序的正确执行。
+C++类的构造，析构函数是C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++的虚析构函数">
+<meta property="og:url" content="http://liaoxl.github.io/blog/20131205/virtual-destructor/">
+<meta property="og:site_name" content="Moondark">
+<meta property="og:description" content="C++是门神奇的语言，总是有一些不能以我们“程序员”编写它的角度去理解的问题，究其根本，大多都是C++编译器在“适当”的时候，会自动为我们的程序增加或删除一些东西，如果其编译器所做的改动，与我们预期的结果并不相关，自然我们也能得到较好理解的运行结果，然而，深入学习C++之后，就会发现，其中很多特性，必须要掌握，必须要知道编译器做了哪些东西，才能保证程序的正确执行。
 C++类的构造，析构函数是C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++的虚析构函数">
+<meta name="twitter:description" content="C++是门神奇的语言，总是有一些不能以我们“程序员”编写它的角度去理解的问题，究其根本，大多都是C++编译器在“适当”的时候，会自动为我们的程序增加或删除一些东西，如果其编译器所做的改动，与我们预期的结果并不相关，自然我们也能得到较好理解的运行结果，然而，深入学习C++之后，就会发现，其中很多特性，必须要掌握，必须要知道编译器做了哪些东西，才能保证程序的正确执行。
+C++类的构造，析构函数是C++">
+
   
     <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
   
@@ -21,6 +26,7 @@ C++类的构造，析构函数是C++">
   
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 <script type="text/javascript">
@@ -142,48 +148,10 @@ MathJax.Hub.Queue(function() {
 
 <p>不扯远，在类继承中，一般类的析构函数都要被定义成虚函数，或者必须要定义成虚函数，这是为什么呢？</p>
 <p>看如下两个类：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre>class Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2) {}
-        ~Point2d(){}
-
-        <span class="keyword">int</span> x;
-        <span class="keyword">int</span> y;
-};
-
-class Point3d : <span class="keyword">public</span> Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point3d</span>():<span class="title">z</span>(3){}
-        ~Point3d(){}
-
-        <span class="keyword">int</span> z;
-};
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2) {}</div><div class="line">        ~Point2d(){}</div><div class="line"></div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        <span class="keyword">int</span> y;</div><div class="line">};</div><div class="line"></div><div class="line">class Point3d : <span class="keyword">public</span> Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="title">Point3d</span>():<span class="title">z</span>(3){}</div><div class="line">        ~Point3d(){}</div><div class="line"></div><div class="line">        <span class="keyword">int</span> z;</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <p>这上面<code>Point3d</code>是由基类<code>Point2d</code>派生出来的，C++有个特点，可以用基类的指针指向派生类，即派生类可以用基类指针<code>new</code>出来</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="attribute">Point2d* pt2d</span>=<span class="string">new Point3d();</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Point2d* pt2d</span>=<span class="string">new Point3d();</span></div></pre></td></tr></table></figure>
 
 <p>至于为什么能这样<code>new</code>，我想应该是<code>new</code>出来的空间比基类指针所能访问到的空间更大，所以认为是“安全”的，基于这个理念，派生类指针是不能<code>new</code>基类的，因为会产生“不安全”的访问。</p>
 <p>通过看了《深度探索C++对象模型》，来解释一下上述一行式子中，编译器究竟做了什么事：</p>
@@ -194,249 +162,25 @@ class Point3d : <span class="keyword">public</span> Point2d
 <p>2）如果有虚函数表，将虚函数表重新绑定；</p>
 <p>3）执行当前的构造函数，产生一个派生类。</p>
 <p>为了验证这一过程，可以在构造函数写出输出函数，看是否这样，如下代码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-</pre></td><td class="code"><pre><span class="comment">/*
- * con_des.cpp
- * Copyright (C) 2013 moondark &lt;liaoxl2012@gmail.com&gt;
- *
- * Distributed under terms of the MIT license.
- */</span>
-
-<span class="preprocessor">#include &lt;iostream&gt;</span>
-
-<span class="keyword">using</span> namespace std;
-
-class Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2)
-        {
-            cout &lt;&lt; <span class="string">"Point2d Constructor!"</span> &lt;&lt; endl;
-        }
-        
-        ~Point2d(){}
-
-        <span class="keyword">int</span> x;
-        <span class="keyword">int</span> y;
-};
-
-class Point3d : <span class="keyword">public</span> Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point3d</span>():<span class="title">z</span>(3)
-        {
-            cout &lt;&lt; <span class="string">"Point3d Constructor!"</span> &lt;&lt; endl;
-        }
-        ~Point3d(){}
-
-        <span class="keyword">int</span> z;
-}; 
-
-<span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])
-{
-    
-    Point2d* pt2d=<span class="keyword">new</span> Point3d();
-    delete pt2d;
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * con_des.cpp</div><div class="line"> * Copyright (C) 2013 moondark &lt;liaoxl2012@gmail.com&gt;</div><div class="line"> *</div><div class="line"> * Distributed under terms of the MIT license.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">class</span> Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        Point2d():x(<span class="number">1</span>),y(<span class="number">2</span>)</div><div class="line">        {</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Point2d Constructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line">        </div><div class="line">        ~Point2d(){}</div><div class="line"></div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        <span class="keyword">int</span> y;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">class</span> Point3d : <span class="keyword">public</span> Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        Point3d():z(<span class="number">3</span>)</div><div class="line">        {</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Point3d Constructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line">        ~Point3d(){}</div><div class="line"></div><div class="line">        <span class="keyword">int</span> z;</div><div class="line">}; </div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</div><div class="line">{</div><div class="line">    </div><div class="line">    Point2d* pt2d=<span class="keyword">new</span> Point3d();</div><div class="line">    <span class="keyword">delete</span> pt2d;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>可见，输出是</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>Point2d <span class="function"><span class="keyword">Constructor</span>!
-<span class="title">Point3d</span> <span class="title">Constructor</span>!</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Point2d <span class="function"><span class="keyword">Constructor</span>!</span></div><div class="line"><span class="title">Point3d</span> <span class="title">Constructor</span>!</div></pre></td></tr></table></figure>
 
 <p>将第二步分解了，那么它又是如何执行第三步呢？</p>
 <p>由第二步知道，在派生类中，包含着一个已经构造出来的基类，这个基类在原来的基础上，只是虚函数表做了更改，重新绑定了派生类的函数。而这个<code>Point2d</code>的指针，就是指向派生类的基类实体。</p>
 <p>如本文标题所写，要讨论的是为什么是虚析构函数？</p>
 <p>在上文中的那段完整可执行代码中，如果你在析构函数也添加打印信息，如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-</pre></td><td class="code"><pre>class Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2)
-        {
-            cout &lt;&lt; <span class="string">"Point2d Constructor!"</span> &lt;&lt; endl;
-        }
-        
-        ~Point2d()
-        {
-            cout &lt;&lt; <span class="string">"Point2d Destructor!"</span> &lt;&lt; endl;
-        }
-
-        <span class="keyword">int</span> x;
-        <span class="keyword">int</span> y;
-};
-
-class Point3d : <span class="keyword">public</span> Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point3d</span>():<span class="title">z</span>(3)
-        {
-            cout &lt;&lt; <span class="string">"Point3d Constructor!"</span> &lt;&lt; endl;
-        }
-        ~Point3d()
-        {
-            cout &lt;&lt; <span class="string">"Point3d Destructor!"</span> &lt;&lt; endl;
-        }
-
-        <span class="keyword">int</span> z;
-};
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">class Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2)</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point2d Constructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line">        </div><div class="line">        ~Point2d()</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point2d Destructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        <span class="keyword">int</span> y;</div><div class="line">};</div><div class="line"></div><div class="line">class Point3d : <span class="keyword">public</span> Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="title">Point3d</span>():<span class="title">z</span>(3)</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point3d Constructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line">        ~Point3d()</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point3d Destructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keyword">int</span> z;</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <p>重新运行上述代码，则发现<code>delete</code>操作只促发了基类的的析构函数，并未调用派生类的析构函数，于是就产生了问题！</p>
 <p>众所周知，析构函数的作用，就是在销毁对象时“合适”的处理一些信息，其实说白了就是擦屁股。</p>
 <p>而虚函数的作用，就是可以动态绑定，比如我在基类定义了一个虚函数<code>virtual show()</code>，那么如果我在派生类重写了这个函数，则这时用上述基类指针<code>new</code>出派生类来之后，<code>pt2d</code>访问<code>show</code>函数，实际是派生类的，为何？因为在构造的时候进行重新绑定，按照这个思想，我们应该对基类的析构函数定义为虚函数，这样<code>delete</code>的时候，就是调用派生类的析构函数了。</p>
 <p>于是，理所当然，如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-</pre></td><td class="code"><pre>class Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2)
-        {
-            cout &lt;&lt; <span class="string">"Point2d Constructor!"</span> &lt;&lt; endl;
-        }
-        
-        <span class="keyword">virtual</span> ~Point2d()
-        {
-            cout &lt;&lt; <span class="string">"Point2d Destructor!"</span> &lt;&lt; endl;
-        }
-
-        <span class="keyword">int</span> x;
-        <span class="keyword">int</span> y;
-};
-
-class Point3d : <span class="keyword">public</span> Point2d
-{
-    <span class="keyword">public</span>:
-        <span class="title">Point3d</span>():<span class="title">z</span>(3)
-        {
-            cout &lt;&lt; <span class="string">"Point3d Constructor!"</span> &lt;&lt; endl;
-        }
-        ~Point3d()
-        {
-            cout &lt;&lt; <span class="string">"Point3d Destructor!"</span> &lt;&lt; endl;
-        }
-
-        <span class="keyword">int</span> z;
-};
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">class Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="title">Point2d</span>():<span class="title">x</span>(1),<span class="title">y</span>(2)</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point2d Constructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line">        </div><div class="line">        <span class="keyword">virtual</span> ~Point2d()</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point2d Destructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keyword">int</span> x;</div><div class="line">        <span class="keyword">int</span> y;</div><div class="line">};</div><div class="line"></div><div class="line">class Point3d : <span class="keyword">public</span> Point2d</div><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <span class="title">Point3d</span>():<span class="title">z</span>(3)</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point3d Constructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line">        ~Point3d()</div><div class="line">        {</div><div class="line">            cout &lt;&lt; <span class="string">"Point3d Destructor!"</span> &lt;&lt; endl;</div><div class="line">        }</div><div class="line"></div><div class="line">        <span class="keyword">int</span> z;</div><div class="line">};</div></pre></td></tr></table></figure>
 
 <p>输出是：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre>Point2d <span class="function"><span class="keyword">Constructor</span>!
-<span class="title">Point3d</span> <span class="title">Constructor</span>!
-<span class="title">Point3d</span> <span class="title">Destructor</span>!
-<span class="title">Point2d</span> <span class="title">Destructor</span>!</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Point2d <span class="function"><span class="keyword">Constructor</span>!</span></div><div class="line"><span class="title">Point3d</span> <span class="title">Constructor</span>!</div><div class="line"><span class="title">Point3d</span> <span class="title">Destructor</span>!</div><div class="line"><span class="title">Point2d</span> <span class="title">Destructor</span>!</div></pre></td></tr></table></figure>
 
 <p>哇，它正常先调用了派生类的析构函数，再调用基类的析构函数，完全销毁了对象，没有内存泄漏之类的问题诶！</p>
 <p>但是，我当时就思考一个问题，如果是虚函数，一般情况下，派生类重写了虚函数，则它只调用派生类的虚函数，而不调用基类的虚函数，但这里却调用了基类的虚函数，这是为什么呢？</p>
@@ -454,12 +198,12 @@ class Point3d : <span class="keyword">public</span> Point2d
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20131205/virtual-destructor/" data-id="2zdz17hmsh09vrs7" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20131205/virtual-destructor/" data-id="wt2femtpq9rfg70n" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20131205/virtual-destructor/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/C++/">C/C++</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -513,7 +257,7 @@ class Point3d : <span class="keyword">public</span> Point2d
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -522,7 +266,7 @@ class Point3d : <span class="keyword">public</span> Point2d
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C++/" style="font-size: 12.00px;">C++</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 12.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/" style="font-size: 12.00px;">C++</a><a href="/tags/C-C/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法-数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
     </div>
   </div>
 
@@ -531,7 +275,7 @@ class Point3d : <span class="keyword">public</span> Point2d
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C++/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法-数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -540,7 +284,7 @@ class Point3d : <span class="keyword">public</span> Point2d
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">九月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">八月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">六月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -621,7 +365,8 @@ class Point3d : <span class="keyword">public</span> Point2d
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script type="text/javascript" src="/js/script.js"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
   </div>
 </body>
 </html>

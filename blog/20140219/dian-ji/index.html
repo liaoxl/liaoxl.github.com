@@ -5,24 +5,34 @@
   
   <title>点集的一些几何特征 | Moondark</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="og:type" content="blog">
-<meta name="og:title" content="点集的一些几何特征">
-<meta name="og:url" content="http://liaoxl.github.io/blog/20140219/dian-ji/">
-<meta name="og:image">
-<meta name="og:site_name" content="Moondark">
-<meta name="og:description" content="点集有很多特征，这里提到的有：最小凸包，最小外接矩形，最大内接三角形，最大内接四边形。
+  <meta name="description" content="点集有很多特征，这里提到的有：最小凸包，最小外接矩形，最大内接三角形，最大内接四边形。
 编程里面，如何求取点集的这些特征呢？
 预处理知识
 
 对于三个点，p0,p1,p2，如何判断以p0为中心，p0p1到p0p2是顺时针还是逆时针？
 
-求向量p0p2与p0p1的叉积，若大于0,则说明是p0p2在p0p1的顺时针方向，若小于0，则说明p0p2在p0p1的逆时针方向。
+求向量p0p2与p0p1的叉积，若大于0,则说明是p0p2在p0p1的顺时针方向，若小于0，则说明p0p2在p0p1的逆时针方向。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="点集的一些几何特征">
+<meta property="og:url" content="http://liaoxl.github.io/blog/20140219/dian-ji/">
+<meta property="og:site_name" content="Moondark">
+<meta property="og:description" content="点集有很多特征，这里提到的有：最小凸包，最小外接矩形，最大内接三角形，最大内接四边形。
+编程里面，如何求取点集的这些特征呢？
+预处理知识
 
+对于三个点，p0,p1,p2，如何判断以p0为中心，p0p1到p0p2是顺时针还是逆时针？
 
-
-最小凸包
-Graham栈扫描">
+求向量p0p2与p0p1的叉积，若大于0,则说明是p0p2在p0p1的顺时针方向，若小于0，则说明p0p2在p0p1的逆时针方向。">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="点集的一些几何特征">
+<meta name="twitter:description" content="点集有很多特征，这里提到的有：最小凸包，最小外接矩形，最大内接三角形，最大内接四边形。
+编程里面，如何求取点集的这些特征呢？
+预处理知识
+
+对于三个点，p0,p1,p2，如何判断以p0为中心，p0p1到p0p2是顺时针还是逆时针？
+
+求向量p0p2与p0p1的叉积，若大于0,则说明是p0p2在p0p1的顺时针方向，若小于0，则说明p0p2在p0p1的逆时针方向。">
+
   
     <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
   
@@ -31,6 +41,7 @@ Graham栈扫描">
   
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 <script type="text/javascript">
@@ -158,26 +169,26 @@ MathJax.Hub.Queue(function() {
 
 <h3 id="最小凸包">最小凸包</h3>
 <h4 id="Graham栈扫描法。">Graham栈扫描法。</h4>
-<p>这里有一篇<a href="http://blog.csdn.net/suwei19870312/article/details/5422818" target="_blank">博客</a>对此有比较详细的讨论，并给出比较好的伪代码，这里借鉴一下。</p>
+<p>这里有一篇<a href="http://blog.csdn.net/suwei19870312/article/details/5422818" target="_blank" rel="external">博客</a>对此有比较详细的讨论，并给出比较好的伪代码，这里借鉴一下。</p>
 <p>平面上有n个点p0,p1,p2,p3,…,pn，求其最小凸包</p>
-<pre><code>GRAHAM-SCAN(Q)
+<pre><code><span class="function">GRAHAM-SCAN</span>(<span class="tag">Q</span>)
 {
-     <span class="number">1</span>. 取出所有点钟<span class="keyword">y</span>坐标最小的点作为初始点p<span class="number">0</span>（如果有<span class="keyword">y</span>坐标相同的，选择<span class="keyword">x</span>坐标最小的）
-     <span class="number">2</span>. 之后对于所有其他点，以p<span class="number">0</span>为中心，点集中的所有点按关于p<span class="number">0</span>的极角逆时针排序,形成p1,p2,..pn-<span class="number">1</span>（如果有极角重合，保存最远的点）
-     <span class="number">3</span>. <span class="keyword">push</span>(p<span class="number">0</span>,S) 
-     <span class="number">4</span>. <span class="keyword">push</span>(p1,S)
-     <span class="number">5</span>. <span class="keyword">push</span>(P2.S)
-     <span class="keyword">for</span>(i: <span class="number">3</span>-&gt;<span class="keyword">m</span>)
+     1. 取出所有点钟y坐标最小的点作为初始点p0（如果有y坐标相同的，选择x坐标最小的）
+     2. 之后对于所有其他点，以p0为中心，点集中的所有点按关于p0的极角逆时针排序,形成p1,p2,.<span class="class">.pn-1</span>（如果有极角重合，保存最远的点）
+     3. <span class="function">push</span>(p0,S) 
+     4. <span class="function">push</span>(p1,S)
+     5. <span class="function">push</span>(P2<span class="class">.S</span>)
+     <span class="function">for</span>(<span class="tag">i</span><span class="value">: <span class="number">3</span>-&gt;m)
      {     
-           px = nexttoTop(S)
-           py = Top(S) 
-           <span class="keyword">do</span> <span class="keyword">while</span> (如果(py-&gt;pi向量)相对于(px-&gt;py向量)是顺时针的)
-                     <span class="keyword">pop</span>(S)
-                     px = nextotTop(S)
-                     py = Top(S)
-           <span class="keyword">push</span>(pi, S);
+           px = <span class="function">nexttoTop</span>(S)
+           py = <span class="function">Top</span>(S) 
+           do while (如果(py-&gt;pi向量)相对于(px-&gt;py向量)是顺时针的)
+                     <span class="function">pop</span>(S)
+                     px = <span class="function">nextotTop</span>(S)
+                     py = <span class="function">Top</span>(S)
+           <span class="function">push</span>(pi, S);</span>
      }
-     <span class="keyword">return</span> S;
+     return S;
 }
 </code></pre><h3 id="最小外接矩形">最小外接矩形</h3>
 <p>在上述最小凸包的基础上，进行求取，最小外接矩形</p>
@@ -208,26 +219,26 @@ MathJax.Hub.Queue(function() {
 </code></pre><h3 id="最大内接四边形">最大内接四边形</h3>
 <p>最大内接四边形， 同样应用 <em>旋转卡壳</em> 的思想</p>
 <pre><code>MaxSquare(Q)
-<span class="cell">{
+{
     选p0,p1,p2,p3三点，构成三角形；
     <span class="number">1</span>, 固定p0,p1,p2，移动p3，找到能构成的最大四边形p0p1p2p3<span class="string">'；
     2, 固定p0,p1,p3'</span>，移动p2，找到能构成的最大四边形p0p1p2<span class="string">'p3'</span>；
     <span class="number">3</span>, 固定p0,p2<span class="string">',p3'</span>，移动p1,找到能构成的最大四边形p0p1<span class="string">'p2'</span>p3<span class="string">'；
     4, 固定p1'</span>,p2<span class="string">',p3'</span>，移动p0,找到能构成的最大四边形p0<span class="string">'p1'</span>p2<span class="string">'p3'</span>；
     重复<span class="number">1</span>～<span class="number">4</span>，直至四边形面积不再增大
-}</span>
+}
 </code></pre><p>旋转卡壳的思想在求点集的集合特征上有较为广泛的应用，在求得凸包的基础上，可以方便的求取最小外接矩形/最大内接三角形/最大内接四边形。</p>
 <p>当然，以上都是伪代码，具体实现，还有一些边界条件得注意。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20140219/dian-ji/" data-id="28l3z2owggg2n7iu" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20140219/dian-ji/" data-id="ba3zp7n1cm9567xi" class="article-share-link">Share</a>
       
         <a href="http://liaoxl.github.io/blog/20140219/dian-ji/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法-数据结构/">算法/数据结构</a></li></ul>
 
     </footer>
   </div>
@@ -281,7 +292,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研究/">研究</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -290,7 +301,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C++/" style="font-size: 12.00px;">C++</a><a href="/tags/C/C++/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 12.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法/数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
+      <a href="/tags/4738ZG/" style="font-size: 10.00px;">4738ZG</a><a href="/tags/C/" style="font-size: 12.00px;">C++</a><a href="/tags/C-C/" style="font-size: 10.00px;">C/C++</a><a href="/tags/Cosegmentation/" style="font-size: 10.00px;">Cosegmentation</a><a href="/tags/Google/" style="font-size: 10.00px;">Google</a><a href="/tags/Hexo/" style="font-size: 10.00px;">Hexo</a><a href="/tags/Kmeans/" style="font-size: 10.00px;">Kmeans</a><a href="/tags/Linux/" style="font-size: 12.00px;">Linux</a><a href="/tags/Octopress/" style="font-size: 14.00px;">Octopress</a><a href="/tags/OpenWrt/" style="font-size: 10.00px;">OpenWrt</a><a href="/tags/Saliency/" style="font-size: 10.00px;">Saliency</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a><a href="/tags/WR703N/" style="font-size: 10.00px;">WR703N</a><a href="/tags/Xclip/" style="font-size: 10.00px;">Xclip</a><a href="/tags/hadoop/" style="font-size: 10.00px;">hadoop</a><a href="/tags/latex/" style="font-size: 10.00px;">latex</a><a href="/tags/leetcode/" style="font-size: 10.00px;">leetcode</a><a href="/tags/linux/" style="font-size: 10.00px;">linux</a><a href="/tags/图像分割/" style="font-size: 20.00px;">图像分割</a><a href="/tags/图像处理/" style="font-size: 14.00px;">图像处理</a><a href="/tags/多层图/" style="font-size: 10.00px;">多层图</a><a href="/tags/最大流/" style="font-size: 16.00px;">最大流</a><a href="/tags/求职面试/" style="font-size: 14.00px;">求职面试</a><a href="/tags/瞎折腾/" style="font-size: 10.00px;">瞎折腾</a><a href="/tags/算法-数据结构/" style="font-size: 16.00px;">算法/数据结构</a><a href="/tags/胡言乱语/" style="font-size: 18.00px;">胡言乱语</a>
     </div>
   </div>
 
@@ -299,7 +310,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C++/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/C++/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/4738ZG/">4738ZG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-C/">C/C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cosegmentation/">Cosegmentation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google/">Google</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kmeans/">Kmeans</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWrt/">OpenWrt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Saliency/">Saliency</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WR703N/">WR703N</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xclip/">Xclip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/latex/">latex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像分割/">图像分割</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多层图/">多层图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最大流/">最大流</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/求职面试/">求职面试</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/瞎折腾/">瞎折腾</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法-数据结构/">算法/数据结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/胡言乱语/">胡言乱语</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -308,7 +319,7 @@ MathJax.Hub.Queue(function() {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">九月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">八月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">七月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">六月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">五月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03">三月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02">二月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12">十二月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11">十一月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">十月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">九月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08">八月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">六月 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">五月 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -389,7 +400,8 @@ MathJax.Hub.Queue(function() {
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script type="text/javascript" src="/js/script.js"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
   </div>
 </body>
 </html>
