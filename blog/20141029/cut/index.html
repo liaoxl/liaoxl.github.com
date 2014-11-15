@@ -3,17 +3,59 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Octopress | Moondark</title>
+  <title>最大流算法统计 | Moondark</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blog of moondark">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Moondark">
-<meta property="og:url" content="http://liaoxl.github.io/tags/Octopress/">
+  <meta name="description" content="对最大流算法历史文献的一个调研
+Table: Polynomial algorithms for the max flow problem
+
+
+
+&nbsp;&nbsp;No&nbsp;&nbsp;
+Duo to
+&nbsp;&nbsp;&nbsp;&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;
+Running Time;
+
+
+
+
+1
+Ford &amp; Fulkerson">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最大流算法统计">
+<meta property="og:url" content="http://liaoxl.github.io/blog/20141029/cut/">
 <meta property="og:site_name" content="Moondark">
-<meta property="og:description" content="Blog of moondark">
+<meta property="og:description" content="对最大流算法历史文献的一个调研
+Table: Polynomial algorithms for the max flow problem
+
+
+
+&nbsp;&nbsp;No&nbsp;&nbsp;
+Duo to
+&nbsp;&nbsp;&nbsp;&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;
+Running Time;
+
+
+
+
+1
+Ford &amp; Fulkerson">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Moondark">
-<meta name="twitter:description" content="Blog of moondark">
+<meta name="twitter:title" content="最大流算法统计">
+<meta name="twitter:description" content="对最大流算法历史文献的一个调研
+Table: Polynomial algorithms for the max flow problem
+
+
+
+&nbsp;&nbsp;No&nbsp;&nbsp;
+Duo to
+&nbsp;&nbsp;&nbsp;&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;
+Running Time;
+
+
+
+
+1
+Ford &amp; Fulkerson">
 
   
     <link rel="alternative" href="/atom.xml" title="Moondark" type="application/atom+xml">
@@ -143,16 +185,14 @@ MathJax.Hub.Queue(function() {
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-cut" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/20140315/hello-world/" class="article-date">
-  <time datetime="2014-03-15T07:45:08.000Z" itemprop="datePublished">3月 15 2014</time>
+    <a href="/blog/20141029/cut/" class="article-date">
+  <time datetime="2014-10-29T08:38:14.000Z" itemprop="datePublished">10月 29 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+    <a class="article-category-link" href="/categories/研究/">研究</a>
   </div>
 
   </div>
@@ -162,8 +202,8 @@ MathJax.Hub.Queue(function() {
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/20140315/hello-world/">Hello, Hexo! Goodbye, Octopress!</a>
+    <h1 class="article-title" itemprop="name">
+      最大流算法统计
     </h1>
   
 
@@ -171,150 +211,188 @@ MathJax.Hub.Queue(function() {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最终，从<a href="http://octopress.org/" target="_blank" rel="external">Octopress</a>迁移到<a href="http://zespia.tw/hexo/" target="_blank" rel="external">Hexo</a></p>
-<p><a href="http://octopress.org/" target="_blank" rel="external">Octopress</a>有些缺点，让我一直很难以忍受，虽然感觉很<code>Geek</code>，但内心里一直想找个可以代替它的，这些所谓的缺点，事实上大部分都是由于前端引起的，我不是个前端程序员，我不会设计漂亮的前端页面，但我也有自己的品味，不想将就。</p>
-<p>先说说我对<a href="http://octopress.org/" target="_blank" rel="external">Octopress</a>的不满：</p>
+        <p>对最大流算法历史文献的一个调研</p>
+<p>Table: Polynomial algorithms for the max flow problem</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&nbsp;&nbsp;No&nbsp;&nbsp;</th>
+<th style="text-align:center">Duo to</th>
+<th style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp;Year&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th style="text-align:center">Running Time;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">Ford &amp; Fulkerson [1]</td>
+<td style="text-align:center">1956</td>
+<td style="text-align:center">$O(nmU)$</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">Edmonds and Karp [2]</td>
+<td style="text-align:center">1972</td>
+<td style="text-align:center">$O(nm^2)$</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">Dinic [3]</td>
+<td style="text-align:center">1970</td>
+<td style="text-align:center">$O(n^2m)$</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">Karzanov [4]</td>
+<td style="text-align:center">1974</td>
+<td style="text-align:center">$O(n^3)$</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">Cherkasky [5]</td>
+<td style="text-align:center">1977</td>
+<td style="text-align:center">$O(n^2\sqrt{m})$</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">Malhotra, Kumar &amp; Maheshwari [6]</td>
+<td style="text-align:center">1977</td>
+<td style="text-align:center">$O(n^3)$</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">Galil [7]</td>
+<td style="text-align:center">1980</td>
+<td style="text-align:center">$O(n^(5/3)m^(2/3))$</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">Galil &amp; Naaman [8]</td>
+<td style="text-align:center">1980</td>
+<td style="text-align:center">$O(nmlog^2n)$</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">Sleator &amp; Tarjan [9]</td>
+<td style="text-align:center">1983</td>
+<td style="text-align:center">$O(nmlogn)$</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">Gabow [10]</td>
+<td style="text-align:center">1985</td>
+<td style="text-align:center">$O(nmlogU)$</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">Goldberg &amp; Tarjan [11]</td>
+<td style="text-align:center">1988</td>
+<td style="text-align:center">$O(nmlog(n^2/m))$</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">Ahuja &amp; Orlin [12]</td>
+<td style="text-align:center">1989</td>
+<td style="text-align:center">$O(nm + n^2logU)$</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">Ahuja, Orlin &amp; Tarjan [13]</td>
+<td style="text-align:center">1989</td>
+<td style="text-align:center">$O(nmlog(n\sqrt{U}/(m + 2))$</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">King, Rao &amp; Tarjan [14]</td>
+<td style="text-align:center">1992</td>
+<td style="text-align:center">$O(nm+n^{2+e})$</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">King, Rao &amp; Tarjan [15]</td>
+<td style="text-align:center">1994</td>
+<td style="text-align:center">$O(nmlog_{m/nlogn}n)$</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">Cheriyan, Hagerup &amp; Mehlhorn [16]</td>
+<td style="text-align:center">1996</td>
+<td style="text-align:center">$O(n^3/logn)$</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">Goldberg &amp; Rao [17]</td>
+<td style="text-align:center">1998</td>
+<td style="text-align:center">$O(min{n^(2/3),m^{1/2}}mlog{n2/m}logU)$</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">Orlin [18]</td>
+<td style="text-align:center">2012</td>
+<td style="text-align:center">$O(nm)$</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">Orlin [18]</td>
+<td style="text-align:center">2012</td>
+<td style="text-align:center">$O(n^2/logn) if m = O(n)$</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><p>字体太大，仿佛所有用<a href="http://octopress.org/" target="_blank" rel="external">Octopress</a>框架的，字体都不小，虽然可以调，但调完后在这个框架里又没那么好看了</p>
-</li>
-<li><p>Tags或Tag Cloud都太丑，我只能勉强看懂这些CSS，这是从<code>github</code>上面用的其它开源插件</p>
-</li>
-<li><p>所有第三方<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes" target="_blank" rel="external">主题</a>，我都认真看了一遍，我居然没有找到一款符合我口味的。</p>
-</li>
-<li><p>右边的<code>SideBar</code>太难看</p>
-</li>
+<li>[1] L. R. Ford and D. R. Fulkerson. Maximal flow through a network. Canadian Journal of Mathematics, 8:399-404, 1956.</li>
+<li>[2] J. Edmonds and R. M. Karp. Theoretical improvements in algorithmic eciency for network flow problems. Journal of the ACM, 19:248-264, 1972.</li>
+<li>[3] E. A. Dinic. Algorithm for solution of a problem of maximum flow in networks with power estimation. Soviet Mathematics Doklady, 11:1277{1280, 1970</li>
+<li>[4] A. V. Karzanov. Determining the maximal flow in a network by the method of preflows. Soviet Mathematics Doklady, 15:434-437, 1974.</li>
+<li>[5] B. V. Cherkasky. Algorithm for construction of maximal flow in networks with complexity of $O(V^2\sqrt{E})$ operations. Mathematical Methods of Solution of Economical Problems, 17:112-125, 1977. (In Russian).</li>
+<li>[6] V. M. Malhotra, P. Kumar, and S. N. Maheshwari. An $O(V^3)$ algorithm for fi})nding the maximum flows in networks. Information Processing Letters, 7:277-278, 1978.</li>
+<li>[7] Z. Galil. An $O(V^{5/3}E^{2/3})$ algorithm for the maximal flow problem. Acta Informatica, 14(3):221-242, 1980.</li>
+<li>[8] Z. Galil and A. Naaman. An $O(VElog^2E)$ algorithm for the maximal flow problem. J.Computer and System Sciences, 21:203-217., 1980.</li>
+<li>[9] D. D. Sleator and R. E. Tarjan. A data structure for dynamic trees. J. Computer and System Sciences, 24:362-391, 1983.</li>
+<li>[10] H. N. Gabow. A data structure for dynamic trees. J. Computer and System Sciences, 31:148-168, 1985.</li>
+<li>[11] A. V. Goldberg and R. E. Tarjan. A new approach to the maximum flow problem. Journal of the ACM, 35:921-940, 1988.</li>
+<li>[12] R. K. Ahuja and J. B. Orlin. A fast and simple algorithm for the maximum flow problem. Operations Research, 37:748-759, 1989.</li>
+<li>[13] R. K. Ahuja, J. B. Orlin, and R. E. Tarjan. Improved time bounds for the maximum flow problem. SIAM Journal on Computing, 18:939-954, 1989.</li>
+<li>[14] V. King, S. Rao, and R. Tarjan. A faster deterministic maximum flow algorithm. In Proceedings of the 8th Annual ACM-SIAM Symposium on Discrete Algorithms, pages 157{164, 1992.</li>
+<li>[15] V. King, S. Rao, and R. Tarjan. A faster deterministic maximum flow algorithm. J. Algorithms, 23:447-474, 1994.</li>
+<li>[16] J. Cheriyan, T. Hagerup, and K. Mehlhorn. An $O(n^3)$ time maximum-flow algorithm. SIAM Journal on Computing, 45:1144-1170, 1996.</li>
+<li>[17] A. V. Goldberg and S. Rao. Beyond the flow decomposition barrier. Journal of the ACM, 45:783-797, 1998.</li>
+<li>[18] J. B. Orlin, “Max flows in $o(nm)$ time, or better,” in Proceedings of the 45th annual ACM symposium on Symposium on theory of computing, ser. STOC ’13. New York, NY,USA: ACM, 2013, pp. 765–774. [Online]. Available: <a href="http://doi.acm.org/10.1145/2488608.2488705}" target="_blank" rel="external">http://doi.acm.org/10.1145/2488608.2488705}</a></li>
 </ul>
 
-        
-          <p class="article-more-link">
-            <a href="/blog/20140315/hello-world/#more">Read More</a>
-          </p>
-        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20140315/hello-world/" data-id="ug0trp4kuxtnubph" class="article-share-link">Share</a>
+      <a data-url="http://liaoxl.github.io/blog/20141029/cut/" data-id="rmaawe5yg9qzrhp9" class="article-share-link">Share</a>
       
-        <a href="http://liaoxl.github.io/blog/20140315/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liaoxl.github.io/blog/20141029/cut/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大流/">最大流</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-octopress-mathjax" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/20130918/octopress-mathjax/" class="article-date">
-  <time datetime="2013-09-17T16:30:00.000Z" itemprop="datePublished">9月 18 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/20130918/octopress-mathjax/">在Octopress中添加MathJax</a>
-    </h1>
+    <a href="/blog/20141011/job/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2014年秋 求职总结</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>有些时候写博客需要用到数学公式，需要对Octopress的设置进行更改，才能较好的完成公式的显示</p>
-<p>步骤如下：</p>
-<ol>
-<li><p>安装Kramdown解析器（因为其对MathJax的支持较好），在GemFile文件中添加<code>gem &#39;kramdown&#39;, &#39;~&gt;0.13.8&#39;</code>，保存，执行<code>bundle install</code> 即可；当然也可以用一步命令<code>gem install kramdown</code>;</p>
-</li>
-<li><p>在<code>_config.yml</code>中修改markdown解析器，将<code>markdown: rdiscount</code> 换为 <code>markdown: kramdown</code>，保存，之所以这么做是因为前者对于MathJax的解析不如后者好；</p>
-</li>
-<li><p>在<code>source/_includes/custom/head.html</code>中，加入以下脚本，从而使得MathJax能够被使用：</p>
-
-        
-          <p class="article-more-link">
-            <a href="/blog/20130918/octopress-mathjax/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130918/octopress-mathjax/" data-id="yovuvzlq073gyb1h" class="article-share-link">Share</a>
-      
-        <a href="http://liaoxl.github.io/blog/20130918/octopress-mathjax/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-title" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/20130512/title/" class="article-date">
-  <time datetime="2013-05-12T07:43:00.000Z" itemprop="datePublished">5月 12 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/20130512/title/">Octopress 的搭建与配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于Octopress的配置教程已经有很多了，我也参考了不少，实际上，最好的Documentation就是官方的<a href="http://octopress.org/docs/" target="_blank" rel="external">Octopress Documentation</a>是最靠谱的，但作者是假设你已经安装好Git及Ruby环境的前提下。我习惯性先搜了一下中文的配置教程，由于不同人的理解及系统环境不一样，还是有些弯路，现在总结一下从零开始配置Octopress的方法。</p>
-<p>什么是从零开始？我的系统是Fedora 17，从零开始即从装好系统的那一刻起。
-        
-          <p class="article-more-link">
-            <a href="/blog/20130512/title/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liaoxl.github.io/blog/20130512/title/" data-id="glwgm9vesr5lx4wa" class="article-share-link">Share</a>
-      
-        <a href="http://liaoxl.github.io/blog/20130512/title/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Octopress/">Octopress</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
+</section>
 </section>
         
           <aside id="sidebar">
@@ -424,11 +502,13 @@ MathJax.Hub.Queue(function() {
 <script>
   var disqus_shortname = 'moondark';
   
+  var disqus_url = 'http://liaoxl.github.io/blog/20141029/cut/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//go.disqus.com/count.js';
+    dsq.src = '//go.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
