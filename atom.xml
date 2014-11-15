@@ -4,7 +4,7 @@
   <subtitle><![CDATA[你必须非常努力，才能看起来毫不费力]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://liaoxl.github.io/"/>
-  <updated>2014-11-15T08:44:04.176Z</updated>
+  <updated>2014-11-15T08:48:36.172Z</updated>
   <id>http://liaoxl.github.io/</id>
   
   <author>
@@ -353,7 +353,7 @@
     <link href="http://liaoxl.github.io/blog/20140901/effcpp/"/>
     <id>http://liaoxl.github.io/blog/20140901/effcpp/</id>
     <published>2014-09-01T07:25:54.000Z</published>
-    <updated>2014-11-15T07:09:30.000Z</updated>
+    <updated>2014-11-15T08:48:30.000Z</updated>
     <content type="html"><![CDATA[<h2 id="《Effective_C++》条款07：为多态基类声明virtual析构函数">《Effective C++》条款07：为多态基类声明virtual析构函数</h2>
 <p>这样做主要是为了防止内存泄漏，见我hexo博客。</p>
 <blockquote>
@@ -521,7 +521,7 @@
 
 ]]></summary>
     
-      <category term="C++" scheme="http://liaoxl.github.io/tags/C/"/>
+      <category term="C/C++" scheme="http://liaoxl.github.io/tags/C-C/"/>
     
       <category term="技术" scheme="http://liaoxl.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
@@ -532,7 +532,7 @@
     <link href="http://liaoxl.github.io/blog/20140822/cppbt/"/>
     <id>http://liaoxl.github.io/blog/20140822/cppbt/</id>
     <published>2014-08-22T02:23:56.000Z</published>
-    <updated>2014-11-15T07:09:30.000Z</updated>
+    <updated>2014-11-15T08:48:04.000Z</updated>
     <content type="html"><![CDATA[<p>周二面了腾讯，之前只投了TST内推，貌似就是TST面试了</p>
 <p>其中有一个问题，<strong>“如何产生一个不能被继承的类”</strong>，这道题我反反复复只想到，将父类的构造函数私有，让子类不能调用，最后归结出一个单例模式，但面试官说，单例模式作为此题的解答不够灵活，后来面试官提示说，可以用友元+虚继承，可以完美实现这样一个类</p>
 <p>当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下<strong>“不能被继承的类”</strong>的做法，具体如下：</p>
@@ -656,7 +656,7 @@
 <p>当然那时我还不太明白，友元与虚继承我都极少接触过，只是知道有这些东西，回头搜了一下<strong>“不能被继承的类”</strong>的做法，具体如下：</p>
 ]]></summary>
     
-      <category term="C++" scheme="http://liaoxl.github.io/tags/C/"/>
+      <category term="C/C++" scheme="http://liaoxl.github.io/tags/C-C/"/>
     
       <category term="技术" scheme="http://liaoxl.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
